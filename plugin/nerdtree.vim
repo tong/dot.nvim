@@ -2,6 +2,9 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 let NERDTreeShowHidden=1
+"let NERDTreeMapHelp
+let NERDTreeMinimalUI=1
+
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 

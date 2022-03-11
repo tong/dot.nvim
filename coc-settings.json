@@ -3,9 +3,7 @@
     "eslint.filetypes": ["javascript", "typescript"],
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
+        "typescript"
     ],
      "tsserver.formatOnType": true,
      "coc.preferences.formatOnType": true
