@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+
 " -- Statusline
 "Plug 'nvim-lualine/lualine.nvim'
 Plug 'vim-airline/vim-airline'
@@ -46,20 +47,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 
 " -- Themes
-Plug 'EdenEast/nightfox.nvim'
 Plug 'pbrisbin/vim-colors-off'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'EdenEast/nightfox.nvim'
 
 " -- Tools
 Plug 'vimwiki/vimwiki'
 
 " -- 
 Plug 'tong/vhx'
-"Plug 'tong/void'
 
 source $HOME/.config/nvim/plugin/coc.vim
 source $HOME/.config/nvim/plugin/startify.vim
+
 call plug#end()
+
+
 
 
 " -- Airline ---------------------------------------------------------------
@@ -73,7 +76,7 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
-"
+
 "autocmd VimEnter :AirlineTheme luna<AR>
 
 
@@ -123,7 +126,7 @@ let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 
 lua << EOF
--- Gitsigns ---------------------------------------------------------------
+
 require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -166,7 +169,6 @@ current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
   },
 }
 
--- Nightfox  ---------------------------------------------------------------
 require('nightfox').setup {
   options = {
     -- Compiled file's destination location
@@ -190,19 +192,17 @@ require('nightfox').setup {
       search = false,
     },
     modules = {             -- List of various plugins and additional options
-      -- ...
     },
   }
 }
 
--- Symbols Outline  ----------------------------------------------------------
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,
     auto_preview = false,
     position = 'right',
     relative_width = true,
-    width = 16,
+    width = 15,
     auto_close = false,
     show_numbers = false,
     show_relative_numbers = false,
@@ -211,7 +211,7 @@ vim.g.symbols_outline = {
     keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = {"<Esc>", "q"},
         goto_location = "<Cr>",
-        focus_location = "o",:q
+        focus_location = "o",
         hover_symbol = "<C-space>",
         toggle_preview = "K",
         rename_symbol = "r",
@@ -248,14 +248,6 @@ vim.g.symbols_outline = {
         TypeParameter = {icon = "𝙏", hl = "TSParameter"}
     }
 }
-
--- Troublw  ----------------------------------------------------------
-require("trouble").setup {}
-
--- Void ----------------------------------------------------------
---require("void").setup {}
-
-
 
 EOF
 

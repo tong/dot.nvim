@@ -42,7 +42,7 @@ set title
 "set wildmenu
 "set wildoptions+=pum
 
-source $HOME/.config/nvim/functions.vim
+"source $HOME/.config/nvim/functions.vim
 source $HOME/.config/nvim/keymaps.vim
 source $HOME/.config/nvim/plugins.vim
 
