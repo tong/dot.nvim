@@ -1,9 +1,17 @@
-let mapleader = ","
+let mapleader = " "
 
-command Q :q!
-command QA :qa!
+"command Q :q!
+"command QA :qa!
 
-noremap <C-q> :q<CR>
+" Tabs
+"noremap <C-n> :tabnew<CR>
+"noremap <C-w> :close<CR>
+"noremap <C-q> :q<CR>
+"noremap <C-n> :tab split<CR>p
+"noremap <leader>t :tabnew
+
+nnoremap <Space><Space> <Cmd>nohlsearch<CR>
+" <Space>twice disables highlighting of currently matched search pattern
 
 " Select all
 noremap <C-a> ggVG
@@ -13,6 +21,16 @@ nnoremap <A-j> :m .+1<CR>== " Move line down
 nnoremap <A-k> :m .-2<CR>== " Move line up
 "noremap <c-s-down> ddp
 
+map <F2> :bprevious<CR>
+map <F3> :bnext<CR>
+
+" Insert blank line
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
+
+" Insert single space
+:nnoremap <space> i<space><esc>l
+
 " Split pane
 "nnoremap vs :vs<CR>
 "nnoremap sp :sp<CR>
@@ -20,24 +38,25 @@ nnoremap <leader>vs :vs<CR>
 nnoremap <leader>sp :sp<CR>
 
 " Move to pane
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-"nnoremap <C-L> <C-W><C-L> " Move to right pane "ctrl-l"
-"nnoremap <C-H> <C-W><C-H> " Move to left pane "ctrl-h"
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+"nmap <silent> <c-j> :wincmd j<CR>
+"nmap <silent> <c-k> :wincmd k<CR>
+"nmap <silent> <c-l> :wincmd l<CR>
+"nmap <silent> <c-h> :wincmd h<CR>
+for i in ['h', 'j', 'k', 'l']
+    execute('noremap <C-' . i . '> <Cmd>wincmd ' . i . '<CR>')
+    execute('inoremap <C-' . i . '> <Esc><Cmd>wincmd ' . i . '<CR>')
+    "execute('tnoremap <C-' . i . '> <C-\><C-n><Cmd>wincmd ' . i . '<CR>')
+endfor
 
 " Resize pane
-"noremap <C-A-k> :vertical resize +1<CR>
-"noremap <C-A-j> :vertical resize -1<CR>
-"noremap <C-A-l> :resize -1<CR>
-"noremap <C-A-h> :resize +1<CR>
-"noremap <C-A-h> :vertical resize +5<CR>
-"noremap <C-A-k> :vertical resize +5<CR>
-noremap <C-A-Up> :vertical resize +1<CR>
-noremap <C-A-Down> :vertical resize -1<CR>
-noremap <C-S-A-Up> :resize -1<CR>
-noremap <C-S-A-Down> :resize +1<CR>
+"noremap <silent> <c-a-j> :resize -25<CR>
+"noremap <silent> <c-a-k> :resize +25<CR>
+"noremap <silent> <c-a-l> :vertical resize +25<CR>
+"noremap <silent> <c-a-h> :vertical resize -25<CR>
 
 " Clipboard
 function! ClipboardYank()
@@ -51,13 +70,24 @@ noremap 1 yy:call ClipboardYank()<CR>
 noremap 2 :call ClipboardPaste()<CR>p
 noremap 3 dd:call ClipboardYank()<CR>
 
-" https://github.com/neovim/neovim/issues/583
 "vnoremap <silent> y y:call ClipboardYank()<cr>
 "vnoremap <silent> d d:call ClipboardYank()<cr>
-"nnoremap <silent> p :call ClipboardPaste()<cr>p
+"nnoremap <silent> p :call ClipboardPaste()<cr>
 
-" Tabs
-noremap <C-n> :tabnew<CR>
-"noremap <leader>t :tabnew
-"noremap <C-n> :tab split<CR>p
+" Kill bad habits
+"noremap h <nop>
+"noremap j <nop>
+"noremap k <nop>
+"noremap l <nop>
+"inoremap <esc> <nop>
+
+" Open url in brower
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+" Terminal        
+nnoremap <leader>t :ToggleTerm<CR>
+
+" Git
+"nnoremap <silent> <leader>? :GitMessenger<CR>
 

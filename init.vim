@@ -1,61 +1,83 @@
-set nocompatible
-set autoindent
+
+filetype plugin indent on
+syntax on
+
+"set backspace=indent,eol,start " backspace deletes indent, eol and stat
+"set completeopt=menu,menuone,noinsert,noselect
 set cursorline
+"set cursorcolumn
+set encoding=utf-8
+set hidden
+"set laststatus=0
+set linebreak
+set listchars=tab:\|\ 
+set list
+"set listchars=tab:►\ 
+set matchpairs+=<:>
+set mouse=a
+"set mousemodel=popup 
+"set noerrorbells
+"set nohlsearch
+"set nojoinspaces
+"set noruler
+set noshowmode
+"set noshowcmd
+set nospell
+"set novisualbell
+"set spelling=en,de
+set noswapfile
+set nowrap
 set number
 "set number relativenumber
-set encoding=utf-8
+"set sidescroll=1
 set showmatch
-"set formatoptions+=o    " Continue comment marker in new lines.
-"set expandtab           " Insert spaces when TAB is pressed.
-"set nojoinspaces
-set cc=80
-set ttyfast
-set clipboard=unnamedplus
-set noshowmode
-set noruler
-set laststatus=0
-set noshowcmd
-set mouse=a
-"set termguicolors
+set smartindent
+"set so=1 " Number of lines between the cursor and the top/bottom of the screen
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set title
+"set timeoutlen 500
+"set wildchar=<C-n>
+"set wildignorecase
+"set wildignore+=*.o,*.out,*.class
+"set wildmenu
+"set wildoptions+=pum
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-syntax on
-filetype plugin on
-filetype indent on
-
-"colorscheme default
-colorscheme gruvbox
-"colorscheme zenburn
-"autocmd BufEnter * colorscheme default
-"autocmd BufEnter *.php colorscheme darkblue
-"autocmd BufEnter *.vim colorscheme zenburn
-
-set guifont=JetBrainsMono\ Nerd\ Font:h9
-"set guicursor=a:blinkon100
-"set guicursor=n-v-c:block-Cursor
-"set guicursor+=n-v-c:blinkon0
-"set guicursor+=i:ver10-iCursor
-"set guicursor+=i:blinkwait10
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-
-let g:neovide_transparency=0.98
-"let g:neovide_cursor_vfx_mode = "railgun"
-"let g:neovide_remember_window_size=v:true
-"let g:neovide_cursor_trail_length=0.8
-
+source $HOME/.config/nvim/functions.vim
 source $HOME/.config/nvim/keymaps.vim
 source $HOME/.config/nvim/plugins.vim
 
-"lua <<EOF
-"print('Hack the planet!')
-"EOF
+colorscheme gruvbox
+"autocmd BufEnter *.vim colorscheme default
 
-"lua print('this also works')
-"lua require('basic')
+set guifont=JetBrainsMono\ Nerd\ Font:h9
+set guicursor=
+    \a:blinkwait150-blinkoff150-blinkon150,
+    \n:block,
+    \i:ver25,
+    \v:block,
+    \c:ver25-blinkwait175-blinkoff150-blinkon175
+
+"let &t_SI = "\<Esc>[6 q"
+"let &t_SR = "\<Esc>[4 q"
+"let &t_EI = "\<Esc>[2 q"
+
+" -- Hide last terminal cmd delayed
+"augroup clearcmdline
+    "autocmd!
+    "function! Nothing(timer)
+        "echo ''
+    "endfunction
+    "autocmd CmdlineLeave * call timer_start(1000, 'Nothing')
+"augroup END
 "
+autocmd BufReadCmd *.pdf silent !xdg-open % &
+autocmd BufEnter *.pdf bdelete
+autocmd BufReadCmd *.png silent !xdg-open % &
+autocmd BufEnter *.png bdelete
+autocmd BufReadCmd *.jpg silent !xdg-open % &
+autocmd BufEnter *.jpg bdelete
+autocmd BufReadCmd *.jpeg silent !xdg-open % &
+autocmd BufEnter *.jpeg bdelete
+autocmd BufReadCmd *.gif silent !xdg-open % &
+autocmd BufEnter *.gif bdelete
+

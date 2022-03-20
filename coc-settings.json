@@ -3,9 +3,23 @@
     "eslint.filetypes": ["javascript", "typescript"],
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
-        "typescript"
+        "typescript",
+        "haxe"
     ],
      "tsserver.formatOnType": true,
-     "coc.preferences.formatOnType": true
+     "coc.preferences.formatOnType": true,
+     "languageserver": {
+        "haxe": {
+            "command": "haxe-langserver",
+            "filetypes": ["haxe"],
+            "trace.server": "verbose",
+            "initializationOptions": {
+                "displayArguments": ["build.hxml"]
+            },
+            "settings": {
+                "haxe.executable": "haxe"
+            }
+        }
+    }
 }
 
