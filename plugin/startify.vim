@@ -1,4 +1,4 @@
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 
 "let g:startify_change_to_dir = 1
 let g:startify_custom_header = split('          ','\n')
@@ -7,15 +7,15 @@ let g:startify_files_number = 24
 let g:startify_change_to_vcs_root = 0
 "let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 let g:startify_bookmarks = [
-            \{'a': '~/dev/armory3d/'},
-            \{'g': '~/dev/gamma/'},
-            \{'w': '~/work/'},
-            \{'c': '~/.config/'},
-            \{'z': '~/.zshrc'}
-            \]
+    \{'a': '~/dev/armory3d/'},
+    \{'g': '~/dev/gamma/'},
+    \{'w': '~/work/'},
+    \{'c': '~/.config/'},
+    \{'z': '~/.zshrc'}
+    \]
 let g:startify_commands = [
-            \{'h': ['Vim Reference',':help reference']},
-            \]
+    \{'h': ['Vim Reference',':help reference']},
+    \]
 
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
@@ -45,4 +45,3 @@ let g:startify_lists = [
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
         \ { 'type': 'commands',  'header': ['   - - - - - - -']       },
         \ ]
-

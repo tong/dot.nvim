@@ -1,4 +1,4 @@
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " https://github.com/junegunn/fzf
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " https://github.com/junegunn/fzf
 
 let g:fzf_layout = { 'window': 'enew' }
 " let g:fzf_launcher = 'xterm -e sh -ic %s'
@@ -69,8 +69,6 @@ function! FZFGitFiles()
     \ })
 endfunction
 
-
-" KEYMAP
 
 "noremap <leader>/ :FZF<CR>
 "noremap <leader>. :call FZFmru()<CR>
