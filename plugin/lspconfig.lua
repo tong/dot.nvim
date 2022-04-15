@@ -1,25 +1,7 @@
-
+local lspconfig = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lspconfig = require 'lspconfig'
-lspconfig.bashls.setup{ capabilities = capabilities }
-lspconfig.clangd.setup{ capabilities = capabilities }
-lspconfig.cssls.setup{ capabilities = capabilities }
---lspconfig.cssmodules_ls.setup{ init_options = { camelCase = 'dashes' }}
-lspconfig.jsonls.setup { capabilities = capabilities, { "json", "jsonc" } }
-lspconfig.html.setup{ capabilities = capabilities }
-lspconfig.pyright.setup{ capabilities = capabilities }
-lspconfig.vimls.setup{ capabilities = capabilities }
-
-lspconfig['haxe_language_server'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    cmd = {"haxe-langserver"}
-}
-    
+--capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -31,7 +13,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     
-    vim.notify('on_attach')
+    --vim.notify('on_attach')
     
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -52,32 +34,39 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
+--lspconfig.cssmodules_ls.setup{ init_options = { camelCase = 'dashes' }}
+lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
+lspconfig.html.setup{ capabilities = capabilities, on_attach = on_attach}
+lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.tsserver.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.vimls.setup{ capabilities = capabilities, on_attach = on_attach }
+
+lspconfig['haxe_language_server'].setup {
+    cmd = { "haxe-langserver" },
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 --local servers = { 'pyright', 'tsserver', 'vimls' }
-local servers = { }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      --debounce_text_changes = 150,
-    }
-  }
-end
-
---require "lspconfig".pyright.setup {
-    --on_attach = function(client)
-        --require "lsp-format".on_attach(client)
-    --end
---}
-
+--local servers = { }
+--for _, lsp in pairs(servers) do
+  --require('lspconfig')[lsp].setup {
+    --on_attach = on_attach,
+    --flags = {
+    --}
+  --}
+--end
 
 -- lua lsp
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-require'lspconfig'.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
       runtime = {
@@ -100,4 +89,5 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
+  on_attach = on_attach 
 }

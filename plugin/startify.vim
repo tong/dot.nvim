@@ -8,7 +8,9 @@ let g:startify_change_to_vcs_root = 0
 "let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 let g:startify_bookmarks = [
     \{'a': '~/dev/armory3d/'},
-    \{'g': '~/dev/gamma/'},
+    \{'ARM': '$ARMSDK'},
+    \{'G': '~/dev/gamma/'},
+    \{'FFF': '~/dev/fff/'},
     \{'w': '~/work/'},
     \{'c': '~/.config/'},
     \{'z': '~/.zshrc'}

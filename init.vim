@@ -4,7 +4,8 @@ filetype plugin indent on
 syntax on
 
 "set backspace=indent,eol,start " backspace deletes indent, eol and stat
-"set completeopt=menu,menuone,noinsert,noselect
+set clipboard=unnamedplus
+set completeopt=menu,menuone,noinsert,noselect
 "set completeopt-=menu
 "set completeopt+=menuone   " Show the completions UI even with only 1 item
 "set completeopt-=longest   " Don't insert the longest common text
@@ -15,13 +16,15 @@ set colorcolumn=80
 set cursorline
 "set cursorcolumn
 set encoding=utf-8
+set expandtab
 set hidden
+set incsearch
 "set laststatus=0
-set linebreak
-set listchars=tab:\|\ 
-set list
+"set linebreak
+"set listchars=tab:\|\ 
+"set list
 "set listchars=tab:►\ 
-set matchpairs+=<:>
+"set matchpairs+=<:>
 set mouse=a
 "set mousemodel=popup 
 set nocompatible
@@ -33,20 +36,24 @@ set nocompatible
 "set noshowcmd
 set nospell
 "set novisualbell
-"set spelling=en,de
 set noswapfile
 set nowrap
 set number
-"set number relativenumber
+"set relativenumber
+"set ruler
 "set sidescroll=1
-set showmode
+set showcmd
 set showmatch
+"set showmode
 "set smartindent
 "set so=1 " Number of lines between the cursor and the top/bottom of the screen
+"set spelling=en,de
+set splitbelow splitright
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set termguicolors
+
 set title
-set textwidth=80
+"set textwidth=80
 
 "set timeoutlen 500
 "set wildchar=<C-n>
@@ -70,7 +77,7 @@ colorscheme gruvbox
 
 set guifont=JetBrainsMono\ Nerd\ Font:h9
 set guicursor=
-    \a:blinkwait150-blinkoff150-blinkon150,
+    \a:blinkwait1500-blinkoff1500-blinkon1500,
     \n:block,
     \i:ver25,
     \v:block,
@@ -94,7 +101,8 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=250})
 augroup END
 
-au BufNewFile,BufRead sxhkdrc set filetype=sxhkd
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd BufReadCmd *.pdf silent !xdg-open % &
 autocmd BufEnter *.pdf bdelete
@@ -107,4 +115,31 @@ autocmd BufEnter *.jpeg bdelete
 autocmd BufReadCmd *.gif silent !xdg-open % &
 autocmd BufEnter *.gif bdelete
 
+au BufNewFile,BufRead sxhkdrc set filetype=sxhkd
+
+"let s:hidden_all = 0
+"function! ToggleHiddenAll()
+    "if s:hidden_all  == 0
+        "let s:hidden_all = 1
+        "set noshowmode
+        "set noruler
+        "set laststatus=0
+        "set noshowcmd
+    "else
+        "let s:hidden_all = 0
+        "set showmode
+        "set ruler
+        "set laststatus=2
+        "set showcmd
+    "endif
+"endfunction
+"nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
+lua << EOF
+local cwd = vim.fn.getcwd()
+if cwd == "/mnt/N1/dev/fff" then
+    --print(666)
+    vim.cmd("colorscheme noir")
+end
+EOF
 

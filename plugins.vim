@@ -7,11 +7,11 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'feline-nvim/feline.nvim' " TODO test
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'editorconfig/editorconfig-vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 "Plug 'karb94/neoscroll.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'preservim/nerdcommenter'
@@ -26,6 +26,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+Plug 'christoomey/vim-tmux-navigator'
 
 " -- Filetree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -33,46 +34,47 @@ Plug 'kyazdani42/nvim-tree.lua'
 " -- Snippets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+"Plug 'SirVer/ultisnips'  " https://github.com/SirVer/ultisnips
+"Plug 'honza/vim-snippets'  " https://github.com/honza/vim-snippets
 
 " -- nvim-cmp
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-cmdline'
+"Plug 'hrsh7th/nvim-cmp'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " -- Syntax
 Plug 'chr4/nginx.vim'
 Plug 'tikhomirov/vim-glsl'
 
 " -- Language
-"Plug 'SirVer/ultisnips'  " https://github.com/SirVer/ultisnips
-"Plug 'honza/vim-snippets'  " https://github.com/honza/vim-snippets
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " -- Application
 Plug 'vimwiki/vimwiki'
-Plug 'soywod/himalaya', {'rtp':'vim'}
+"Plug 'soywod/himalaya', {'rtp':'vim'}
 
 " -- Git
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
+Plug 'sindrets/diffview.nvim'
 
 " -- Themes
 Plug 'pbrisbin/vim-colors-off'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'EdenEast/nightfox.nvim'
+Plug 'Mofiqul/dracula.nvim'
 
 " -- Tools
 Plug 'vimwiki/vimwiki'
 
 " -- 
 Plug 'tong/vhx'
-
-"source $HOME/.config/nvim/plugin/coc.vim
 
 call plug#end()
 
@@ -99,7 +101,7 @@ let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 "let g:mkdp_refresh_slow = 0
 let g:mkdp_port = '11220'
-let g:mkdp_browser = 'chromium'
+let g:mkdp_browser = 'chromium-app'
 
 
 " -- Open Browser ----------------------------------------------------------
@@ -128,8 +130,9 @@ let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " -- Himalaya
 let g:himalaya_mailbox_picker = 'native' " | 'fzf' | 'telescope'
+let g:himalaya_complete_contact_cmd = "khard email --remove-first-line --parsable '%s'"
 
-" ------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 lua << EOF
 
@@ -254,61 +257,6 @@ require('nightfox').setup {
   }
 }
 
-local cmp = require'cmp'
-cmp.setup({
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    },
-    mapping = {
-      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-      ['<C-e>'] = cmp.mapping({
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      }),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    },
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
 require'nvim-tree'.setup {
     auto_close = false,
     auto_reload_on_write = true,
@@ -321,9 +269,9 @@ require'nvim-tree'.setup {
     open_on_setup = false,
     open_on_tab = false,
     sort_by = "name",
-    update_cwd = false,
+    update_cwd = true,
     view = {
-        width = 28,
+        width = 26,
         height = 30,
         side = "left",
         preserve_window_proportions = false,
@@ -342,8 +290,8 @@ require'nvim-tree'.setup {
         auto_open = true,
     },
     update_focused_file = {
-        enable = false,
-        update_cwd = false,
+        enable = true,
+        update_cwd = true,
         ignore_list = {},
     },
     ignore_ft_on_setup = {},
@@ -380,7 +328,7 @@ require'nvim-tree'.setup {
             quit_on_open = false,
             resize_window = false,
             window_picker = {
-                enable = true,
+                enable = false,
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
                     filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },

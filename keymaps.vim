@@ -10,6 +10,12 @@ let mapleader = " "
 "noremap <C-n> :tab split<CR>p
 "noremap <leader>t :tabnew
 
+" Copy/Paste
+"vnoremap <C-c> "+y
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-p> "+P
+"map <C-p> "+p
+
 " Remap esc in insert mode
 imap jj <Esc>
 imap jk <Esc>
@@ -63,44 +69,42 @@ endfor
 "noremap <silent> <c-a-h> :vertical resize -25<CR>
 
 " Clipboard
-"function! ClipboardYank()
-    "call system('xclip -i -selection primary', @@)
-"endfunction
-"function! ClipboardPaste()
-    """"let @@ = system('xclip -o -selection clipboard')
-    "let @@ = system('xclip -o -selection primary')
-"endfunction
+function! ClipboardYank() range
+    call system('xclip -i -selection primary', @@)
+endfunction
+function! ClipboardPaste()
+    let @@ = system('xclip -o -selection primary')
+endfunction
 
 "if has('gui_running')
- "" copy selection or line
-    "noremap 1 "+yy
-    "" paste before
-    "noremap 2 "+p
-    "" paste after
-    "noremap @ "+P
-"else
-    "noremap 1 yy:call ClipboardYank()<CR>
-    "noremap 2 :call ClipboardPaste()<CR>p
-    "noremap @ :call ClipboardPaste()<CR>P
-    "noremap 3 dd:call ClipboardYank()<CR>
+    "lua vim.notify("GUUUUUUUIIIIIIIIIIIIIIIIIIIII")
+ """ copy selection or line
+    ""noremap 1 "+yy
+    """ paste before
+    ""noremap 2 "+p
+    """ paste after
+    ""noremap @ "+P
+""else
+    ""noremap 1 yy:call ClipboardYank()<CR>
+    ""noremap 2 :call ClipboardPaste()<CR>p
+    ""noremap @ :call ClipboardPaste()<CR>P
+    ""noremap 3 dd:call ClipboardYank()<CR>
 "endif
-
-"noremap 1 yy:call ClipboardYank()<CR>
-"noremap 2 p:call ClipboardPaste()<CR>
-"noremap 3 dd:call ClipboardYank()<CR>
 
 "vnoremap <silent> y y:call ClipboardYank()<cr>
 "vnoremap <silent> d d:call ClipboardYank()<cr>
 "nnoremap <silent> p :call ClipboardPaste()<cr>
 
+noremap 1 yy:call ClipboardYank()<CR>
+noremap 2 :call ClipboardPaste()<CR>p
+noremap @ :call ClipboardPaste()<CR>P
+noremap 3 dd:call ClipboardYank()<CR>
 
-"if has('gui_running')
-   ""nnoremap <C-S-v> "*p
-"endif
+" copy filename to clipboard (http://vim.wikia.com/wiki/Copy_filename_to_clipboard)
+noremap ,cs :let @+=expand("%")<CR>
+noremap ,cl :let @+=expand("%:p")<CR>
 
-"noremap p "*p
-
-"Kill bad habits
+" Kill bad habits
 "noremap h <nop>
 "noremap j <nop>
 "noremap k <nop>
