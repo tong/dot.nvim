@@ -40,7 +40,7 @@ set noswapfile
 set nowrap
 set number
 "set relativenumber
-"set ruler
+set ruler
 "set sidescroll=1
 set showcmd
 set showmatch
@@ -59,21 +59,21 @@ set title
 "set wildchar=<C-n>
 "set wildignorecase
 "set wildignore+=*.o,*.out,*.class
-"set wildmenu
+set wildmenu
 "set wildoptions+=pum
 
 highlight ColorColumn ctermbg=black guibg=black
 
-" Mark characters exceeding column width
-"let w:m1=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"if exists('$TMUX')
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"else
+    "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"endif
+"autocmd InsertEnter * set cul
+"autocmd InsertLeave * set nocul
 
-"source $HOME/.config/nvim/functions.vim
-source $HOME/.config/nvim/keymaps.vim
-source $HOME/.config/nvim/plugins.vim
-
-"colorscheme default
-colorscheme gruvbox
-"autocmd BufEnter *.vim colorscheme default
 
 set guifont=JetBrainsMono\ Nerd\ Font:h9
 set guicursor=
@@ -82,6 +82,17 @@ set guicursor=
     \i:ver25,
     \v:block,
     \c:ver25-blinkwait175-blinkoff150-blinkon175
+
+" Mark characters exceeding column width
+"let w:m1=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+"source $HOME/.config/nvim/functions.vim
+source $HOME/.config/nvim/keymaps.vim
+source $HOME/.config/nvim/plugins.vim
+
+colorscheme $COLORTHEME
+
+"autocmd BufEnter *.vim colorscheme default
 
 "let &t_SI = "\<Esc>[6 q"
 "let &t_SR = "\<Esc>[4 q"
@@ -135,6 +146,19 @@ au BufNewFile,BufRead sxhkdrc set filetype=sxhkd
 "endfunction
 "nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+" -----
+
+let g:neovide_transparency=0.97
+"let g:neovide_cursor_vfx_mode = "wireframe"
+let g:neovide_cursor_vfx_mode = "ripple"
+"let g:neovide_cursor_vfx_mode = "railgun"
+"let g:neovide_remember_window_size=v:true
+let g:neovide_cursor_trail_length=0.8
+
+"set guifont=JetBrainsMono\ Nerd\ Font:h9
+
+" -----
+
 lua << EOF
 local cwd = vim.fn.getcwd()
 if cwd == "/mnt/N1/dev/fff" then
@@ -142,4 +166,3 @@ if cwd == "/mnt/N1/dev/fff" then
     vim.cmd("colorscheme noir")
 end
 EOF
-

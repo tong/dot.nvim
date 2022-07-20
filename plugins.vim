@@ -1,49 +1,53 @@
-call plug#begin('~/.local/share/nvim/plugged')
+ call plug#begin('~/.local/share/nvim/plugged')
 
-" -- Statusline
+ " -- Statusline
 "Plug 'nvim-lualine/lualine.nvim'
+"Plug 'feline-nvim/feline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'feline-nvim/feline.nvim' " TODO test
+
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
-"Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
 "Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 "Plug 'karb94/neoscroll.nvim'
-Plug 'RRethy/vim-illuminate'
+"Plug 'RRethy/vim-illuminate'
 Plug 'preservim/nerdcommenter'
 "Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
-"Plug 'preservim/nerdtree'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'folke/trouble.nvim'
+"Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'mhinz/vim-startify'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 
-" -- Filetree
 Plug 'kyazdani42/nvim-tree.lua'
 
-" -- Snippets
 Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/cmp-vsnip'
+"Plug 'hrsh7th/vim-vsnip-integ'
 "Plug 'SirVer/ultisnips'  " https://github.com/SirVer/ultisnips
 "Plug 'honza/vim-snippets'  " https://github.com/honza/vim-snippets
 
 " -- nvim-cmp
-"Plug 'hrsh7th/cmp-nvim-lsp'
-"Plug 'hrsh7th/cmp-buffer'
-"Plug 'hrsh7th/cmp-path'
-"Plug 'hrsh7th/cmp-cmdline'
-"Plug 'hrsh7th/nvim-cmp'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " -- Syntax
 Plug 'chr4/nginx.vim'
@@ -62,19 +66,15 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
-Plug 'sindrets/diffview.nvim'
+"Plug 'sindrets/diffview.nvim'
 
 " -- Themes
 Plug 'pbrisbin/vim-colors-off'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'EdenEast/nightfox.nvim'
-Plug 'Mofiqul/dracula.nvim'
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'EdenEast/nightfox.nvim'
 
-" -- Tools
-Plug 'vimwiki/vimwiki'
-
-" -- 
 Plug 'tong/vhx'
+"Plug 'tong/mdview'
 
 call plug#end()
 
@@ -125,12 +125,17 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
 " -- Vimwiki ----------------------------------------------------------------
-let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/doc/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 
 " -- Himalaya
-let g:himalaya_mailbox_picker = 'native' " | 'fzf' | 'telescope'
-let g:himalaya_complete_contact_cmd = "khard email --remove-first-line --parsable '%s'"
+"let g:himalaya_mailbox_picker = 'native' " | 'fzf' | 'telescope'
+"let g:himalaya_complete_contact_cmd = "khard email --remove-first-line --parsable '%s'"
+
+
+" -- FZF
+"let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
 
 "------------------------------------------------------------------------------
 
@@ -213,7 +218,7 @@ require('gitsigns').setup {
     delay = 700,
     ignore_whitespace = false,
   },
-current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
@@ -229,127 +234,6 @@ current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
   yadm = {
     enable = false
   },
-}
-
-require('nightfox').setup {
-  options = {
-    -- Compiled file's destination location
-    --compile_path = util.join_paths(vim.fn.stdpath("cache"), "nightfox"),
-    compile_file_suffix = "_compiled", -- Compiled file suffix
-    transparent = false,    -- Disable setting background
-    terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*)
-    dim_inactive = true,   -- Non focused panes set to alternative background
-    styles = {              -- Style to be applied to different syntax groups
-      comments = "NONE",
-      functions = "NONE",
-      keywords = "NONE",
-      numbers = "NONE",
-      strings = "NONE",
-      types = "NONE",
-      variables = "NONE",
-    },
-    inverse = {
-      match_paren = false,
-      visual = false,
-      search = false,
-    },
-    modules = {},
-  }
-}
-
-require'nvim-tree'.setup {
-    auto_close = false,
-    auto_reload_on_write = true,
-    disable_netrw = true,
-    hide_root_folder = false,
-    hijack_cursor = false,
-    hijack_netrw = true,
-    hijack_unnamed_buffer_when_opening = false,
-    ignore_buffer_on_setup = false,
-    open_on_setup = false,
-    open_on_tab = false,
-    sort_by = "name",
-    update_cwd = true,
-    view = {
-        width = 26,
-        height = 30,
-        side = "left",
-        preserve_window_proportions = false,
-        number = false,
-        relativenumber = false,
-        signcolumn = "yes",
-        mappings = {
-            custom_only = false,
-            list = {
-                -- user mappings go here
-            },
-        },
-    },
-    hijack_directories = {
-        enable = true,
-        auto_open = true,
-    },
-    update_focused_file = {
-        enable = true,
-        update_cwd = true,
-        ignore_list = {},
-    },
-    ignore_ft_on_setup = {},
-    system_open = {
-        cmd = nil,
-        args = {},
-    },
-    diagnostics = {
-        enable = true,
-        show_on_dirs = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        },
-    },
-    filters = {
-        dotfiles = true,
-        custom = {},
-        exclude = {},
-    },
-    git = {
-        enable = true,
-        ignore = false,
-        timeout = 400,
-    },
-    actions = {
-        change_dir = {
-            enable = false,
-            global = false,
-        },
-        open_file = {
-            quit_on_open = false,
-            resize_window = false,
-            window_picker = {
-                enable = false,
-                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-                exclude = {
-                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                    buftype = { "nofile", "terminal", "help" },
-                },
-            },
-        },
-    },
-    trash = {
-        cmd = "trash",
-        require_confirm = true,
-    },
-    log = {
-        enable = false,
-        truncate = false,
-        types = {
-            all = false,
-            config = false,
-            git = false,
-        },
-    }
 }
 
 require'nvim-treesitter.configs'.setup {
@@ -372,11 +256,84 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-require("trouble").setup {
-    auto_open = false,
-    auto_close = true,
-    auto_jump = false,
-    use_diagnostic_signs = true
+
+local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+--require("trouble").setup {
+--    auto_open = false,
+--    auto_close = true,
+--    auto_jump = false,
+--    use_diagnostic_signs = true
+--}
+
+require('nvim-autopairs').setup{}
+
+require('telescope').setup {
+    defaults = {
+        file_ignore_patterns = {
+            "node_modules",
+            "public"
+        }
+    }
 }
 
 require("vhx").setup {
@@ -387,5 +344,6 @@ require("vhx").setup {
     } 
 }
 
-EOF
+--require("mdview").setup {}
 
+EOF

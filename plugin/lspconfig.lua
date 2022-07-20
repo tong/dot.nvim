@@ -38,8 +38,9 @@ lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
 --lspconfig.cssmodules_ls.setup{ init_options = { camelCase = 'dashes' }}
-lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
 lspconfig.html.setup{ capabilities = capabilities, on_attach = on_attach}
+lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
+lspconfig.jedi_language_server.setup {}
 lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.tsserver.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.vimls.setup{ capabilities = capabilities, on_attach = on_attach }
