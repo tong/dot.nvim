@@ -163,7 +163,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       quit_on_open = false,
       resize_window = true,
       window_picker = {
-        enable = true,
+        enable = false,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
         exclude = {
           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },

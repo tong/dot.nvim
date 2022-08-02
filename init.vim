@@ -125,8 +125,15 @@ autocmd BufReadCmd *.jpeg silent !xdg-open % &
 autocmd BufEnter *.jpeg bdelete
 autocmd BufReadCmd *.gif silent !xdg-open % &
 autocmd BufEnter *.gif bdelete
+autocmd BufReadCmd *.mp4 silent !xdg-open % &
+autocmd BufEnter *.mp4 bdelete
+autocmd BufReadCmd *.webm silent !xdg-open % &
+autocmd BufEnter *.webm bdelete
+autocmd BufReadCmd *.webp silent !xdg-open % &
+autocmd BufEnter *.webp bdelete
 
 au BufNewFile,BufRead sxhkdrc set filetype=sxhkd
+
 
 "let s:hidden_all = 0
 "function! ToggleHiddenAll()

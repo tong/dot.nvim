@@ -12,7 +12,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ap/vim-css-color'
+"Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'windwp/nvim-autopairs'
 "Plug 'karb94/neoscroll.nvim'
@@ -32,6 +33,7 @@ Plug 'mhinz/vim-startify'
 "Plug 'junegunn/fzf.vim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'romgrk/barbar.nvim'
 
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -52,6 +54,7 @@ Plug 'hrsh7th/nvim-cmp'
 " -- Syntax
 Plug 'chr4/nginx.vim'
 Plug 'tikhomirov/vim-glsl'
+Plug 'cakebaker/scss-syntax.vim'
 
 " -- Language
 Plug 'neovim/nvim-lspconfig'
@@ -72,10 +75,12 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'pbrisbin/vim-colors-off'
 "Plug 'shaunsingh/solarized.nvim'
 "Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-"Plug 'EdenEast/nightfox.nvim'
+Plug 'EdenEast/nightfox.nvim'
 
 Plug 'tong/vhx'
 "Plug 'tong/mdview'
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
 
@@ -94,7 +99,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " -- Glow -------------------------------------------------------
-let g:glow_style = "dark"
+"let g:glow_style = "dark"
 
 
 " -- Markdown Preview -------------------------------------------------------
@@ -143,88 +148,6 @@ let g:vimwiki_list = [{'path': '~/doc/wiki/', 'syntax': 'markdown', 'ext': '.md'
 lua << EOF
 
 
-require'nvim-treesitter.configs'.setup {
-    -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    --ensure_installed = "maintained",
-    -- Install languages synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-    -- List of parsers to ignore installing
-    --ignore_install = { "javascript" },
-    highlight = {
-        -- `false` will disable the whole extension
-        enable = true,
-        -- list of language that will be disabled
-        --disable = { "c", "rust" },
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        --additional_vim_regex_highlighting = false,
-    }
-}
-
-
-local cmp = require'cmp'
-
-  cmp.setup({
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    },
-    window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
 --require("trouble").setup {
 --    auto_open = false,
 --    auto_close = true,
@@ -232,26 +155,6 @@ local cmp = require'cmp'
 --    use_diagnostic_signs = true
 --}
 
-require('nvim-autopairs').setup{}
-
-require('telescope').setup {
-    defaults = {
-        file_ignore_patterns = {
-            "node_modules",
-            "public"
-        }
-    }
-}
-
-require("vhx").setup {
-    haxe_bin = "haxe",
-    server = {
-        port = 9001,
-        verbose = true
-    } 
-}
-
 --require("mdview").setup {}
-
 
 EOF
