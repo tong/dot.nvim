@@ -12,13 +12,14 @@ o.clipboard = 'unnamedplus'
 o.colorcolumn = 80
 o.cursorline = true
 o.expandtab = true
+o.hidden = true
 o.history = 50
 o.ignorecase = true
 o.list = true
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
-o.number = true
-o.numberwidth = 6
 o.relativenumber = false
+o.number = true
+--o.numberwidth = 6
 o.ruler = true
 o.scrolloff = 8
 o.shiftwidth = 0
@@ -27,7 +28,7 @@ o.smartcase = true
 o.softtabstop = -1
 o.tabstop = 4
 o.termguicolors = true
-o.textwidth = 300
+o.textwidth = 80
 o.wrap = true
 
 -- Undo and backup options
@@ -38,7 +39,6 @@ o.swapfile = false
 -- o.backupdir = '/tmp/'
 -- o.directory = '/tmp/'
 -- o.undodir = '/tmp/'
-
 
 -- Better buffer splitting
 o.splitright = true
@@ -59,14 +59,12 @@ opt.mouse = "a"
 -- o.foldnestmax = 3
 -- o.foldminlines = 1
 
--- Map <leader> to space
-g.mapleader = ' '
-g.maplocalleader = ' '
-
---vim.cmd('colorscheme gruvbox')
 vim.cmd('colorscheme $COLORTHEME')
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}')
+
+vim.cmd('command Pretty lua vim.lsp.buf.formatting()')
+
 
 vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpg bdelete')
@@ -94,4 +92,5 @@ opt.guifont='JetBrainsMono Nerd Font:h9'
 vim.cmd('let g:neovide_transparency=0.95')
 vim.cmd('let g:neovide_cursor_vfx_mode="ripple"')
 vim.cmd('let g:neovide_cursor_vfx_mode="ripple"')
+
 

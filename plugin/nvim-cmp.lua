@@ -1,6 +1,5 @@
 local cmp = require'cmp'
-
-  cmp.setup({
+cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -27,6 +26,7 @@ local cmp = require'cmp'
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
+        { name = "git" },
     }, {
       { name = 'buffer' },
     })
@@ -65,3 +65,7 @@ local cmp = require'cmp'
   --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
     --capabilities = capabilities
   --}
+  --
+  --
+require("cmp_git").setup()
+
