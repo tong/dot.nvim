@@ -3,14 +3,19 @@ local o = vim.o
 local opt = vim.opt
 local api   = vim.api
 
+vim.cmd('filetype plugin indent on')
+vim.cmd('syntax on')
+
+o.completeopt = "menu,menuone,noinsert,noselect"
 -- o.autoindent = true
 -- o.smarttab = true
 --o.timeoutlen = 500
---o.updatetime = 200
+o.colorcolumn = '+1' 
 o.cindent = true
 o.clipboard = 'unnamedplus'
-o.colorcolumn = 80
+o.completeopt='menu,menuone,noinsert,noselect'
 o.cursorline = true
+o.encoding = 'utf-8'
 o.expandtab = true
 o.hidden = true
 o.history = 50
@@ -20,15 +25,25 @@ o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
 o.relativenumber = false
 o.number = true
 --o.numberwidth = 6
+o.wrap = false
 o.ruler = true
 o.scrolloff = 8
+o.shell = 'zsh' 
 o.shiftwidth = 0
+o.showcmd = true
+o.showmatch = true
 o.signcolumn = 'yes'
 o.smartcase = true
+o.smartindent = true
 o.softtabstop = -1
+o.spell = false
 o.tabstop = 4
 o.termguicolors = true
 o.textwidth = 80
+o.title = true
+--o.titlestring = "%f%(\ [%M]%)¬"
+o.updatetime = 200
+o.wildmenu = true
 o.wrap = true
 
 -- Undo and backup options
@@ -49,10 +64,6 @@ opt.mouse = "a"
 -- Preserve view while jumping
 --o.jumpoptions = 'view'
 
--- BUG: this won't update the search count after pressing `n` or `N`
--- When running macros and regexes on a large file, lazy redraw tells neovim/vim not to draw the screen
--- o.lazyredraw = true
-
 -- Better folds (don't fold by default)
 -- o.foldmethod = 'indent'
 -- o.foldlevelstart = 99
@@ -64,7 +75,6 @@ vim.cmd('colorscheme $COLORTHEME')
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}')
 
 vim.cmd('command Pretty lua vim.lsp.buf.formatting()')
-
 
 vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpg bdelete')
@@ -83,7 +93,6 @@ vim.cmd('autocmd BufEnter *.webm bdelete')
 vim.cmd('autocmd BufReadCmd *.webp silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.webp bdelete')
 
-
 -- GUI
 
 opt.guifont='JetBrainsMono Nerd Font:h9'
@@ -91,6 +100,4 @@ opt.guifont='JetBrainsMono Nerd Font:h9'
 
 vim.cmd('let g:neovide_transparency=0.95')
 vim.cmd('let g:neovide_cursor_vfx_mode="ripple"')
-vim.cmd('let g:neovide_cursor_vfx_mode="ripple"')
-
 
