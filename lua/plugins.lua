@@ -9,8 +9,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'lukas-reineke/lsp-format.nvim'
-
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'prettier/vim-prettier'
 
 --Plug 'akinsho/toggleterm.nvim'
 --Plug 'ziontee113/color-picker.nvim'
@@ -18,13 +18,18 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'sunjon/shade.nvim'
 
---Plug 'numToStr/Comment.nvim'
-Plug 'preservim/nerdcommenter'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'sudormrfbin/cheatsheet.nvim'
+
+Plug 'numToStr/Comment.nvim'
+--Plug 'preservim/nerdcommenter'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'windwp/nvim-autopairs'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -42,17 +47,17 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'petertriho/cmp-git'
 Plug 'onsails/lspkind.nvim'
 
---Plug 'iamcco/markdown-preview.nvim'
---Plug 'ellisonleao/glow.nvim'
-
 --Plug 'chr4/nginx.vim'
 --Plug 'tikhomirov/vim-glsl'
 --Plug 'cakebaker/scss-syntax.vim'
+--Plug 'iamcco/markdown-preview.nvim'
 
---Plug 'tong/vhx'
+Plug 'ellisonleao/glow.nvim'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'pwntester/octo.nvim' 
 --Plugin 'dbeniamine/cheat.sh-vim'
+--Plug 'tong/vhx'
 
 vim.call('plug#end')

@@ -64,8 +64,8 @@ map('n', '<C-n>', ':NvimTreeToggle<CR>')
 --nmap('<leader>tt', ':NvimTreeToggle<CR>')
 
 -- Move to the next/previous buffer
-nmap('<F2>', ':bprevious<CR>')
-nmap('<F3>', ':bnext<CR>')
+--nmap('<F2>', ':bprevious<CR>')
+--nmap('<F3>', ':bnext<CR>')
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
