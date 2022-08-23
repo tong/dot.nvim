@@ -6,6 +6,7 @@ local api = vim.api
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
 
+o.autoindent = true
 o.belloff = "all"
 o.completeopt = "menu,menuone,noinsert,noselect"
 -- o.autoindent = true
@@ -34,10 +35,11 @@ o.shell = 'zsh'
 o.shiftwidth = 0
 o.showcmd = true
 o.showmatch = true
-o.showmode = false
+o.showmode = true
 o.signcolumn = 'yes'
 o.smartcase = true
 o.smartindent = true
+o.smarttab = true
 o.softtabstop = -1
 o.spell = false
 o.tabstop = 4
@@ -117,7 +119,5 @@ vim.cmd('autocmd BufEnter *.woff2 bdelete')
 if vim.g.neovide then
     --vim.g.neovide_cursor_trail_legnth = 0
     --vim.g.neovide_cursor_animation_length = 0
-    --
-    --
     vim.o.guifont = "JetBrainsMono Nerd Font:h9"
 end

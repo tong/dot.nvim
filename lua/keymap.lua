@@ -28,12 +28,15 @@ nmap('J','10j')
 nmap('K','10k')
 nmap('L','20l')
 
+-- Select all
+nmap('<C-a>', 'ggVG')
+
+-- Disable highlight
+nmap('<C-l>', ':nohlsearch<CR>')
+
 -- Move line up/down
 nmap('<a-j>', ":move .+1<CR>")
 nmap('<a-k>', ":move .-2<CR>")
-
--- Select all
-nmap('<C-a>', 'ggVG')
 
 -- Copy/Paste
 --map('v', '<C-c', '"*y :let @+=@*<CR>')

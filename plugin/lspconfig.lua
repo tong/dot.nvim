@@ -33,9 +33,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+-- Setup language servers
+--
 lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.gopls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig['haxe_language_server'].setup {
     cmd = { "haxe-langserver" },
     capabilities = capabilities,

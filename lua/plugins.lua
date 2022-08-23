@@ -33,6 +33,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'windwp/nvim-autopairs'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'AndrewRadev/tagalong.vim'
 
 --Plug 'mfussenegger/nvim-dap'
 --Plug 'rcarriga/nvim-dap-ui'
@@ -47,17 +48,19 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'petertriho/cmp-git'
 Plug 'onsails/lspkind.nvim'
 
+Plug 'fatih/vim-go'
+--Plug 'tong/vhx'
+
+--Plug 'cakebaker/scss-syntax.vim'
 --Plug 'chr4/nginx.vim'
 --Plug 'tikhomirov/vim-glsl'
---Plug 'cakebaker/scss-syntax.vim'
---Plug 'iamcco/markdown-preview.nvim'
 
+Plug 'iamcco/markdown-preview.nvim'
 Plug 'ellisonleao/glow.nvim'
 
 Plug 'vimwiki/vimwiki'
 
 Plug 'pwntester/octo.nvim' 
 --Plugin 'dbeniamine/cheat.sh-vim'
---Plug 'tong/vhx'
 
 vim.call('plug#end')
