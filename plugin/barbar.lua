@@ -35,7 +35,7 @@ require'bufferline'.setup {
   icon_separator_active = '▎',
   icon_separator_inactive = '▎',
   icon_close_tab = '',
-  icon_close_tab_modified = '●',
+  icon_close_tab_modified = '',
   icon_pinned = '車',
 
   -- If true, new buffers will be inserted at the start/end of the list.
@@ -105,6 +105,7 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 --                 :BufferCloseAllButCurrentOrPinned
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
+map('n', '<A-a>', '<Cmd>BufferCloseAllButPinned<CR>', opts)
 
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)

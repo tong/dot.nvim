@@ -1,7 +1,3 @@
-local function hello()
-    return 'fffffffffffff'
-end
-
 require('lualine').setup {
   options = {
     icons_enabled = true,

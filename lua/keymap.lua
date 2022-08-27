@@ -23,16 +23,16 @@ vim.g.maplocalleader = ' '
 
 --map('n', '<C-', '')
 
-nmap('H','20h')
-nmap('J','10j')
-nmap('K','10k')
-nmap('L','20l')
+-- nmap('H','20h')
+-- nmap('J','10j')
+-- nmap('K','10k')
+-- nmap('L','20l')
 
 -- Select all
 nmap('<C-a>', 'ggVG')
 
 -- Disable highlight
-nmap('<C-l>', ':nohlsearch<CR>')
+-- nmap('<C-l>', ':nohlsearch<CR>')
 
 -- Move line up/down
 nmap('<a-j>', ":move .+1<CR>")
@@ -50,11 +50,11 @@ nmap('<s-Enter>', 'O<Esc>')
 --map('n', '<space>', 'i<space><esc>l')
 
 -- Quickly save the current buffer or all buffers
-nmap('<leader>w', ':update<CR>')
-nmap('<leader>W', ':wall<CR>')
+--nmap('<leader>w', ':update<CR>')
+--nmap('<leader>W', ':wall<CR>')
 
 -- Quit 
-nmap('<C-Q>', ':q<CR>')
+--nmap('<C-Q>', ':q<CR>')
 
 -- Resize window
 nmap('<leader>jj', ':resize -20<CR>')
@@ -74,4 +74,4 @@ map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
 nmap('<leader>pf', ':Pretty<cr>')
 
-imap('jj', '<Esc>')
+--imap('jj', '<Esc>')
