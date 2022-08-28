@@ -25,26 +25,25 @@ ls.config.set_config({
     }
 })
 
-vim.keymap.set({ "i", "s" }, "<leader>ee", function()
+--vim.keymap.set({ "i", "s" }, "<leader>ee", function()
+vim.keymap.set({ "i", "s" }, "<c-k><c-k>", function()
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
 end, { silent = true })
 
-vim.keymap.set({ "i", "s" }, "<c-s-j>", function()
+vim.keymap.set({ "i", "s" }, "<c-j><c-j>", function()
     if ls.jumpable(-1) then
         ls.jump(-1)
     end
 end, { silent = true })
 
-vim.keymap.set({ "i" }, "<c-l>", function()
+vim.keymap.set({ "i" }, "<c-l><c-l>", function()
     if ls.choice_active() then
         ls.change_choice(1)
     end
 end)
 
-vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
-
--- Shortcut to source luasnipts for reloading snippets
+-- vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
 --vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>")
 

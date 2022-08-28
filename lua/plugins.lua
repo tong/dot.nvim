@@ -35,7 +35,6 @@ Plug 'windwp/nvim-autopairs'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'AndrewRadev/tagalong.vim'
 
-
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
@@ -43,15 +42,18 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 -- Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
 -- Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
+--Plug 'hrsh7th/cmp-vsnip'
 -- Plug 'hrsh7th/vim-vsnip'
 Plug 'petertriho/cmp-git'
 Plug 'onsails/lspkind.nvim'
 
 Plug 'L3MON4D3/LuaSnip'
 
+Plug 'TimUntersberger/neogit'
+
 Plug 'fatih/vim-go'
-Plug 'tong/vhx'
+--Plug 'tong/vhx'
+--Plug 'tong/nvhx'
 
 --Plug 'mfussenegger/nvim-dap'
 --Plug 'rcarriga/nvim-dap-ui'
