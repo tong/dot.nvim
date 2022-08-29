@@ -1,88 +1,96 @@
-local g = vim.g
-local o = vim.o
 local opt = vim.opt
 local api = vim.api
 
-vim.cmd('filetype plugin indent on')
-vim.cmd('syntax on')
+--vim.cmd('filetype plugin indent on')
+--vim.cmd('syntax on')
 
-o.autoindent = true
-o.belloff = "all"
-o.completeopt = "menu,menuone,noinsert,noselect"
--- o.autoindent = true
--- o.smarttab = true
---o.timeoutlen = 500
-o.colorcolumn = '+1' 
-o.cindent = true
-o.clipboard = 'unnamedplus'
-o.completeopt='menu,menuone,noinsert,noselect'
-o.cursorline = true
-o.encoding = 'utf-8'
-o.equalalways = false
-o.expandtab = true
-o.hidden = true
-o.history = 50
-o.ignorecase = true
-o.list = true
-o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
-o.relativenumber = false
-o.number = true
---o.numberwidth = 6
-o.wrap = false
-o.ruler = true
-o.scrolloff = 12
-o.shell = 'zsh' 
-o.shiftwidth = 0
-o.showcmd = true
-o.showmatch = true
-o.showmode = true
-o.signcolumn = 'yes'
-o.smartcase = true
-o.smartindent = true
-o.smarttab = true
-o.softtabstop = -1
-o.spell = false
-o.tabstop = 4
-o.termguicolors = true
-o.textwidth = 80
-o.title = true
---o.titlestring = "%f%(\ [%M]%)¬"
-o.updatetime = 1000
-o.wildmenu = true
---o.wildignore = { "*.o", "*~", "*.pyc", "*pycache*" }
-o.wildmode = "longest:full"
-o.wildoptions = "pum"
-o.wrap = true
-
--- Undo and backup options
-o.backup = false
-o.writebackup = false
-o.undofile = true
-o.swapfile = false
--- o.backupdir = '/tmp/'
--- o.directory = '/tmp/'
--- o.undodir = '/tmp/'
-
--- Better buffer splitting
-o.splitright = true
-o.splitbelow = true
-
+opt.autoindent = true
+opt.belloff = "all"
+opt.breakindent = true
+opt.completeopt = "menu,menuone,noinsert,noselect"
+opt.colorcolumn = '+1' 
+opt.cindent = true
+opt.clipboard = 'unnamedplus'
+opt.completeopt='menu,menuone,noinsert,noselect'
+opt.cursorline = true
+opt.encoding = 'utf-8'
+opt.equalalways = false
+opt.expandtab = true
+opt.hidden = true
+opt.history = 50
+opt.ignorecase = true
+opt.incsearch = true
+opt.linebreak = true
+opt.list = true
+opt.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
 opt.mouse = "a"
+opt.number = true
+--opt.numberwidth = 6
+opt.relativenumber = false
+opt.ruler = true
+opt.scrolloff = 12
+opt.shell = 'zsh' 
+opt.shiftwidth = 0
+opt.showbreak = string.rep(" ", 3) -- long lines wrap smartly
+opt.showcmd = true
+opt.showmatch = true
+opt.showmode = false
+opt.signcolumn = 'yes'
+opt.smartcase = true
+opt.smartindent = true
+opt.smarttab = true
+opt.softtabstop = -1
+opt.spell = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.textwidth = 80
+opt.title = true
+opt.updatetime = 1000
+opt.wildmenu = true
+opt.wildignore = "__pycache__"
+opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
+opt.wildignore:append "Cargo.lock"
+opt.wildmode = "longest:full"
+opt.wildoptions = "pum"
+opt.wrap = true
+
+opt.backup = false
+opt.writebackup = false
+opt.undofile = true
+opt.swapfile = false
+
+opt.splitright = true
+opt.splitbelow = true
 
 -- Preserve view while jumping
---o.jumpoptions = 'view'
+--opt.jumpoptions = 'view'
 
 -- Better folds (don't fold by default)
--- o.foldmethod = 'indent'
--- o.foldlevelstart = 99
--- o.foldnestmax = 3
--- o.foldminlines = 1
+-- opt.foldmethod = 'indent'
+-- opt.foldlevelstart = 99
+-- opt.foldnestmax = 3
+-- opt.foldminlines = 1
 
-vim.cmd('colorscheme $COLORTHEME')
+-- Cursorline highlighting control
+--  Only have it on in the active buffer
+opt.cursorline = true -- Highlight the current line
+local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+local set_cursorline = function(event, value, pattern)
+  vim.api.nvim_create_autocmd(event, {
+    group = group,
+    pattern = pattern,
+    callback = function()
+      vim.opt_local.cursorline = value
+    end,
+  })
+end
+set_cursorline("WinLeave", false)
+set_cursorline("WinEnter", true)
+set_cursorline("FileType", false, "TelescopePrompt")
+
+vim.cmd("colorscheme $COLORTHEME")
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=200}')
-
--- vim.cmd('command Pretty lua vim.lsp.buf.formatting()')
 
 vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpg bdelete')
@@ -100,7 +108,6 @@ vim.cmd('autocmd BufReadCmd *.webm silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.webm bdelete')
 vim.cmd('autocmd BufReadCmd *.webp silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.webp bdelete')
-
 vim.cmd('autocmd BufReadCmd *.ttf silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.ttf bdelete')
 vim.cmd('autocmd BufReadCmd *.woff silent !xdg-open % &')
@@ -110,14 +117,10 @@ vim.cmd('autocmd BufEnter *.woff2 bdelete')
 
 -- GUI
 
---opt.guifont='JetBrainsMono Nerd Font:h9'
---opt.guicursor='a:blinkwait1500-blinkoff1500-blinkon1500,n:block,i:ver25,v:block,c:ver25-blinkwait175-blinkoff150-blinkon175'
-
---vim.cmd('let g:neovide_transparency=0.95')
---vim.cmd('let g:neovide_cursor_vfx_mode="ripple"')
+--opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
 if vim.g.neovide then
     --vim.g.neovide_cursor_trail_legnth = 0
     --vim.g.neovide_cursor_animation_length = 0
-    vim.o.guifont = "JetBrainsMono Nerd Font:h9"
+    opt.guifont = "JetBrainsMono Nerd Font:h9"
 end
