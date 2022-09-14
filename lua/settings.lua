@@ -1,9 +1,6 @@
 local opt = vim.opt
 local api = vim.api
 
---vim.cmd('filetype plugin indent on')
---vim.cmd('syntax on')
-
 opt.autoindent = true
 opt.belloff = "all"
 opt.breakindent = true
@@ -98,6 +95,8 @@ vim.cmd('autocmd BufReadCmd *.jpeg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpeg bdelete')
 vim.cmd('autocmd BufReadCmd *.gif silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.gif bdelete')
+vim.cmd('autocmd BufReadCmd *.mp3 silent !xdg-open % &')
+vim.cmd('autocmd BufEnter *.mp3 bdelete')
 vim.cmd('autocmd BufReadCmd *.mp4 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.mp4 bdelete')
 vim.cmd('autocmd BufReadCmd *.pdf silent !xdg-open % &')

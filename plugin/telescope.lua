@@ -16,6 +16,8 @@ telescope.setup {
 telescope.load_extension('media_files')
 --telescope.load_extension('octo')
 
+require("telescope").load_extension('harpoon')
+
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
 

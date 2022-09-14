@@ -74,7 +74,7 @@ local config = { -- BEGIN_DEFAULT_OPTS
     height = 30,
     hide_root_folder = false,
     side = "left",
-    preserve_window_proportions = false,
+    preserve_window_proportions = true,
     number = false,
     relativenumber = false,
     signcolumn = "yes",
@@ -87,6 +87,17 @@ local config = { -- BEGIN_DEFAULT_OPTS
         { key = "h", action = "close_node" },
         { key = "H", action = "collapse_all", action_cb = collapse_all }
       },
+    },
+    float = {
+        enable = false,
+        open_win_config = {
+            relative = "editor",
+            border = "single",
+            width = 30,
+            height = 70,
+            row = 4,
+            col = 0,
+        },
     },
   },
   renderer = {

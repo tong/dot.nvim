@@ -38,7 +38,7 @@ lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.gopls.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig['haxe_language_server'].setup {
+lspconfig.haxe_language_server.setup {
     cmd = { "haxe-langserver" },
     capabilities = capabilities,
     on_attach = on_attach
