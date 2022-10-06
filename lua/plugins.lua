@@ -23,6 +23,7 @@ Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'petertriho/nvim-scrollbar'
+Plug 'folke/todo-comments.nvim'
 
 -- Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -64,7 +65,7 @@ Plug 'tong/nvhx'
 
 --Plug 'cakebaker/scss-syntax.vim'
 --Plug 'chr4/nginx.vim'
---Plug 'tikhomirov/vim-glsl'
+Plug 'tikhomirov/vim-glsl'
 
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'ellisonleao/glow.nvim'
