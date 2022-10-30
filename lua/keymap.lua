@@ -7,6 +7,9 @@ end
 local function imap(k, v)
     vim.keymap.set('i', k, v, { silent = true })
 end
+local function vmap(k, v)
+    vim.keymap.set('v', k, v, { silent = true })
+end
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -32,7 +35,7 @@ vim.g.maplocalleader = ' '
 nmap('<C-a>', 'ggVG')
 
 -- Disable highlight
--- nmap('<C-l>', ':nohlsearch<CR>')
+--nmap('<c-l>', ':nohlsearch<CR>')
 
 -- Move line up/down
 nmap('<a-j>', ":move .+1<CR>")
