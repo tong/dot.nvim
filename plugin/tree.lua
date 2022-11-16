@@ -189,7 +189,7 @@ local config = {
   },
   filters = {
     dotfiles = false,
-    custom = {},
+    custom = { "__pycache__" },
     exclude = {},
   },
   filesystem_watchers = {
@@ -198,7 +198,7 @@ local config = {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     show_on_dirs = true,
     timeout = 400,
   },
@@ -226,7 +226,7 @@ local config = {
       quit_on_open = false,
       resize_window = true,
       window_picker = {
-        enable = true,
+        enable = false,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
         exclude = {
           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
@@ -260,7 +260,7 @@ local config = {
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}
 
 require("nvim-tree").setup(config)
 

@@ -21,7 +21,7 @@ vim.g.maplocalleader = ' '
 --map('n', 'n', 'nzz')
 --map('n', 'N', 'Nzz')
 
--- map the leader key
+-- Map the leader key
 --map('n', '<Space>', '', {})
 
 --map('n', '<C-', '')
@@ -52,29 +52,36 @@ nmap('<s-Enter>', 'O<Esc>')
 -- Insert single space
 --map('n', '<space>', 'i<space><esc>l')
 
--- Quickly save the current buffer or all buffers
+-- Save the current buffer
 --nmap('<leader>w', ':update<CR>')
+-- Save all buffers
 --nmap('<leader>W', ':wall<CR>')
 
 -- Quit 
 --nmap('<C-Q>', ':q<CR>')
 
 -- Resize window
-nmap('<leader>jj', ':resize -20<CR>')
-nmap('<leader>kk', ':resize +20<CR>')
-nmap('<leader>ll', ':vertical resize +40<CR>')
-nmap('<leader>hh', ':vertical resize -40<CR>')
+local resize_value=20
+nmap('<leader>jj', ':resize -'..resize_value..'<CR>')
+nmap('<leader>kk', ':resize +'..resize_value..'<CR>')
+nmap('<leader>ll', ':vertical resize +'..resize_value..'<CR>')
+nmap('<leader>hh', ':vertical resize -'..resize_value..'<CR>')
+-- resize_value=48
+-- nmap('<leader>HH', ':vertical resize -'..resize_value..'<CR>')
+-- nmap('<leader>JJ', ':resize -'..resize_value..'<CR>')
+-- nmap('<leader>KK', ':resize +'..resize_value..'<CR>')
+-- nmap('<leader>LL', ':vertical resize +'..resize_value..'<CR>')
 
 -- Toggle tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>')
+nmap('<C-n>', ':NvimTreeToggle<cr>')
 --nmap('<leader>tt', ':NvimTreeToggle<CR>')
 
 -- Move to the next/previous buffer
---nmap('<F2>', ':bprevious<CR>')
---nmap('<F3>', ':bnext<CR>')
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
+-- Pretty
 nmap('<leader>pf', ':Pretty<cr>')
 
 --imap('jj', '<Esc>')
+

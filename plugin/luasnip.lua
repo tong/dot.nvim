@@ -47,3 +47,5 @@ end)
 -- vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
 --vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>")
 
+ls.filetype_extend("bash", {"sh"})
+

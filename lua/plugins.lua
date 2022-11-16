@@ -25,6 +25,7 @@ Plug 'sunjon/shade.nvim'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'folke/todo-comments.nvim'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'sindrets/diffview.nvim'
 
 -- Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'

@@ -5,7 +5,8 @@ opt.autoindent = true
 opt.belloff = "all"
 opt.breakindent = true
 opt.completeopt = "menu,menuone,noinsert,noselect"
-opt.colorcolumn = '+1' 
+--opt.colorcolumn = '+1' 
+opt.colorcolumn = '80'
 opt.cindent = true
 opt.clipboard = 'unnamedplus'
 opt.completeopt='menu,menuone,noinsert,noselect'
@@ -40,7 +41,7 @@ opt.softtabstop = -1
 opt.spell = false
 opt.tabstop = 4
 opt.termguicolors = true
-opt.textwidth = 80
+--opt.textwidth = 80
 opt.title = true
 opt.updatetime = 1000
 opt.wildmenu = true
@@ -49,7 +50,7 @@ opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
 opt.wildignore:append "Cargo.lock"
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
-opt.wrap = true
+opt.wrap = false
 
 opt.backup = false
 opt.writebackup = false
@@ -71,23 +72,23 @@ opt.splitbelow = true
 -- Cursorline highlighting control
 --  Only have it on in the active buffer
 opt.cursorline = true -- Highlight the current line
-local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
-local set_cursorline = function(event, value, pattern)
-  vim.api.nvim_create_autocmd(event, {
-    group = group,
-    pattern = pattern,
-    callback = function()
-      vim.opt_local.cursorline = value
-    end,
-  })
-end
-set_cursorline("WinLeave", false)
-set_cursorline("WinEnter", true)
-set_cursorline("FileType", false, "TelescopePrompt")
+-- local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+-- local set_cursorline = function(event, value, pattern)
+--   vim.api.nvim_create_autocmd(event, {
+--     group = group,
+--     pattern = pattern,
+--     callback = function()
+--       vim.opt_local.cursorline = value
+--     end,
+--   })
+-- end
+-- set_cursorline("WinLeave", false)
+-- set_cursorline("WinEnter", true)
+-- set_cursorline("FileType", false, "TelescopePrompt")
 
 vim.cmd("colorscheme $COLORTHEME")
 
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=200}')
+vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="Search", timeout=200}')
 
 vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpg bdelete')
@@ -123,3 +124,6 @@ if vim.g.neovide then
     --vim.g.neovide_cursor_animation_length = 0
     opt.guifont = "JetBrainsMono Nerd Font:h9"
 end
+
+--require('util.norc')
+
