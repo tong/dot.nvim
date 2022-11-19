@@ -63,7 +63,6 @@ opt.splitbelow = true
 -- Preserve view while jumping
 --opt.jumpoptions = 'view'
 
--- Better folds (don't fold by default)
 -- opt.foldmethod = 'indent'
 -- opt.foldlevelstart = 99
 -- opt.foldnestmax = 3

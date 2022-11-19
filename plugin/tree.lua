@@ -113,7 +113,7 @@ local config = {
     root_folder_modifier = ":~",
     indent_width = 2,
     indent_markers = {
-      enable = false,
+      enable = true,
       inline_arrows = true,
       icons = {
         corner = "└",
@@ -167,7 +167,7 @@ local config = {
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
+    enable = true,
     update_root = false,
     ignore_list = {},
   },
@@ -177,8 +177,8 @@ local config = {
     args = {},
   },
   diagnostics = {
-    enable = false,
-    show_on_dirs = false,
+    enable = true,
+    show_on_dirs = true,
     debounce_delay = 50,
     icons = {
       hint = "",
@@ -243,7 +243,7 @@ local config = {
     require_confirm = true,
   },
   live_filter = {
-    prefix = "[FILTER]: ",
+    prefix = " ",
     always_show_folders = true,
   },
   log = {
@@ -261,7 +261,6 @@ local config = {
     },
   },
 }
-
 require("nvim-tree").setup(config)
 
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent: true })

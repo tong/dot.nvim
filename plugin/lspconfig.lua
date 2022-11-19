@@ -1,7 +1,8 @@
 local lspconfig = require 'lspconfig'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -34,12 +35,15 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup language servers
+
 lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.gopls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.haxe_language_server.setup {
     cmd = { "haxe-langserver" },
+    filetypes = {"haxe", "hxml"},
+    init_options = { displayArguments = { "build.hxml" } },
     capabilities = capabilities,
     on_attach = on_attach
 }
@@ -65,30 +69,10 @@ lspconfig.html.setup{
     }
 }
 lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
+lspconfig.sumneko_lua.setup { capabilities = capabilities, on_attach = on_attach } 
 --lspconfig.marksman.setup {}
-lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
+--lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.jedi_language_server.setup{}
 lspconfig.tsserver.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.vimls.setup{ capabilities = capabilities, on_attach = on_attach }
 
---[[ lspconfig.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-} ]]

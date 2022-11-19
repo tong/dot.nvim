@@ -35,12 +35,12 @@ cmp.setup({
             maxwidth = 48, 
             with_text = true,
             menu = ({
-                buffer = "[buffer]",
-                luasnip = "[snip]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[lua]",
+                buffer = " BUF",
+                luasnip = " SNIP",
+                nvim_lsp = " LSP",
+                nvim_lua = " LUA",
                 -- nvim_haxelib = "[Haxelib]",
-                path = "[Path]",
+                path = "<- FS",
                 latex_symbols = "[Latex]"
             })
         })
@@ -135,12 +135,11 @@ cmp.setup.cmdline('/', {
     },
 })
 
--- Setup lspconfig.
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
---   require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
---     capabilities = capabilities
---   }
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+  --   capabilities = capabilities
+  -- }
 
 require("cmp_git").setup()
 
@@ -151,11 +150,21 @@ require("cmp_git").setup()
 --     cmp_autopairs.on_confirm_done()
 -- )
 
-require("cmp-haxelib").setup()
-cmp.setup.filetype('hxml', {
-    sources = cmp.config.sources({
-        { name = "haxelib" }
-    },
-        { name = "buffer" }
-    )
-})
+-- require("cmp-haxelib").setup()
+-- cmp.setup.filetype('hxml', {
+--     sources = cmp.config.sources({
+--         { name = "haxelib" }
+--     },
+--         { name = "buffer" }
+--     )
+-- })
+--
+
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- require('lspconfig').haxe_language_server.setup {
+--     cmd = { "haxe-langserver" },
+--     --cmd = {"node", "~/dev/nvhx/haxe-langserver.js"},
+--     --displayArguments = "build.hxml",
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
