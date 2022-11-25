@@ -27,7 +27,7 @@ opt.number = true
 opt.relativenumber = false
 opt.ruler = true
 opt.scrolloff = 12
-opt.shell = 'zsh' 
+opt.shell = 'zsh'
 opt.shiftwidth = 0
 opt.showbreak = string.rep(" ", 3) -- long lines wrap smartly
 opt.showcmd = true
@@ -109,6 +109,8 @@ vim.cmd('autocmd BufReadCmd *.webp silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.webp bdelete')
 vim.cmd('autocmd BufReadCmd *.ttf silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.ttf bdelete')
+vim.cmd('autocmd BufReadCmd *.wav silent !xdg-open % &')
+vim.cmd('autocmd BufEnter *.wav bdelete')
 vim.cmd('autocmd BufReadCmd *.woff silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.woff bdelete')
 vim.cmd('autocmd BufReadCmd *.woff2 silent !xdg-open % &')

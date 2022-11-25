@@ -46,17 +46,16 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'David-Kunz/cmp-npm'
 Plug 'petertriho/cmp-git'
 -- Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
--- Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-path'
-Plug 'tong/cmp-haxelib'
 Plug 'onsails/lspkind.nvim'
 
 Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'TimUntersberger/neogit'
 
-Plug 'fatih/vim-go'
-Plug 'tong/nvhx'
+--Plug 'fatih/vim-go'
 
 --Plug 'mfussenegger/nvim-dap'
 --Plug 'rcarriga/nvim-dap-ui'
@@ -70,7 +69,10 @@ Plug 'ellisonleao/glow.nvim'
 
 Plug 'vimwiki/vimwiki'
 
-Plug 'pwntester/octo.nvim' 
+Plug 'pwntester/octo.nvim'
 --Plugin 'dbeniamine/cheat.sh-vim'
+
+Plug '~/dev/nvim/nvhx'
+Plug '~/dev/tool/nvim/nvim-cmp-haxelib'
 
 vim.call('plug#end')

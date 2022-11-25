@@ -13,8 +13,8 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local cmp = require'cmp'
 local luasnip = require('luasnip')
+local cmp = require'cmp'
 
 cmp.setup({
     formatting = {
@@ -32,12 +32,12 @@ cmp.setup({
         -- end
         format = lspkind.cmp_format({
             mode = "symbol_text",
-            maxwidth = 48, 
+            maxwidth = 48,
             with_text = true,
             menu = ({
                 buffer = " BUF",
-                luasnip = " SNIP",
                 nvim_lsp = " LSP",
+                luasnip = " SNIP",
                 nvim_lua = " LUA",
                 -- nvim_haxelib = "[Haxelib]",
                 path = "<- FS",
@@ -65,8 +65,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" }),     
-        
+        end, { "i", "s" }),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -87,6 +86,7 @@ cmp.setup({
         { name = 'path', option = { trailing_slash = true }, },
         --{ name = 'npm', keyword_length = 4 },
         { name = "buffer", keyword_length = 5 },
+        { name = 'nvim_lsp_signature_help' }
     }),
     view = {
         entries = { name = 'custom', selection_order = 'near_cursor' } 
@@ -130,18 +130,24 @@ cmp.setup.cmdline('/', {
     sources = {
         { name = 'buffer' }
     },
-    view = {                                                
-        entries = { name = 'wildmenu', separator = '|' }       
+    view = {
+        entries = { name = 'wildmenu', separator = '|' }
     },
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+--local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
   --   capabilities = capabilities
   -- }
 
 require("cmp_git").setup()
+
+-- cmp.setup {
+--     sources = {
+--         { name = 'nvim_lsp_signature_help' }
+--     }
+-- }
 
 --require('nvim-autopairs').setup({})
 -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')

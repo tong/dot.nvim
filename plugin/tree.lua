@@ -107,7 +107,7 @@ local config = {
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = false,
+    highlight_git = true,
     full_name = false,
     highlight_opened_files = "none",
     root_folder_modifier = ":~",
@@ -178,7 +178,7 @@ local config = {
   },
   diagnostics = {
     enable = true,
-    show_on_dirs = true,
+    show_on_dirs = false,
     debounce_delay = 50,
     icons = {
       hint = "",
