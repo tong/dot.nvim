@@ -1,0 +1,3 @@
+return {
+    parse("#!", "#!/bin/bash")
+}
