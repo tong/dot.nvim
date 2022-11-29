@@ -6,7 +6,8 @@ local i = ls.insert_node
 
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
 
-ls.config.set_config({
+--ls.config.set_config({
+ls.config.setup({
     history = true,
     updateevents = "TextChanged,TextChangedI",
     enable_autosnippets = true,
@@ -48,4 +49,5 @@ end)
 --vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>")
 
 ls.filetype_extend("bash", {"sh"})
+ls.filetype_extend("vimwiki", {"md"})
 

@@ -1,5 +1,5 @@
 local opt = vim.opt
-local api = vim.api
+--local api = vim.api
 
 opt.autoindent = true
 opt.belloff = "all"
@@ -46,8 +46,8 @@ opt.title = true
 opt.updatetime = 1000
 opt.wildmenu = true
 opt.wildignore = "__pycache__"
-opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
-opt.wildignore:append "Cargo.lock"
+--opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
+--opt.wildignore:append "Cargo.lock"
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
 opt.wrap = false
@@ -85,7 +85,6 @@ opt.cursorline = true -- Highlight the current line
 -- set_cursorline("WinEnter", true)
 -- set_cursorline("FileType", false, "TelescopePrompt")
 
-vim.cmd("colorscheme $COLORTHEME")
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="Search", timeout=200}')
 
@@ -116,15 +115,22 @@ vim.cmd('autocmd BufEnter *.woff bdelete')
 vim.cmd('autocmd BufReadCmd *.woff2 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.woff2 bdelete')
 
+--vim.cmd('autocmd! BufNewFile,BufRead *.md set filetype=markdown')
+
+vim.cmd("colorscheme $COLORTHEME")
+
 -- GUI
 
 --opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
 if vim.g.neovide then
+    opt.guifont = "JetBrainsMono Nerd Font:h9"
+    vim.g.neovide_cursor_vfx_mode = "sonicboom"
+    --vim.g.neovide_scale_factor = 0.5
+    --opt.neovide_transparency = 0.0
+    --opt.transparency = 0.8
+    --opt.neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
     --vim.g.neovide_cursor_trail_legnth = 0
     --vim.g.neovide_cursor_animation_length = 0
-    opt.guifont = "JetBrainsMono Nerd Font:h9"
 end
-
---require('util.norc')
 

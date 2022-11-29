@@ -69,8 +69,9 @@ cmp.setup({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-Escape>'] = cmp.mapping.abort(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     snippet = {
         expand = function(args)
@@ -80,16 +81,17 @@ cmp.setup({
     sources = cmp.config.sources({
         --{ name = "git" },
         -- { name = "gh_issues" },
-        { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'luasnip' },
         { name = 'path', option = { trailing_slash = true }, },
         --{ name = 'npm', keyword_length = 4 },
-        { name = "buffer", keyword_length = 5 },
-        { name = 'nvim_lsp_signature_help' }
+    }, {
+        { name = "buffer", keyword_length = 5 }
     }),
     view = {
-        entries = { name = 'custom', selection_order = 'near_cursor' } 
+        entries = { name = 'custom', selection_order = 'near_cursor' }
     },
     window = {
         completion = cmp.config.window.bordered(),

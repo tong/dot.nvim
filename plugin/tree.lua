@@ -107,7 +107,7 @@ local config = {
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = true,
+    highlight_git = false,
     full_name = false,
     highlight_opened_files = "none",
     root_folder_modifier = ":~",
@@ -125,7 +125,7 @@ local config = {
     },
     icons = {
       webdev_colors = true,
-      git_placement = "before",
+      git_placement = "after",
       padding = " ",
       symlink_arrow = " ➛ ",
       show = {
@@ -265,4 +265,11 @@ require("nvim-tree").setup(config)
 
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent: true })
 --nmap('<leader>tt', ':NvimTreeToggle<CR>')
+
+-- Toggle tree
+--nmap('<C-n>', ':NvimTreeToggle<cr>')
+--nmap('<leader>tt', ':NvimTreeToggle<CR>')
+
+--vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<cr>', { silent = true })
+
 

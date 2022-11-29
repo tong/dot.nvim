@@ -4,7 +4,7 @@ local lspconfig = require 'lspconfig'
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) --nvim-cmp
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -71,7 +71,7 @@ lspconfig.html.setup{
     }
 }
 lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
---lspconfig.marksman.setup {}
+lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.jedi_language_server.setup{}
 lspconfig.tsserver.setup{ capabilities = capabilities, on_attach = on_attach }
@@ -79,11 +79,17 @@ lspconfig.vimls.setup{ capabilities = capabilities, on_attach = on_attach }
 
 lspconfig.sumneko_lua.setup {
     settings = {
-        runtime = { version = "LuaJIT" },
-        diagnostic = { globals = { "vim" } },
-        workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            }
+        },
+        --runtime = { version = "LuaJIT" },
+        --diagnostic = { globals = { "vim" } },
+        --workspace = { library = vim.api.nvim_get_runtime_file("", true) },
         telemetry = { enable = false }
     },
     capabilities = capabilities,
     on_attach = on_attach
 }
+

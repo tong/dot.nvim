@@ -4,6 +4,9 @@ telescope.setup {
         file_ignore_patterns = {
             "node_modules",
             "public"
+        },
+        mapping = {
+            --i = { ["<C-h>"] = "which_key" }
         }
     },
     extensions = {
@@ -15,8 +18,8 @@ telescope.setup {
 
 telescope.load_extension('media_files')
 --telescope.load_extension('octo')
-
-require("telescope").load_extension('harpoon')
+--require("telescope").load_extension('gh')
+telescope.load_extension('harpoon')
 
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
@@ -48,6 +51,20 @@ require("cheatsheet").setup({
         ['<C-E>'] = require('cheatsheet.telescope.actions').edit_user_cheatsheet,
     }
 })
+
+-- local dropdown_theme = require('telescope.themes').get_dropdown({
+--   results_height = 20;
+--   winblend = 20;
+--   width = 0.8;
+--   prompt_title = '';
+--   prompt_prefix = 'Files>';
+--   previewer = false;
+--   borderchars = {
+--     prompt = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+--     results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
+--     preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+--   };
+-- })
 
 
 local map = vim.api.nvim_set_keymap

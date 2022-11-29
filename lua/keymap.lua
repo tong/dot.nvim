@@ -60,28 +60,31 @@ nmap('<s-Enter>', 'O<Esc>')
 -- Quit 
 --nmap('<C-Q>', ':q<CR>')
 
--- Resize window
-local resize_value=20
+-- Resize pane
+local resize_value=28
+nmap('<leader>hh', ':vertical resize -'..resize_value..'<CR>')
 nmap('<leader>jj', ':resize -'..resize_value..'<CR>')
 nmap('<leader>kk', ':resize +'..resize_value..'<CR>')
 nmap('<leader>ll', ':vertical resize +'..resize_value..'<CR>')
-nmap('<leader>hh', ':vertical resize -'..resize_value..'<CR>')
--- resize_value=48
--- nmap('<leader>HH', ':vertical resize -'..resize_value..'<CR>')
+--resize_value=64
+--nmap('<leader>HH', ':resize -'..resize_value..'<CR>')
 -- nmap('<leader>JJ', ':resize -'..resize_value..'<CR>')
 -- nmap('<leader>KK', ':resize +'..resize_value..'<CR>')
--- nmap('<leader>LL', ':vertical resize +'..resize_value..'<CR>')
+--nmap('<leader>LL', ':resize +'..resize_value..'<CR>')
 
--- Toggle tree
-nmap('<C-n>', ':NvimTreeToggle<cr>')
---nmap('<leader>tt', ':NvimTreeToggle<CR>')
 
 -- Move to the next/previous buffer
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
+
+-- Toggle tree
+nmap('<C-n>', ':NvimTreeToggle<cr>')
+nmap('<leader>tt', ':NvimTreeToggle<CR>')
+--
 -- Pretty
 nmap('<leader>pf', ':Pretty<cr>')
 
 --imap('jj', '<Esc>')
 
+nmap('<F5>', ':Haxe build.hxml<cr>')
