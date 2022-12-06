@@ -96,9 +96,9 @@ local config = {
       quit_on_focus_loss = true,
       open_win_config = {
         relative = "editor",
-        border = "rounded",
+        border = "shadow",
         width = 30,
-        height = 30,
+        height = 72,
         row = 1,
         col = 1,
       },
@@ -107,9 +107,9 @@ local config = {
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = false,
+    highlight_git = true,
     full_name = false,
-    highlight_opened_files = "none",
+    highlight_opened_files = "icon",
     root_folder_modifier = ":~",
     indent_width = 2,
     indent_markers = {
@@ -159,7 +159,7 @@ local config = {
         },
       },
     },
-    special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+    special_files = { "khafile.js", "Makefile", "README.md", "readme.md" },
     symlink_destination = true,
   },
   hijack_directories = {
@@ -178,7 +178,7 @@ local config = {
   },
   diagnostics = {
     enable = true,
-    show_on_dirs = false,
+    show_on_dirs = true,
     debounce_delay = 50,
     icons = {
       hint = "",
@@ -189,7 +189,7 @@ local config = {
   },
   filters = {
     dotfiles = false,
-    custom = { "__pycache__" },
+    custom = { "__pycache__", "^.git$" },
     exclude = {},
   },
   filesystem_watchers = {
@@ -263,6 +263,16 @@ local config = {
 }
 require("nvim-tree").setup(config)
 
+-- Autoclose if last window
+vim.api.nvim_create_autocmd("BufEnter", {
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+            vim.cmd "quit"
+        end
+    end
+})
+
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent: true })
 --nmap('<leader>tt', ':NvimTreeToggle<CR>')
 
@@ -272,4 +282,5 @@ require("nvim-tree").setup(config)
 
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<cr>', { silent = true })
 
+vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')
 

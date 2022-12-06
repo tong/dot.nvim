@@ -77,14 +77,15 @@ nmap('<leader>ll', ':vertical resize +'..resize_value..'<CR>')
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
+nmap('<leader>hl', ':nohlsearch<cr>')
 
 -- Toggle tree
 nmap('<C-n>', ':NvimTreeToggle<cr>')
 nmap('<leader>tt', ':NvimTreeToggle<CR>')
 --
 -- Pretty
-nmap('<leader>pf', ':Pretty<cr>')
+--nmap('<leader>pf', ':Pretty<cr>')
+
+
 
 --imap('jj', '<Esc>')
-
-nmap('<F5>', ':Haxe build.hxml<cr>')

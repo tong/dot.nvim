@@ -1,6 +1,5 @@
 "let g:startify_change_to_dir = 1
 let g:startify_custom_header = split('          ','\n')
-"let g:startify_custom_footer = split('          ','\n')
 let g:startify_files_number = 24
 let g:startify_change_to_vcs_root = 0
 "let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")

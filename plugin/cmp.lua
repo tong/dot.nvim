@@ -16,6 +16,10 @@ end
 local luasnip = require('luasnip')
 local cmp = require'cmp'
 
+local winhighlight = {
+	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
+
 cmp.setup({
     formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -32,16 +36,16 @@ cmp.setup({
         -- end
         format = lspkind.cmp_format({
             mode = "symbol_text",
-            maxwidth = 48,
+            maxwidth = 92,
             with_text = true,
             menu = ({
-                buffer = " BUF",
+                luasnip = " SNP",
                 nvim_lsp = " LSP",
-                luasnip = " SNIP",
                 nvim_lua = " LUA",
                 -- nvim_haxelib = "[Haxelib]",
                 path = "<- FS",
-                latex_symbols = "[Latex]"
+                buffer = " BUF",
+                --latex_symbols = "[Latex]"
             })
         })
     },
@@ -81,8 +85,8 @@ cmp.setup({
     sources = cmp.config.sources({
         --{ name = "git" },
         -- { name = "gh_issues" },
-        { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },
         { name = 'path', option = { trailing_slash = true }, },
@@ -94,13 +98,8 @@ cmp.setup({
         entries = { name = 'custom', selection_order = 'near_cursor' }
     },
     window = {
-        completion = cmp.config.window.bordered(),
-        -- completion = {
-        --     winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-        --     -- col_offset = -3,
-        --     side_padding = 2,
-        -- },
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(winhighlight),
+        documentation = cmp.config.window.bordered(winhighlight),
     }
 })
 

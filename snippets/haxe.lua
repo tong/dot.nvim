@@ -6,6 +6,8 @@ return {
     parse("~/", "~/$1/$2;"),
     parse("trace", "trace($1);"),
     parse("if", "if($1)"),
+    parse("#if", "#if ${1:<flag>}\n$2\n#end"),
+    parse("#ifel", "#if ${1:<flag>}\n$2#else ${3:if <flag>}\n$4\n#end"),
     parse("ifel", "if($1) {\n} else {\n}"),
     parse("while", "while($1) {\n\t$2\n}"),
     parse("do", "do {\n\t$1\n} while($2);"),

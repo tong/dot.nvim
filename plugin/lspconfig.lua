@@ -1,10 +1,12 @@
+--vim.lsp.set_log_level("debug")
+
 local lspconfig = require 'lspconfig'
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 --capabilities.textDocument.completion.completionItem.snippetSupport = true
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) --nvim-cmp
---capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -45,6 +47,7 @@ lspconfig.gopls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.haxe_language_server.setup {
     cmd = { "haxe-langserver" },
     filetypes = {"haxe", "hxml"},
+    --root_dir = [[root_pattern("*.hxml")]],
     init_options = { displayArguments = { "build.hxml" } },
     capabilities = capabilities,
     on_attach = on_attach

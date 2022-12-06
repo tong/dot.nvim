@@ -26,6 +26,9 @@ Plug 'petertriho/nvim-scrollbar'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'mhinz/vim-startify'
+Plug 'rmagatti/goto-preview'
+
+Plug 'folke/twilight.nvim'
 
 -- Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -56,7 +59,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'TimUntersberger/neogit'
 
---Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 --Plug 'mfussenegger/nvim-dap'
 --Plug 'rcarriga/nvim-dap-ui'
@@ -73,7 +76,13 @@ Plug 'vimwiki/vimwiki'
 Plug 'pwntester/octo.nvim'
 --Plugin 'dbeniamine/cheat.sh-vim'
 
+Plug 'folke/tokyonight.nvim'
+Plug 'navarasu/onedark.nvim'
+
 Plug '~/dev/nvim/nvhx'
-Plug '~/dev/tool/nvim/nvim-cmp-haxelib'
+--Plug '~/dev/tool/nvim/nvim-cmp-haxelib'
+--Plug '~/dev/tool/nvim/nvim-armory'
+
+Plug 'folke/which-key.nvim'
 
 vim.call('plug#end')
