@@ -235,7 +235,7 @@ local config = {
       },
     },
     remove_file = {
-      close_window = true,
+        close_window = false,
     },
   },
   trash = {
@@ -264,14 +264,14 @@ local config = {
 require("nvim-tree").setup(config)
 
 -- Autoclose if last window
-vim.api.nvim_create_autocmd("BufEnter", {
-    nested = true,
-    callback = function()
-        if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
-            vim.cmd "quit"
-        end
-    end
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--     nested = true,
+--     callback = function()
+--         if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+--             vim.cmd "quit"
+--         end
+--     end
+-- })
 
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent: true })
 --nmap('<leader>tt', ':NvimTreeToggle<CR>')

@@ -14,6 +14,8 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+--imap('jj', '<Esc>')
+
 -- Fix * (Keep the cursor position, don't move to next match)
 --map('n', '*', '*N')
 
@@ -34,16 +36,9 @@ vim.g.maplocalleader = ' '
 -- Select all
 nmap('<C-a>', 'ggVG')
 
--- Disable highlight
---nmap('<c-l>', ':nohlsearch<CR>')
-
 -- Move line up/down
 nmap('<a-j>', ":move .+1<CR>")
 nmap('<a-k>', ":move .-2<CR>")
-
--- Copy/Paste
---map('v', '<C-c', '"*y :let @+=@*<CR>')
---map('n', '<C-p', '"+P')
 
 -- Insert blank line
 nmap('<Enter>', 'o<Esc>')
@@ -51,6 +46,10 @@ nmap('<s-Enter>', 'O<Esc>')
 
 -- Insert single space
 --map('n', '<space>', 'i<space><esc>l')
+--
+-- Copy/Paste
+--map('v', '<C-c', '"*y :let @+=@*<CR>')
+--map('n', '<C-p', '"+P')
 
 -- Save the current buffer
 --nmap('<leader>w', ':update<CR>')
@@ -59,6 +58,9 @@ nmap('<s-Enter>', 'O<Esc>')
 
 -- Quit 
 --nmap('<C-Q>', ':q<CR>')
+
+-- No highlight
+nmap('<leader>hl', ':nohlsearch<cr>')
 
 -- Resize pane
 local resize_value=28
@@ -72,20 +74,17 @@ nmap('<leader>ll', ':vertical resize +'..resize_value..'<CR>')
 -- nmap('<leader>KK', ':resize +'..resize_value..'<CR>')
 --nmap('<leader>LL', ':resize +'..resize_value..'<CR>')
 
-
 -- Move to the next/previous buffer
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
-nmap('<leader>hl', ':nohlsearch<cr>')
-
 -- Toggle tree
 nmap('<C-n>', ':NvimTreeToggle<cr>')
 nmap('<leader>tt', ':NvimTreeToggle<CR>')
---
+
 -- Pretty
 --nmap('<leader>pf', ':Pretty<cr>')
 
+-- Leave terminal input mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
 
-
---imap('jj', '<Esc>')

@@ -5,7 +5,7 @@ local actions = require("telescope.actions")
 telescope.setup {
     defaults = {
         layout_config = {
-            vertical = { width = 0.5 }
+            --vertical = { width = 0.5 }
         },
         file_ignore_patterns = {
             "node_modules",
@@ -13,25 +13,31 @@ telescope.setup {
         },
         mapping = {
             --i = { ["<C-h>"] = "which_key" }
-            i = { ["<esc>"] = actions.close}
+            --i = { ["<esc>"] = actions.close}
         }
     },
     pickers = {
-        find_files = {
-            theme = "ivy",
-        }
+        -- find_files = {
+        --     theme = "ivy",
+        -- }
     },
     extensions = {
-        media_files = {
+        --media_files = {
             --filetypes = {"png"}
-        }
+        --},
+        -- fzf = {
+        --     fuzzy = true,                    -- false will only do exact matching
+        --     override_generic_sorter = true,  -- override the generic sorter
+        --     override_file_sorter = true,     -- override the file sorter
+        --     case_mode = "smart_case",        -- or "ignore_case" or "respect_case, the default case_mode is "smart_case"
+        -- }
     }
 }
 
-telescope.load_extension('media_files')
+--telescope.load_extension('media_files')
 --telescope.load_extension('octo')
 --require("telescope").load_extension('gh')
-telescope.load_extension('harpoon')
+--telescope.load_extension('harpoon')
 
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
@@ -109,42 +115,37 @@ require('neoclip').setup({
 })
 telescope.load_extension('neoclip')
 
-
 local dropdown_theme = require('telescope.themes').get_dropdown({
-  results_height = 20;
-  winblend = 20;
-  width = 0.8;
-  prompt_title = '';
-  prompt_prefix = 'Files>';
-  previewer = false;
-  borderchars = {
-    prompt = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-    results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
-    preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-  };
+    results_height = 20;
+    winblend = 20;
+    width = 0.8;
+    prompt_title = '';
+    prompt_prefix = 'Files>';
+    previewer = true;
+    borderchars = {
+        prompt = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+        results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
+        preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+    };
 })
 
 
---local themes = require('telescope.themes')
+local themes = require('telescope.themes')
+
+--Telescope find_files theme=dropdown
+--nnoremap <Leader>f :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>
+--builtin.find_files(themes.get_dropdown({}))
+--
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 --vim.keymap.set('n', '<leader>fc', builtin.neoclip, {})
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+--vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fc', ':Telescope neoclip<CR>', {})
 vim.keymap.set('n', '<leader>ft', ':Telescope<CR>', {})
 
---Telescope find_files theme=dropdown
---nnoremap <Leader>f :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>
-
 vim.keymap.set('n', '<leader>fgb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>fgc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>fgs', builtin.git_stash, {})
-
--- map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
--- map('n', '<leader>fg', ':Telescope live_grep<CR>', opts)
--- map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
--- map('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
---
---builtin.find_files(themes.get_dropdown({}))
 
