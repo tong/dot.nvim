@@ -73,7 +73,18 @@ lspconfig.html.setup{
         javascript = true
     }
 }
-lspconfig.jsonls.setup { capabilities = capabilities, on_attach = on_attach, { "json", "jsonc" } }
+lspconfig.jsonls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach, { "json", "jsonc" },
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics, {
+                -- Disable virtual_text
+                virtual_text = false
+            }
+        ),
+    }
+}
 lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.jedi_language_server.setup{}

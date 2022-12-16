@@ -1,5 +1,4 @@
 local opt = vim.opt
---local api = vim.api
 
 opt.autoindent = true
 opt.belloff = "all"
@@ -70,7 +69,6 @@ opt.splitbelow = true
 
 -- Cursorline highlighting control
 --  Only have it on in the active buffer
-opt.cursorline = true -- Highlight the current line
 -- local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 -- local set_cursorline = function(event, value, pattern)
 --   vim.api.nvim_create_autocmd(event, {
@@ -84,7 +82,6 @@ opt.cursorline = true -- Highlight the current line
 -- set_cursorline("WinLeave", false)
 -- set_cursorline("WinEnter", true)
 -- set_cursorline("FileType", false, "TelescopePrompt")
-
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="Search", timeout=200}')
 
@@ -118,9 +115,7 @@ vim.cmd('autocmd BufEnter *.woff2 bdelete')
 --vim.cmd('autocmd! BufNewFile,BufRead *.md set filetype=markdown')
 
 -- GUI
-
 --opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
-
 if vim.g.neovide then
     opt.guifont = "JetBrainsMono Nerd Font:h9"
     vim.g.neovide_cursor_vfx_mode = "sonicboom"
