@@ -23,7 +23,7 @@ telescope.setup {
     },
     extensions = {
         --media_files = {
-            --filetypes = {"png"}
+        --filetypes = {"png"}
         --},
         -- fzf = {
         --     fuzzy = true,                    -- false will only do exact matching
@@ -35,9 +35,10 @@ telescope.setup {
 }
 
 --telescope.load_extension('media_files')
---telescope.load_extension('octo')
+telescope.load_extension('octo')
 --require("telescope").load_extension('gh')
 --telescope.load_extension('harpoon')
+--telescope.load_extension('cheat')
 
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
@@ -123,12 +124,11 @@ local dropdown_theme = require('telescope.themes').get_dropdown({
     prompt_prefix = 'Files>';
     previewer = true;
     borderchars = {
-        prompt = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-        results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
-        preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+        prompt = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
+        results = { ' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
+        preview = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
     };
 })
-
 
 local themes = require('telescope.themes')
 
@@ -139,13 +139,14 @@ local themes = require('telescope.themes')
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 --vim.keymap.set('n', '<leader>fc', builtin.neoclip, {})
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
---vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fc', ':Telescope neoclip<CR>', {})
-vim.keymap.set('n', '<leader>ft', ':Telescope<CR>', {})
+vim.keymap.set('n', '<leader>ftt', ':Telescope<CR>', {})
 
-vim.keymap.set('n', '<leader>fgb', builtin.git_branches, {})
-vim.keymap.set('n', '<leader>fgc', builtin.git_commits, {})
-vim.keymap.set('n', '<leader>fgs', builtin.git_stash, {})
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
+vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
 
+--vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})

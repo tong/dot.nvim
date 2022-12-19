@@ -21,10 +21,10 @@ require("todo-comments").setup {
         bg = "BOLD", -- The gui style to use for the bg highlight group.
     },
     merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-      -- highlighting of the line containing the todo comment
-      -- * before: highlights before the keyword (typically comment characters)
-      -- * keyword: highlights of the keyword
-      -- * after: highlights after the keyword (todo text)
+    -- highlighting of the line containing the todo comment
+    -- * before: highlights before the keyword (typically comment characters)
+    -- * keyword: highlights of the keyword
+    -- * after: highlights after the keyword (todo text)
     highlight = {
         before = "", -- "fg" or "bg" or empty
         keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)

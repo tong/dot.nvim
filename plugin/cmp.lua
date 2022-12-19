@@ -1,4 +1,3 @@
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.shortmess:append "c"
 
@@ -14,10 +13,10 @@ local has_words_before = function()
 end
 
 local luasnip = require('luasnip')
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 local winhighlight = {
-	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+    winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
 }
 
 cmp.setup({
@@ -108,9 +107,9 @@ cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
         { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
     },
-    {
-        { name = 'buffer' },
-    })
+        {
+            { name = 'buffer' },
+        })
 })
 
 
@@ -136,12 +135,6 @@ cmp.setup.cmdline('/', {
     },
 })
 
---local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-  --   capabilities = capabilities
-  -- }
-
 require("cmp_git").setup()
 
 -- cmp.setup {
@@ -165,13 +158,4 @@ require("cmp_git").setup()
 --         { name = "buffer" }
 --     )
 -- })
---
 
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- require('lspconfig').haxe_language_server.setup {
---     cmd = { "haxe-langserver" },
---     --cmd = {"node", "~/dev/nvhx/haxe-langserver.js"},
---     --displayArguments = "build.hxml",
---     capabilities = capabilities,
---     on_attach = on_attach
--- }

@@ -4,11 +4,11 @@ opt.autoindent = true
 opt.belloff = "all"
 opt.breakindent = true
 opt.completeopt = "menu,menuone,noinsert,noselect"
---opt.colorcolumn = '+1' 
+--opt.colorcolumn = '+1'
 opt.colorcolumn = '80'
 opt.cindent = true
 opt.clipboard = 'unnamedplus'
-opt.completeopt='menu,menuone,noinsert,noselect'
+opt.completeopt = 'menu,menuone,noinsert,noselect'
 opt.cursorline = true
 opt.encoding = 'utf-8'
 opt.equalalways = false
@@ -16,7 +16,6 @@ opt.expandtab = true
 opt.hidden = true
 opt.history = 50
 opt.ignorecase = true
-opt.incsearch = true
 opt.linebreak = true
 opt.list = true
 opt.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
@@ -27,7 +26,7 @@ opt.relativenumber = false
 opt.ruler = true
 opt.scrolloff = 12
 opt.shell = 'zsh'
-opt.shiftwidth = 0
+opt.shiftwidth = 4
 opt.showbreak = string.rep(" ", 3) -- long lines wrap smartly
 opt.showcmd = true
 opt.showmatch = true
@@ -36,13 +35,15 @@ opt.signcolumn = 'yes'
 opt.smartcase = true
 opt.smartindent = true
 opt.smarttab = true
-opt.softtabstop = -1
+--opt.softtabstop = -1
+opt.softtabstop = 4
 opt.spell = false
 opt.tabstop = 4
 opt.termguicolors = true
 --opt.textwidth = 80
 opt.title = true
-opt.updatetime = 1000
+--opt.updatetime = 1000
+opt.updatetime = 200
 opt.wildmenu = true
 opt.wildignore = "__pycache__"
 --opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
@@ -51,10 +52,13 @@ opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
 opt.wrap = false
 
+--opt.hlsearch = true
+opt.incsearch = true
+
+opt.swapfile = false
 opt.backup = false
 opt.writebackup = false
 opt.undofile = true
-opt.swapfile = false
 
 opt.splitright = true
 opt.splitbelow = true
@@ -114,6 +118,11 @@ vim.cmd('autocmd BufEnter *.woff2 bdelete')
 
 --vim.cmd('autocmd! BufNewFile,BufRead *.md set filetype=markdown')
 
+--highlight Normal ctermbg=none
+--highlight NonText ctermbg=none
+--highlight Normal guibg=none
+--highlight NonText guibg=none
+
 -- GUI
 --opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 if vim.g.neovide then
@@ -126,4 +135,3 @@ if vim.g.neovide then
     --vim.g.neovide_cursor_trail_legnth = 0
     --vim.g.neovide_cursor_animation_length = 0
 end
-

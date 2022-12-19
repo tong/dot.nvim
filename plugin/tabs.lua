@@ -1,4 +1,4 @@
-require'bufferline'.setup {
+require 'bufferline'.setup {
     -- Enable/disable animations
     animation = true,
 
@@ -12,8 +12,8 @@ require'bufferline'.setup {
     closable = true,
 
     -- Enables/disable clickable tabs
-        --  - left-click: go to buffer
-        --  - middle-click: delete buffer
+    --  - left-click: go to buffer
+    --  - middle-click: delete buffer
     clickable = true,
 
     -- Excludes buffers from the tabline
@@ -77,8 +77,8 @@ map('n', '<C-.>', '<Cmd>BufferNext<CR>', opts)
 --map('n', '<c-k>', '<Cmd>BufferNext<CR>', opts)
 
 -- Goto buffer in position
-for i = 1,9,1 do
-    map('n', '<C-'..i..'>', '<Cmd>BufferGoto '..i..'<CR>', opts)
+for i = 1, 9, 1 do
+    map('n', '<C-' .. i .. '>', '<Cmd>BufferGoto ' .. i .. '<CR>', opts)
 end
 -- map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 
@@ -122,19 +122,17 @@ local nvim_tree_events = require('nvim-tree.events')
 local bufferline_api = require('bufferline.api')
 
 local function get_tree_size()
-  return require'nvim-tree.view'.View.width
+    return require 'nvim-tree.view'.View.width
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()
-  bufferline_api.set_offset(get_tree_size())
+    bufferline_api.set_offset(get_tree_size())
 end)
 
 nvim_tree_events.subscribe('Resize', function()
-  bufferline_api.set_offset(get_tree_size())
+    bufferline_api.set_offset(get_tree_size())
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
-  bufferline_api.set_offset(0)
+    bufferline_api.set_offset(0)
 end)
-
-

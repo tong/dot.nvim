@@ -1,18 +1,18 @@
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
-end
-local function nmap(k, v)
-    vim.keymap.set('n', k, v, { silent = true })
-end
-local function imap(k, v)
-    vim.keymap.set('i', k, v, { silent = true })
-end
-local function vmap(k, v)
-    vim.keymap.set('v', k, v, { silent = true })
-end
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- local function map(m, k, v)
+--     vim.keymap.set(m, k, v, { silent = true })
+-- end
+-- local function vim.keymap.set("n", k, v)
+--     vim.keymap.set('n', k, v, { silent = true })
+-- end
+-- local function imap(k, v)
+--     vim.keymap.set('i', k, v, { silent = true })
+-- end
+-- local function vmap(k, v)
+--     vim.keymap.set('v', k, v, { silent = true })
+-- end
 
 --imap('jj', '<Esc>')
 
@@ -28,23 +28,40 @@ vim.g.maplocalleader = ' '
 
 --map('n', '<C-', '')
 
--- nmap('H','20h')
--- nmap('J','10j')
--- nmap('K','10k')
--- nmap('L','20l')
+-- vim.keymap.set("n", 'H','20h')
+-- vim.keymap.set("n", 'J','10j')
+-- vim.keymap.set("n", 'K','10k')
+-- vim.keymap.set("n", 'L','20l')
+
+vim.keymap.set("n", "Q", "<nop>")
 
 -- Select all
-nmap('<C-a>', 'ggVG')
+vim.keymap.set('n', '<C-a>', 'ggVG')
+
+-- Move selection up/down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Move up/down but keep cursor centered
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Keep cursor centered in seach
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- Move line up/down
-nmap('<a-j>', ":move .+1<CR>")
-nmap('<a-k>', ":move .-2<CR>")
+vim.keymap.set("n", '<a-j>', ":move .+1<CR>")
+vim.keymap.set("n", '<a-k>', ":move .-2<CR>")
 
 -- Insert blank line
-nmap('<Enter>', 'o<Esc>')
-nmap('<s-Enter>', 'O<Esc>')
+vim.keymap.set("n", '<Enter>', 'o<Esc>')
+vim.keymap.set("n", '<s-Enter>', 'O<Esc>')
 
--- Insert single space
+-- Paste over selection while preserving yank
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+--Insert single space
 --map('n', '<space>', 'i<space><esc>l')
 --
 -- Copy/Paste
@@ -52,39 +69,47 @@ nmap('<s-Enter>', 'O<Esc>')
 --map('n', '<C-p', '"+P')
 
 -- Save the current buffer
---nmap('<leader>w', ':update<CR>')
+vim.keymap.set("n", '<leader>ww', ':update<CR>')
 -- Save all buffers
---nmap('<leader>W', ':wall<CR>')
+vim.keymap.set("n", '<leader>WW', ':wall<CR>')
 
--- Quit 
---nmap('<C-Q>', ':q<CR>')
+-- Quit
+--vim.keymap.set("n", '<C-Q>', ':q<CR>')
+
+-- Format
+-- vim.keymap.set("n", "<leader>F", function()
+--     vim.lsp.buf.format()
+-- end)
+
+-- Start search/replace with word under cursor
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- No highlight
-nmap('<leader>hl', ':nohlsearch<cr>')
+vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>')
 
 -- Resize pane
-local resize_value=28
-nmap('<leader>hh', ':vertical resize -'..resize_value..'<CR>')
-nmap('<leader>jj', ':resize -'..resize_value..'<CR>')
-nmap('<leader>kk', ':resize +'..resize_value..'<CR>')
-nmap('<leader>ll', ':vertical resize +'..resize_value..'<CR>')
+local resize_value = 28
+vim.keymap.set("n", '<leader>hh', ':vertical resize -' .. resize_value .. '<CR>')
+vim.keymap.set("n", '<leader>jj', ':resize -' .. resize_value .. '<CR>')
+vim.keymap.set("n", '<leader>kk', ':resize +' .. resize_value .. '<CR>')
+vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>')
 --resize_value=64
---nmap('<leader>HH', ':resize -'..resize_value..'<CR>')
--- nmap('<leader>JJ', ':resize -'..resize_value..'<CR>')
--- nmap('<leader>KK', ':resize +'..resize_value..'<CR>')
---nmap('<leader>LL', ':resize +'..resize_value..'<CR>')
+--vim.keymap.set("n", '<leader>HH', ':resize -'..resize_value..'<CR>')
+-- vim.keymap.set("n", '<leader>JJ', ':resize -'..resize_value..'<CR>')
+-- vim.keymap.set("n", '<leader>KK', ':resize +'..resize_value..'<CR>')
+--vim.keymap.set("n", '<leader>LL', ':resize +'..resize_value..'<CR>')
 
 -- Move to the next/previous buffer
 --map('n', '<leader>[', ':bp<CR>')
 --map('n', '<leader>]', ':bn<CR>')
 
 -- Toggle tree
-nmap('<C-n>', ':NvimTreeToggle<cr>')
-nmap('<leader>tt', ':NvimTreeToggle<CR>')
+-- vim.keymap.set("n", '<C-n>', ':NvimTreeToggle<cr>')
+-- vim.keymap.set("n", '<leader>tt', ':NvimTreeToggle<CR>')
 
 -- Pretty
---nmap('<leader>pf', ':Pretty<cr>')
+--vim.keymap.set("n", '<leader>pf', ':Pretty<cr>')
 
 -- Leave terminal input mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
-
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })

@@ -1,5 +1,7 @@
 --vim.lsp.set_log_level("debug")
 
+require("lsp-format").setup {}
+
 local lspconfig = require 'lspconfig'
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 --capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -8,7 +10,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) --nvim-cmp
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -20,7 +22,7 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -35,18 +37,19 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    --vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+    --vim.lsp.buf.format()
 end
 
 -- Setup language servers
 
-lspconfig.bashls.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.cssls.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.gopls.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.clangd.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.cssls.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.gopls.setup { capabilities = capabilities, on_attach = on_attach }
 lspconfig.haxe_language_server.setup {
     cmd = { "haxe-langserver" },
-    filetypes = {"haxe", "hxml"},
+    filetypes = { "haxe", "hxml" },
     --root_dir = [[root_pattern("*.hxml")]],
     init_options = { displayArguments = { "build.hxml" } },
     capabilities = capabilities,
@@ -57,15 +60,15 @@ lspconfig.emmet_ls.setup({
     capabilities = capabilities,
     filetypes = { 'html', 'css', 'sass', 'scss', 'less' },
     init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
+        html = {
+            options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ["bem.enabled"] = true,
+            },
         },
-      },
     }
 })
-lspconfig.html.setup{
+lspconfig.html.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     embeddedLanguages = {
@@ -79,17 +82,17 @@ lspconfig.jsonls.setup {
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics, {
-                -- Disable virtual_text
-                virtual_text = false
-            }
+            -- Disable virtual_text
+            virtual_text = false
+        }
         ),
     }
 }
 lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.jedi_language_server.setup{}
-lspconfig.tsserver.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.vimls.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.jedi_language_server.setup {}
+lspconfig.tsserver.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.vimls.setup { capabilities = capabilities, on_attach = on_attach }
 
 lspconfig.sumneko_lua.setup {
     settings = {
@@ -106,4 +109,3 @@ lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
-
