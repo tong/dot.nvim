@@ -18,7 +18,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    --vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -76,6 +76,7 @@ lspconfig.html.setup {
         javascript = true
     }
 }
+lspconfig.jedi_language_server.setup {}
 lspconfig.jsonls.setup {
     capabilities = capabilities,
     on_attach = on_attach, { "json", "jsonc" },
@@ -90,10 +91,6 @@ lspconfig.jsonls.setup {
 }
 lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.jedi_language_server.setup {}
-lspconfig.tsserver.setup { capabilities = capabilities, on_attach = on_attach }
-lspconfig.vimls.setup { capabilities = capabilities, on_attach = on_attach }
-
 lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {
@@ -109,3 +106,7 @@ lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
+lspconfig.tsserver.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.vimls.setup { capabilities = capabilities, on_attach = on_attach }
+lspconfig.yamlls.setup { capabilities = capabilities, on_attach = on_attach }
+

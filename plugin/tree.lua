@@ -282,4 +282,5 @@ require("nvim-tree").setup(config)
 
 --vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<cr>', { silent = true })
 
-vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')
+--vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')

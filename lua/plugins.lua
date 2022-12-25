@@ -55,13 +55,19 @@ Plug 'prettier/vim-prettier'
 Plug 'pwntester/octo.nvim'
 Plug 'rmagatti/goto-preview'
 Plug 'romgrk/barbar.nvim'
-Plug 'ryanoasis/vim-devicons'
+--Plug 'ryanoasis/vim-devicons'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'vimwiki/vimwiki'
 Plug 'windwp/nvim-autopairs'
+
+--Plug 'MunifTanjim/nui.nvim'
+--Plug 'folke/noice.nvim'
+--Plug 'rcarriga/nvim-notify'
+
+--Plug 'mg979/vim-visual-multi'
 
 --Plug 'mbbill/undotree'
 
