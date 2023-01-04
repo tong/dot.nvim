@@ -1,5 +1,4 @@
-local neogit = require('neogit')
-neogit.setup {
+require('neogit').setup {
     kind = "split",
     signs = {
         section = { "", "" },

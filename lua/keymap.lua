@@ -73,6 +73,9 @@ vim.keymap.set("n", '<leader>ww', ':update<CR>')
 -- Save all buffers
 vim.keymap.set("n", '<leader>WW', ':wall<CR>')
 
+-- No highlight
+vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>')
+
 -- Quit
 --vim.keymap.set("n", '<C-Q>', ':q<CR>')
 
@@ -84,15 +87,12 @@ vim.keymap.set("n", '<leader>WW', ':wall<CR>')
 -- Start search/replace with word under cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
--- No highlight
-vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>')
-
 -- Resize pane
 local resize_value = 28
-vim.keymap.set("n", '<leader>hh', ':vertical resize -' .. resize_value .. '<CR>')
-vim.keymap.set("n", '<leader>jj', ':resize -' .. resize_value .. '<CR>')
-vim.keymap.set("n", '<leader>kk', ':resize +' .. resize_value .. '<CR>')
-vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>')
+vim.keymap.set("n", '<leader>hh', ':vertical resize -' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>jj', ':resize -' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>kk', ':resize +' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>', { silent = true })
 --resize_value=64
 --vim.keymap.set("n", '<leader>HH', ':resize -'..resize_value..'<CR>')
 -- vim.keymap.set("n", '<leader>JJ', ':resize -'..resize_value..'<CR>')
@@ -113,3 +113,8 @@ vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>'
 -- Leave terminal input mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
+
+--
+--vim.keymap.set('n', '<M-m>', ':MarkdownPreviewToogle', { silent = true })
+--vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToogle<CR>')
+

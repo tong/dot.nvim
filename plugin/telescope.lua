@@ -34,34 +34,30 @@ telescope.setup {
     }
 }
 
---telescope.load_extension('media_files')
+telescope.load_extension('media_files')
 telescope.load_extension('octo')
---require("telescope").load_extension('gh')
+--telescope.load_extension('gh')
 --telescope.load_extension('harpoon')
 --telescope.load_extension('cheat')
 
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
-
     -- For generic cheatsheets like default, unicode, nerd-fonts, etc
     -- bundled_cheatsheets = {
     --     enabled = {},
     --     disabled = {},
     -- },
     bundled_cheatsheets = true,
-
     -- For plugin specific cheatsheets
     -- bundled_plugin_cheatsheets = {
     --     enabled = {},
     --     disabled = {},
     -- }
     bundled_plugin_cheatsheets = true,
-
     -- For bundled plugin cheatsheets, do not show a sheet if you
     -- don't have the plugin installed (searches runtimepath for
     -- same directory name)
     include_only_installed_plugins = true,
-
     -- Key mappings bound inside the telescope window
     telescope_mappings = {
         ['<CR>'] = require('cheatsheet.telescope.actions').select_or_fill_commandline,
@@ -150,3 +146,4 @@ vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
 
 --vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+
