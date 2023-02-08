@@ -52,7 +52,6 @@ end
 
 local config = {
     auto_reload_on_write = true,
-    create_in_closed_folder = false,
     disable_netrw = true,
     hijack_cursor = false,
     hijack_netrw = true,
@@ -60,8 +59,6 @@ local config = {
     ignore_buffer_on_setup = false,
     open_on_setup = false,
     open_on_setup_file = false,
-    open_on_tab = false,
-    ignore_buf_on_tab_change = {},
     sort_by = "name",
     root_dirs = {},
     prefer_startup_root = false,
@@ -72,8 +69,9 @@ local config = {
     remove_keymaps = false,
     select_prompts = false,
     view = {
-        adaptive_size = false,
         centralize_selection = false,
+        cursorline = true,
+        debounce_delay = 15,
         width = 30,
         hide_root_folder = false,
         side = "left",
@@ -84,11 +82,11 @@ local config = {
         mappings = {
             custom_only = false,
             list = {
-                { key = "ga", action = "git_add", action_cb = git_add },
-                { key = "l", action = "edit", action_cb = edit_or_open },
-                { key = "L", action = "vsplit_preview", action_cb = vsplit_preview },
-                { key = "h", action = "close_node" },
-                { key = "H", action = "collapse_all", action_cb = collapse_all }
+                { key = "ga", action = "git_add",        action_cb = git_add },
+                { key = "l",  action = "edit",           action_cb = edit_or_open },
+                { key = "L",  action = "vsplit_preview", action_cb = vsplit_preview },
+                { key = "h",  action = "close_node" },
+                { key = "H",  action = "collapse_all",   action_cb = collapse_all }
             },
         },
         float = {
@@ -240,11 +238,26 @@ local config = {
     },
     trash = {
         cmd = "gio trash",
-        require_confirm = true,
     },
     live_filter = {
-        prefix = " ",
+        prefix = "[FILTER]: ",
         always_show_folders = true,
+    },
+    tab = {
+        sync = {
+            open = false,
+            close = false,
+            ignore = {},
+        },
+    },
+    notify = {
+        threshold = vim.log.levels.INFO,
+    },
+    ui = {
+        confirm = {
+            remove = true,
+            trash = true,
+        },
     },
     log = {
         enable = false,

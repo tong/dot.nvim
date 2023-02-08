@@ -114,7 +114,6 @@ vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>'
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
 
---
 --vim.keymap.set('n', '<M-m>', ':MarkdownPreviewToogle', { silent = true })
 --vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToogle<CR>')
 
