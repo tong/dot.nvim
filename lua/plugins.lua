@@ -89,4 +89,6 @@ Plug '~/dev/nvim/nvim-twodark'
 --Plug '~/dev/nvim/nvim-xmpp'
 --Plug '~/dev/nvim/nvim-cmp-haxelib'
 
+Plug 'phelipetls/vim-hugo'
+
 vim.call('plug#end')

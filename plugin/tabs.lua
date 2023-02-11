@@ -1,14 +1,7 @@
 require 'bufferline'.setup {
-    -- Enable/disable animations
     animation = true,
-
-    -- Enable/disable auto-hiding the tab bar when there is a single buffer
     auto_hide = false,
-
-    -- Enable/disable current/total tabpages indicator (top right corner)
     tabpages = true,
-
-    -- Enable/disable close button
     closable = true,
 
     -- Enables/disable clickable tabs
@@ -32,7 +25,8 @@ require 'bufferline'.setup {
     icon_custom_colors = true,
 
     -- Configure icons on the bufferline.
-    icon_separator_active = '▎',
+    --icon_separator_active = '▎',
+    icon_separator_active = '',
     icon_separator_inactive = '▎',
     icon_close_tab = '',
     icon_close_tab_modified = '',
@@ -44,8 +38,7 @@ require 'bufferline'.setup {
     insert_at_start = false,
 
     -- Sets the maximum padding width with which to surround each tab
-    maximum_padding = 2,
-
+    maximum_padding = 1,
     -- Sets the maximum buffer name length.
     maximum_length = 48,
 
@@ -69,10 +62,10 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
--- map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
--- map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-.>', '<Cmd>BufferNext<CR>', opts)
+-- map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+-- map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 --map('n', '<c-j>', '<Cmd>BufferPrevious<CR>', opts)
 --map('n', '<c-k>', '<Cmd>BufferNext<CR>', opts)
 
@@ -80,6 +73,7 @@ map('n', '<C-.>', '<Cmd>BufferNext<CR>', opts)
 for i = 1, 9, 1 do
     map('n', '<C-' .. i .. '>', '<Cmd>BufferGoto ' .. i .. '<CR>', opts)
 end
+
 -- map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 
 -- Re-order to previous/next
@@ -88,11 +82,9 @@ map('n', '<C-A-.>', '<Cmd>BufferMoveNext<CR>', opts)
 --map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 --map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 
--- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
-
--- Close buffer
 map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+map('n', '<C-w>Q', '<Cmd>BufferCloseAllButCurrent<CR>', opts)
 
 -- Wipeout buffer
 --                 :BufferWipeout
@@ -104,18 +96,12 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 --                 :BufferCloseBuffersRight
 map('n', '<A-a>', '<Cmd>BufferCloseAllButPinned<CR>', opts)
 
--- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
--- Sort automatically by...
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
 
 -- NvimTree offset
 local nvim_tree_events = require('nvim-tree.events')
