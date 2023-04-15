@@ -15,4 +15,3 @@ require("twilight").setup({
     },
     exclude = {}
 })
-

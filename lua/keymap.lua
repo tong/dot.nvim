@@ -74,7 +74,7 @@ vim.keymap.set("n", '<leader>ww', ':update<CR>')
 vim.keymap.set("n", '<leader>WW', ':wall<CR>')
 
 -- No highlight
-vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>')
+vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
 
 -- Quit
 --vim.keymap.set("n", '<C-Q>', ':q<CR>')

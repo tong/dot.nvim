@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
     --vim.lsp.buf.format()
 end
 
--- Setup language servers
+-- Setup language servers ------------------------------------------------------
 
 lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
 lspconfig.clangd.setup { capabilities = capabilities, on_attach = on_attach }
@@ -58,7 +58,7 @@ lspconfig.haxe_language_server.setup {
 lspconfig.emmet_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { 'html', 'css', 'sass', 'scss', 'less' },
+    filetypes = { 'html', 'css', 'sass', 'scss', 'less', 'javascript', 'htmlhugo' },
     init_options = {
         html = {
             options = {
@@ -91,7 +91,7 @@ lspconfig.jsonls.setup {
 }
 lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
     settings = {
         Lua = {
             diagnostics = {
@@ -109,4 +109,3 @@ lspconfig.sumneko_lua.setup {
 lspconfig.tsserver.setup { capabilities = capabilities, on_attach = on_attach }
 lspconfig.vimls.setup { capabilities = capabilities, on_attach = on_attach }
 lspconfig.yamlls.setup { capabilities = capabilities, on_attach = on_attach }
-

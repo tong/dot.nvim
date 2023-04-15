@@ -25,13 +25,13 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
 --Plug 'nvim-telescope/telescope-fzf-native.nvim'
 
+
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'AndrewRadev/tagalong.vim'
-Plug 'ThePrimeagen/harpoon'
+--Plug 'ThePrimeagen/harpoon'
 Plug 'TimUntersberger/neogit'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ellisonleao/glow.nvim'
-Plug 'fatih/vim-go'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/twilight.nvim'
@@ -50,7 +50,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'prettier/vim-prettier'
 Plug 'pwntester/octo.nvim'
-Plug 'rmagatti/goto-preview'
+--Plug 'rmagatti/goto-preview'
 Plug 'romgrk/barbar.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sindrets/diffview.nvim'
@@ -76,6 +76,8 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mxsdev/nvim-dap-vscode-js'
 --Plug 'nvim-telescope/telescope-dap.nvim'
 
+--Plug 'fatih/vim-go'
+
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'tikhomirov/vim-glsl'
 --Plug 'chr4/nginx.vim'
@@ -92,3 +94,8 @@ Plug '~/dev/nvim/nvim-twodark'
 Plug 'phelipetls/vim-hugo'
 
 vim.call('plug#end')
+
+
+
+require'colorizer'.setup()
+

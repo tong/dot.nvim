@@ -1,5 +1,5 @@
 require'shade'.setup({
-    overlay_opacity = 90,
+    overlay_opacity = 92,
     --opacity_step = 1,
     -- keys = {
     --     brightness_up    = '<C-Up>',
