@@ -92,6 +92,8 @@ opt.splitbelow = true
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank {higroup="Search", timeout=200}')
 
+vim.cmd('autocmd BufReadCmd *.blend silent !xdg-open % &')
+vim.cmd('autocmd BufEnter *.blend bdelete')
 vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.jpg bdelete')
 vim.cmd('autocmd BufReadCmd *.jpeg silent !xdg-open % &')

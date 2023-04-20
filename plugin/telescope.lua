@@ -106,7 +106,6 @@ require('neoclip').setup({
                 delete = 'd',
                 custom = {},
             }
-
         }
     }
 })
@@ -131,19 +130,17 @@ local themes = require('telescope.themes')
 --Telescope find_files theme=dropdown
 --nnoremap <Leader>f :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>
 --builtin.find_files(themes.get_dropdown({}))
---
+
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
---vim.keymap.set('n', '<leader>fc', builtin.neoclip, {})
+vim.keymap.set('n', '<leader>fc', ':Telescope neoclip<CR>', {})
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fc', ':Telescope neoclip<CR>', {})
+vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>', {})
 vim.keymap.set('n', '<leader>ftt', ':Telescope<CR>', {})
 
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
-
---vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 

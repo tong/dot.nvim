@@ -50,11 +50,15 @@ lspconfig.gopls.setup { capabilities = capabilities, on_attach = on_attach }
 lspconfig.haxe_language_server.setup {
     cmd = { "haxe-langserver" },
     filetypes = { "haxe", "hxml" },
-    --root_dir = [[root_pattern("*.hxml")]],
+    root_dir = lspconfig.util.root_pattern '*.hxml',
+    settings = {
+        haxe = { executable = 'haxe' },
+    },
     init_options = { displayArguments = { "build.hxml" } },
     capabilities = capabilities,
     on_attach = on_attach
 }
+
 lspconfig.emmet_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -83,12 +87,13 @@ lspconfig.jsonls.setup {
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics, {
-            -- Disable virtual_text
-            virtual_text = false
-        }
+                -- Disable virtual_text
+                virtual_text = false
+            }
         ),
     }
 }
+lspconfig.lemminx.setup {}
 lspconfig.marksman.setup {}
 --lspconfig.pyright.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.lua_ls.setup {
