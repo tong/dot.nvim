@@ -4,6 +4,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'lukas-reineke/lsp-format.nvim'
 Plug 'onsails/lspkind.nvim'
+Plug 'glepnir/lspsaga.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
@@ -23,8 +24,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
+--Plug 'nvim-telescope/telescope-file-browser.nvim'
 --Plug 'nvim-telescope/telescope-fzf-native.nvim'
-
 
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'AndrewRadev/tagalong.vim'
@@ -34,7 +35,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ellisonleao/glow.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'folke/twilight.nvim'
+--Plug 'folke/twilight.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'goolord/alpha-nvim'
 Plug 'gpanders/editorconfig.nvim'
@@ -55,7 +56,7 @@ Plug 'romgrk/barbar.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'sudormrfbin/cheatsheet.nvim'
-Plug 'sunjon/shade.nvim'
+--Plug 'sunjon/shade.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'folke/zen-mode.nvim'
 --Plug 'mg979/vim-visual-multi'
@@ -88,14 +89,13 @@ Plug 'navarasu/onedark.nvim'
 
 Plug '~/dev/nvim/nvhx'
 Plug '~/dev/nvim/nvim-twodark'
---Plug '~/dev/nvim/nvim-xmpp'
+Plug '~/dev/nvim/nvim-xmpp'
+Plug '~/dev/nvim/nvim-mdview'
 --Plug '~/dev/nvim/nvim-cmp-haxelib'
 
 Plug 'phelipetls/vim-hugo'
 
 vim.call('plug#end')
-
-
 
 require'colorizer'.setup()
 

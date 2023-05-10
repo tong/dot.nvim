@@ -67,3 +67,6 @@ require('Comment').setup({
     ---@type fun(ctx: CommentCtx)
     post_hook = nil,
 })
+
+local ft = require('Comment.ft')
+ft.haxe = { '//%s', '/*%s*/' }

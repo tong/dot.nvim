@@ -60,7 +60,6 @@ local function on_attach(bufnr)
     local function opts(desc)
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
-    -- Default mappings. Feel free to modify or remove as you wish.
     -- BEGIN_DEFAULT_ON_ATTACH
     vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node, opts('CD'))
     vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer, opts('Open: In Place'))
@@ -116,8 +115,6 @@ local function on_attach(bufnr)
     vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
     -- END_DEFAULT_ON_ATTACH
 
-    -- Mappings migrated from view.mappings.list
-    --
     -- You will need to insert "your code goes here" for any mappings with a custom action_cb
     vim.keymap.set('n', 'ga', function()
         local node = api.tree.get_node_under_cursor()
@@ -136,7 +133,7 @@ end
 
 local config = {
     auto_reload_on_write = true,
-    disable_netrw = false,
+    disable_netrw = true,
     hijack_cursor = false,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
@@ -187,7 +184,7 @@ local config = {
         add_trailing = false,
         group_empty = false,
         highlight_git = true,
-        full_name = false,
+        full_name = true,
         highlight_opened_files = "all",
         highlight_modified = "all",
         root_folder_label = ":~:s?$?/..?",
@@ -204,7 +201,7 @@ local config = {
             },
         },
         icons = {
-            webdev_colors = true,
+            webdev_colors = false,
             git_placement = "after",
             modified_placement = "after",
             padding = " ",
@@ -251,7 +248,7 @@ local config = {
     },
     update_focused_file = {
         enable = true,
-        update_root = false,
+        update_root = true,
         ignore_list = {},
     },
     system_open = {
@@ -345,7 +342,7 @@ local config = {
     tab = {
         sync = {
             open = true,
-            close = false,
+            close = true,
             ignore = {},
         },
     },
@@ -395,4 +392,4 @@ require("nvim-tree").setup(config)
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
 
 --vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
---
+

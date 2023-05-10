@@ -1,3 +1,19 @@
+local haxe_extension = {
+    filetypes = { 'haxe' },
+    sections = {
+        lualine_a = { 'mode', 'trouble' },
+        --lualine_a = { 'HaxeSelectHxml' },
+        lualine_b = { 'filename' },
+        --lualine_c = { 'HaxeSelectHxml', 'branch', 'diagnostics' },
+        --lualine_d = { 'HaxeSelectHxml' },
+        lualine_c = { 'branch', 'diagnostics' },
+        -- lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = { 'diff', 'progress' },
+        lualine_y = { 'location', 'searchcount' },
+        lualine_z = { 'filetype' }
+    }
+}
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -21,7 +37,7 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'filename' },
-        lualine_c = { 'branch', 'diagnostics' },
+        lualine_d = { 'branch', 'diagnostics' },
         -- lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_x = { 'diff', 'progress' },
         lualine_y = { 'location', 'searchcount' },
@@ -38,5 +54,8 @@ require('lualine').setup {
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {}
+    extensions = {
+        --'nvim-tree'
+        --haxe_extension
+    }
 }

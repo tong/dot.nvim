@@ -68,13 +68,14 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 --map('v', '<C-c', '"*y :let @+=@*<CR>')
 --map('n', '<C-p', '"+P')
 
--- Save the current buffer
+-- Save current buffer
 vim.keymap.set("n", '<leader>ww', ':update<CR>')
 -- Save all buffers
 vim.keymap.set("n", '<leader>WW', ':wall<CR>')
 
 -- No highlight
-vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
+--vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
+vim.keymap.set("n", '<leader><backspace>', ':nohlsearch<cr>', { silent = true })
 
 -- Quit
 --vim.keymap.set("n", '<C-Q>', ':q<CR>')
@@ -86,6 +87,16 @@ vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
 
 -- Start search/replace with word under cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- Buffer navigation
+vim.keymap.set('n', '<C-,>', '<Cmd>BufferPrevious<CR>', { silent = true })
+vim.keymap.set('n', '<C-.>', '<Cmd>BufferNext<CR>', { silent = true })
+--TODO: see tabs.lua (barbar)
+
+--  Buffer close
+vim.keymap.set("n", 'QQ', ':bd<CR>', { silent = true }) -- Close all
+vim.keymap.set("n", 'QA', ':%bd | e#<CR>', { silent = true }) -- Close all but current
+--vim.keymap.set("n", 'QA', ':bufdo bd<CR>', { silent = true })
 
 -- Resize pane
 local resize_value = 28
@@ -107,6 +118,28 @@ vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>'
 -- vim.keymap.set("n", '<C-n>', ':NvimTreeToggle<cr>')
 -- vim.keymap.set("n", '<leader>tt', ':NvimTreeToggle<CR>')
 
+-- Lspsaga
+vim.keymap.set('n', 'ga', '<cmd>Lspsaga peek_definition<CR>')
+
+--Telescope find_files theme=dropdown
+--nnoremap <Leader>f :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>
+--builtin.find_files(themes.get_dropdown({}))
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fc', ':Telescope neoclip<CR>', {})
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>', {})
+vim.keymap.set('n', '<leader>ftt', ':Telescope<CR>', {})
+
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
+vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
+
 -- Pretty
 --vim.keymap.set("n", '<leader>pf', ':Pretty<cr>')
 
@@ -116,4 +149,3 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
 
 --vim.keymap.set('n', '<M-m>', ':MarkdownPreviewToogle', { silent = true })
 --vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToogle<CR>')
-

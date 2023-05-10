@@ -104,6 +104,8 @@ vim.cmd('autocmd BufReadCmd *.mp3 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.mp3 bdelete')
 vim.cmd('autocmd BufReadCmd *.mp4 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.mp4 bdelete')
+vim.cmd('autocmd BufReadCmd *.ogg silent !xdg-open % &')
+vim.cmd('autocmd BufEnter *.ogg bdelete')
 vim.cmd('autocmd BufReadCmd *.pdf silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.pdf bdelete')
 vim.cmd('autocmd BufReadCmd *.png silent !xdg-open % &')
@@ -121,12 +123,14 @@ vim.cmd('autocmd BufEnter *.woff bdelete')
 vim.cmd('autocmd BufReadCmd *.woff2 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.woff2 bdelete')
 
---vim.cmd('autocmd! BufNewFile,BufRead *.md set filetype=markdown')
 
---highlight Normal ctermbg=none
---highlight NonText ctermbg=none
---highlight Normal guibg=none
---highlight NonText guibg=none
+--- Diagnostic symbols
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 
 -- GUI
 --opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
