@@ -29,13 +29,12 @@ ls.config.setup({
     ext_ops = {
         [types.choiceNode] = {
             active = {
-                virt_text = { { "●", "GruvboxOrange" } }
-                --virt_text = { { " « ", "NonTest" } },
+                virt_text = {{"●", "GruvboxOrange"}}
             }
         },
         [types.insertNode] = {
             active = {
-                virt_text = { { "●", "GruvboxBlue" } }
+                virt_text = {{"●", "GruvboxBlue"}}
             }
         }
     }

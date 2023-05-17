@@ -70,3 +70,4 @@ require('Comment').setup({
 
 local ft = require('Comment.ft')
 ft.haxe = { '//%s', '/*%s*/' }
+ft.hxml = { '#%s' }

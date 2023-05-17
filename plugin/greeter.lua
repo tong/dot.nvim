@@ -1,5 +1,5 @@
-local theme = require('alpha.themes.startify')
 --local theme = require'alpha.themes.dashboard'
+local theme = require('alpha.themes.startify')
 theme.section.header.val = {
     [[                       __/\__]],
     [[                       \    /]],

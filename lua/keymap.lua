@@ -35,8 +35,8 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
+-- Select all
 
 -- Move selection up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -68,14 +68,13 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 --map('v', '<C-c', '"*y :let @+=@*<CR>')
 --map('n', '<C-p', '"+P')
 
--- Save current buffer
-vim.keymap.set("n", '<leader>ww', ':update<CR>')
--- Save all buffers
-vim.keymap.set("n", '<leader>WW', ':wall<CR>')
+vim.keymap.set("n", '<leader>ww', ':update<CR>') -- Save current buffer
+vim.keymap.set("n", '<leader>WW', ':wall<CR>') -- Save all buffers
 
--- No highlight
+-- No search highlight
 --vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
 vim.keymap.set("n", '<leader><backspace>', ':nohlsearch<cr>', { silent = true })
+vim.keymap.set("n", '<c-escape>', ':nohlsearch<cr>', { silent = true })
 
 -- Quit
 --vim.keymap.set("n", '<C-Q>', ':q<CR>')
@@ -141,7 +140,7 @@ vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
 
 -- Pretty
---vim.keymap.set("n", '<leader>pf', ':Pretty<cr>')
+vim.keymap.set("n", '<leader>pf', ':Prettier<cr>')
 
 -- Leave terminal input mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
