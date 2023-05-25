@@ -2,4 +2,4 @@ colors.unused
 plugged/
 plugin.inactive/
 plugin.unused/
-
+*-lock.json

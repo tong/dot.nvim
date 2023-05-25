@@ -1,101 +1,95 @@
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.config/nvim/plugged')
+require("lazy").setup({
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'lukas-reineke/lsp-format.nvim'
-Plug 'onsails/lspkind.nvim'
-Plug 'glepnir/lspsaga.nvim'
+    "neovim/nvim-lspconfig",
+    "lukas-reineke/lsp-format.nvim",
+    'onsails/lspkind.nvim',
+    'glepnir/lspsaga.nvim',
 
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/playground'
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/playground',
 
-Plug 'L3MON4D3/LuaSnip'
+    'L3MON4D3/LuaSnip',
 
-Plug 'David-Kunz/cmp-npm'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
--- Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'petertriho/cmp-git'
-Plug 'saadparwaiz1/cmp_luasnip'
+    'David-Kunz/cmp-npm',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    -- 'hrsh7th/cmp-nvim-lsp-document-symbol',
+    'hrsh7th/cmp-path',
+    'hrsh7th/nvim-cmp',
+    'petertriho/cmp-git',
+    'saadparwaiz1/cmp_luasnip',
 
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-media-files.nvim'
---Plug 'nvim-telescope/telescope-file-browser.nvim'
---Plug 'nvim-telescope/telescope-fzf-native.nvim'
+    'nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope-media-files.nvim',
+    --'nvim-telescope/telescope-file-browser.nvim',
+    --'nvim-telescope/telescope-fzf-native.nvim',
 
-Plug 'AckslD/nvim-neoclip.lua'
-Plug 'AndrewRadev/tagalong.vim'
---Plug 'ThePrimeagen/harpoon'
-Plug 'TimUntersberger/neogit'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ellisonleao/glow.nvim'
-Plug 'folke/todo-comments.nvim'
-Plug 'folke/trouble.nvim'
---Plug 'folke/twilight.nvim'
-Plug 'folke/which-key.nvim'
-Plug 'goolord/alpha-nvim'
-Plug 'gpanders/editorconfig.nvim'
-Plug 'iamcco/markdown-preview.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'numToStr/Comment.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'petertriho/nvim-scrollbar'
-Plug 'prettier/vim-prettier'
-Plug 'pwntester/octo.nvim'
---Plug 'rmagatti/goto-preview'
-Plug 'romgrk/barbar.nvim'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'sindrets/diffview.nvim'
-Plug 'sudormrfbin/cheatsheet.nvim'
---Plug 'sunjon/shade.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'folke/zen-mode.nvim'
---Plug 'mg979/vim-visual-multi'
---Plug 'mbbill/undotree'
---Plug 'akinsho/toggleterm.nvim'
---Plug 'nvim-lua/popup.nvim'
---Plug 'ziontee113/color-picker.nvim'
---Plug 'dbeniamine/cheat.sh-vim'
---Plug 'ThePrimeagen/git-worktree.nvim'
+    'AckslD/nvim-neoclip.lua',
+    'AndrewRadev/tagalong.vim',
+    --'ThePrimeagen/harpoon',
+    'TimUntersberger/neogit',
+    'christoomey/vim-tmux-navigator',
+    'ellisonleao/glow.nvim',
+    'folke/todo-comments.nvim',
+    'folke/trouble.nvim',
+    --'folke/twilight.nvim',
+    'folke/which-key.nvim',
+    'goolord/alpha-nvim',
+    'gpanders/editorconfig.nvim',
+    'iamcco/markdown-preview.nvim',
+    'kyazdani42/nvim-tree.lua',
+    'kyazdani42/nvim-web-devicons',
+    'lewis6991/gitsigns.nvim',
+    'lukas-reineke/indent-blankline.nvim',
+    'norcalli/nvim-colorizer.lua',
+    'numToStr/Comment.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-lualine/lualine.nvim',
+    'petertriho/nvim-scrollbar',
+    'prettier/vim-prettier',
+    'pwntester/octo.nvim',
+    --'rmagatti/goto-preview',
+    'romgrk/barbar.nvim',
+    'simrat39/symbols-outline.nvim',
+    'sindrets/diffview.nvim',
+    'sudormrfbin/cheatsheet.nvim',
+    --'sunjon/shade.nvim',
+    'windwp/nvim-autopairs',
+    'folke/zen-mode.nvim',
+    --'mg979/vim-visual-multi',
+    --'mbbill/undotree',
+    --'akinsho/toggleterm.nvim',
+    --'nvim-lua/popup.nvim',
+    --'ziontee113/color-picker.nvim',
+    --'dbeniamine/cheat.sh-vim',
+    --'ThePrimeagen/git-worktree.nvim',
 
---Plug 'MunifTanjim/nui.nvim'
---Plug 'folke/noice.nvim'
---Plug 'rcarriga/nvim-notify'
+    --'MunifTanjim/nui.nvim',
+    --'folke/noice.nvim',
+    --'rcarriga/nvim-notify',
 
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'mxsdev/nvim-dap-vscode-js'
---Plug 'nvim-telescope/telescope-dap.nvim'
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    'mxsdev/nvim-dap-vscode-js',
+    --'nvim-telescope/telescope-dap.nvim',
 
---Plug 'fatih/vim-go'
+    --'fatih/vim-go',
+    'phelipetls/vim-hugo',
 
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'tikhomirov/vim-glsl'
---Plug 'chr4/nginx.vim'
+    'cakebaker/scss-syntax.vim',
+    'tikhomirov/vim-glsl',
+    --'chr4/nginx.vim',
 
-Plug 'vimwiki/vimwiki'
+    'vimwiki/vimwiki',
 
-Plug 'navarasu/onedark.nvim'
+    'navarasu/onedark.nvim',
 
-Plug '~/dev/nvim/nvhx'
-Plug '~/dev/nvim/nvim-twodark'
-Plug '~/dev/nvim/nvim-xmpp'
-Plug '~/dev/nvim/nvim-mdview'
---Plug '~/dev/nvim/nvim-cmp-haxelib'
-
-Plug 'phelipetls/vim-hugo'
-
-vim.call('plug#end')
-
-require'colorizer'.setup()
-
+    { name="nvhx", dir="/home/tong/dev/nvim/nvhx/"},
+    { name='nvim-twodark', dir="/home/tong/dev/nvim/nvim-twodark/"},
+    --{ name='nvim-xmpp', dir="/home/tong/dev/nvim/nvim-xmpp/"},
+    --{ name='nvim-mdview', dir="/home/tong/dev/nvim/nvim-mdview/"},
+    --{ name='nvim-cmp-haxelib', dir="/home/tong/dev/nvim/nvim-cmp-haxelib"},
+})
