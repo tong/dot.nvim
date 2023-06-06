@@ -6,9 +6,7 @@ require("lazy").setup({
     'glepnir/lspsaga.nvim',
 
     'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/playground',
-
-    'L3MON4D3/LuaSnip',
+    --'nvim-treesitter/playground',
 
     'David-Kunz/cmp-npm',
     'hrsh7th/cmp-buffer',
@@ -20,6 +18,11 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     'petertriho/cmp-git',
     'saadparwaiz1/cmp_luasnip',
+
+    {
+        'L3MON4D3/LuaSnip',
+        build = "make install_jsregexp"
+    },
 
     'nvim-telescope/telescope.nvim',
     'nvim-telescope/telescope-media-files.nvim',
@@ -40,7 +43,8 @@ require("lazy").setup({
     'gpanders/editorconfig.nvim',
     'iamcco/markdown-preview.nvim',
     'kyazdani42/nvim-tree.lua',
-    'kyazdani42/nvim-web-devicons',
+    --'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
     'norcalli/nvim-colorizer.lua',
@@ -49,7 +53,7 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     'petertriho/nvim-scrollbar',
     'prettier/vim-prettier',
-    'pwntester/octo.nvim',
+    --'pwntester/octo.nvim',
     --'rmagatti/goto-preview',
     'romgrk/barbar.nvim',
     'simrat39/symbols-outline.nvim',
@@ -90,6 +94,6 @@ require("lazy").setup({
     { name="nvhx", dir="/home/tong/dev/nvim/nvhx/"},
     { name='nvim-twodark', dir="/home/tong/dev/nvim/nvim-twodark/"},
     --{ name='nvim-xmpp', dir="/home/tong/dev/nvim/nvim-xmpp/"},
-    --{ name='nvim-mdview', dir="/home/tong/dev/nvim/nvim-mdview/"},
+    { name='nvim-mdview', dir="/home/tong/dev/nvim/nvim-mdview/"},
     --{ name='nvim-cmp-haxelib', dir="/home/tong/dev/nvim/nvim-cmp-haxelib"},
 })

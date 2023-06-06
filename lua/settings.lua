@@ -124,8 +124,8 @@ vim.cmd('autocmd BufReadCmd *.woff2 silent !xdg-open % &')
 vim.cmd('autocmd BufEnter *.woff2 bdelete')
 
 
---- Diagnostic symbols
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- Diagnostic symbols
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -133,9 +133,10 @@ end
 
 
 -- GUI
---opt.guicursor='n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+opt.guicursor =
+'n-v:block,i-ci-ve:ver25,c:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 if vim.g.neovide then
-    opt.guifont = "JetBrainsMono Nerd Font:h9"
+    opt.guifont = "JetBrainsMono Nerd Font:h5"
     vim.g.neovide_cursor_vfx_mode = "sonicboom"
     --vim.g.neovide_scale_factor = 0.5
     --opt.neovide_transparency = 0.0
@@ -146,14 +147,14 @@ if vim.g.neovide then
 end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- if not vim.loop.fs_stat(lazypath) then
---   vim.fn.system({
---     "git",
---     "clone",
---     "--filter=blob:none",
---     "https://github.com/folke/lazy.nvim.git",
---     "--branch=stable", -- latest stable release
---     lazypath,
---   })
--- end
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
 vim.opt.rtp:prepend(lazypath)

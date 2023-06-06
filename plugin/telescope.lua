@@ -49,7 +49,7 @@ telescope.setup {
 }
 
 telescope.load_extension('media_files')
-telescope.load_extension('octo')
+--telescope.load_extension('octo')
 -- telescope.load_extension('file_browser')
 --telescope.load_extension('gh')
 --telescope.load_extension('harpoon')

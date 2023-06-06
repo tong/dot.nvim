@@ -35,8 +35,8 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set('n', '<C-a>', 'ggVG')
 -- Select all
+vim.keymap.set('n', '<C-a>', 'ggVG')
 
 -- Move selection up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -69,7 +69,7 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 --map('n', '<C-p', '"+P')
 
 vim.keymap.set("n", '<leader>ww', ':update<CR>') -- Save current buffer
-vim.keymap.set("n", '<leader>WW', ':wall<CR>') -- Save all buffers
+vim.keymap.set("n", '<leader>WW', ':wall<CR>')   -- Save all buffers
 
 -- No search highlight
 --vim.keymap.set("n", '<leader>hl', ':nohlsearch<cr>', { silent = true })
@@ -80,9 +80,8 @@ vim.keymap.set("n", '<c-escape>', ':nohlsearch<cr>', { silent = true })
 --vim.keymap.set("n", '<C-Q>', ':q<CR>')
 
 -- Format
--- vim.keymap.set("n", "<leader>F", function()
---     vim.lsp.buf.format()
--- end)
+--vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format() end)
+vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format() end)
 
 -- Start search/replace with word under cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
@@ -93,16 +92,16 @@ vim.keymap.set('n', '<C-.>', '<Cmd>BufferNext<CR>', { silent = true })
 --TODO: see tabs.lua (barbar)
 
 --  Buffer close
-vim.keymap.set("n", 'QQ', ':bd<CR>', { silent = true }) -- Close all
+vim.keymap.set("n", 'QQ', ':bd<CR>', { silent = true })       -- Close all
 vim.keymap.set("n", 'QA', ':%bd | e#<CR>', { silent = true }) -- Close all but current
 --vim.keymap.set("n", 'QA', ':bufdo bd<CR>', { silent = true })
 
 -- Resize pane
 local resize_value = 28
-vim.keymap.set("n", '<leader>hh', ':vertical resize -' .. resize_value .. '<CR>', { silent = true })
-vim.keymap.set("n", '<leader>jj', ':resize -' .. resize_value .. '<CR>', { silent = true })
-vim.keymap.set("n", '<leader>kk', ':resize +' .. resize_value .. '<CR>', { silent = true })
-vim.keymap.set("n", '<leader>ll', ':vertical resize +' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>hh', ':resize -' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>jj', ':vertical resize -' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>kk', ':vertical resize +' .. resize_value .. '<CR>', { silent = true })
+vim.keymap.set("n", '<leader>ll', ':resize +' .. resize_value .. '<CR>', { silent = true })
 --resize_value=64
 --vim.keymap.set("n", '<leader>HH', ':resize -'..resize_value..'<CR>')
 -- vim.keymap.set("n", '<leader>JJ', ':resize -'..resize_value..'<CR>')

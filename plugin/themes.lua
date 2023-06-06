@@ -1,22 +1,34 @@
+--local twodark = require('twodark')
 -- local twodark = require('twodark')
 -- twodark.setup {
 --     style = 'void',
 --     --toggle_style_key = ,
---     term_colors = true,
+--     term_colors = false,
 --     transparent = false,
+--     ending_tildes = false,        -- show the end-of-buffer tildes
+--     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+--     colors = {},
+--     highlights = {},
+--     code_style = {
+--         comments = 'italic',
+--         keywords = 'none',
+--         functions = 'none',
+--         strings = 'italic',
+--         variables = 'none'
+--     },
 --     diagnostics = {
---         darker = true, -- darker colors for diagnostic
---         undercurl = true, -- use undercurl instead of underline for diagnostics
+--         darker = true,     -- darker colors for diagnostic
+--         undercurl = true,  -- use undercurl instead of underline for diagnostics
 --         background = true, -- use background color for virtual text
 --     },
 --     lualine = {
 --         transparent = false,
 --     },
 -- }
--- twodark.load()
-
+--twodark.load()
 vim.cmd("colorscheme gruvbox")
---vim.cmd("colorscheme onedark")
+--vim.cmd("colorscheme twodark")
 --vim.cmd("colorscheme $COLORTHEME")
+
 --vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
 --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
