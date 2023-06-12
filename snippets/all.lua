@@ -1,36 +1,33 @@
-local ls = require "luasnip"
-local snip = ls.snippet
-local func = ls.function_node
-
---local date = function() return { os.date('%Y-%m-%d') } end
---local time = function() return { os.date('%H:%M:%S') } end
-
 return {
-    snip(
+    s("repeat", { i(1, "text"), t({ "", "" }), rep(1) }),
+    s(
         {
             trig = "date",
             namr = "Date",
             qdscr = "Date in the form of YYYY-MM-DD"
         },
-        { func(function() return { os.date('%Y-%m-%d') } end, {}) }
+        { f(function() return { os.date('%Y-%m-%d') } end, {}) }
     ),
-    snip(
+    s(
         {
             trig = "time",
             namr = "Time",
             qdscr = "Time in the form of HH:MM:SS"
         },
-        { func(function() return { os.date('%H:%M:%S') } end, {}) }
+        { f(function() return { os.date('%H:%M:%S') } end, {}) }
     ),
-    snip(
+    s(
         {
             trig = "datetime",
             namr = "Datetime",
             qdscr = "Datetime in the form of YYYY-MM-DD HH:MM:SS"
         },
-        { func(function() return { os.date('%Y-%m-%d %H:%M:%S') } end, {}) }
+        { f(function() return { os.date('%Y-%m-%d %H:%M:%S') } end, {}) }
     ),
-    parse("dt", "disktree"),
-    parse("dtn", "disktree.net")
+
+
+    s({ trig = "TODO", namr = "TODO" }, { t"TODO" }),
+    s({ trig = "dt", namr = "disktree" }, { t"disktree" }),
+    s({ trig = "dtn", namr = "disktree.net" }, { t"disktree.net" }),
 }
 

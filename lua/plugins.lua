@@ -87,7 +87,7 @@ require("lazy").setup({
     'tikhomirov/vim-glsl',
     --'chr4/nginx.vim',
 
-    'vimwiki/vimwiki',
+    --'vimwiki/vimwiki',
 
     'navarasu/onedark.nvim',
 
@@ -96,4 +96,8 @@ require("lazy").setup({
     --{ name='nvim-xmpp', dir="/home/tong/dev/nvim/nvim-xmpp/"},
     { name='nvim-mdview', dir="/home/tong/dev/nvim/nvim-mdview/"},
     --{ name='nvim-cmp-haxelib', dir="/home/tong/dev/nvim/nvim-cmp-haxelib"},
+    { name="norc", dir="/home/tong/dev/nvim/nvim-norc/"},
+    
+    --
+    "b0o/schemastore.nvim"
 })

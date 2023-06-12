@@ -91,9 +91,23 @@ lspconfig.jsonls.setup {
                 virtual_text = false
             }
         ),
+    },
+    settings = {
+        json = {
+            schemas = require('schemastore').json.schemas {
+                select = {
+                    'haxelib.json',
+                    'package.json',
+                    --'web-manifest.json'
+                },
+                --ignore = {}
+                --extra = {}
+            },
+            valiadate = { enable = true }
+        }
     }
 }
-lspconfig.lemminx.setup {}
+lspconfig.lemminx.setup { capabilities = capabilities, on_attach = on_attach }
 -- lspconfig.marksmn.setup {
 --     cmd = { "marksman" }
 -- }

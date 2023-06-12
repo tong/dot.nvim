@@ -1,22 +1,114 @@
---local ls = require "luasnip"
---local i = ls.insert_node
---local fmt = require("luasnip.extras.fmt").fmt
 return {
-    parse("/**", "/**\n\t$1\n**/"),
-    parse("~/", "~/$1/$2;"),
-    parse("trace", "trace($1);"),
-    parse("if", "if($1)"),
+    --s({ trig = "/**", namr = "Block Comment" }, { t"/**\n\t$1\n**/" }),
+    s({ trig = "function" }, {
+		t("function "),
+        i(1, "name"),
+		t("("),
+        i(2, "args"),
+        t({ ") {", "\t" }),
+        i(3),
+		t({ "", "}" }),
+        i(0)
+	}),
+    s({ trig = "trace", qdscr = "Outputs v in a platform-dependent way." }, {
+        t("trace("),
+        i(1),
+        t(");"),
+		i(0)
+    }),
+    s("/**", {
+        t({"/**", "\t"}),
+        i(1),
+        t({"", "**/"}),
+		i(0)
+    }),
+    s("typedef", {
+        t("typedef "),
+        i(1, "Name"),
+        t({" = {", "}"}),
+		i(0)
+    }),
+    s(
+        {
+            trig = "switch",
+            namr = "switch",
+            qdscr = "switch statement"
+        },
+        {
+            t("switch "),
+            i(1),
+            t({" {", "case "}),
+            i(2),
+            t(": "),
+            i(3),
+            t({"", "}"}),
+            i(0)
+        }
+    ),
+    s("for", {
+        t("for("),
+        i(1, "a"),
+        t(" in "),
+        i(2, "b"),
+        t(")"),
+        t({" {", ""}),
+        t("\t"),
+        i(3),
+        t({"", "}"}),
+        i(0)
+    }),
+    s("fori", {
+        t("for("),
+        i(1, "i"),
+        t(" in "),
+        i(2, "0"),
+        t("..."),
+        i(3, "end"),
+        t(")"),
+        t({" {", ""}),
+        t("\t"),
+        i(4),
+        t({"", "}"}),
+        i(0)
+    }),
+    s({ trig = "~/" }, {
+        t("~/"),
+        i(1),
+        t("/"),
+        i(0),
+    }),
+    s({ trig = "while" }, {
+        t("while("),
+        i(1),
+        t(") {"),
+        t({"", "\t"}),
+        i(2),
+        t({"", "}"}),
+        i(0)
+    }),
+    s({ trig = "try" }, {
+        t({"try {", "\t"}),
+        i(1),
+        t({"", "} catch("}),
+        i(2, "e"),
+        t({") {", "\t"}),
+        i(3),
+        t({"", "}"}),
+        i(0)
+    }),
+    --parse("~/", "~/$1/$2;"),
+    --parse("if", "if($1)"),
+    --parse("try", "try {\n\t$1\n} catch(${2:e:Dynamic}) {\n\t${3:trace(e);}\n}"),
     parse("ifel", "if($1) {\n} else {\n}"),
     parse("pfun", "public function $1($2)$3 {\n$4}\n"),
     parse("psfun", "public static function $1($2)$3 {\n$4}\n"),
     parse("prop", "public var $1(${2:default},${3:default}) : ${4:T};$0\n"),
-    parse("while", "while($1) {\n\t$2\n}"),
+    --parse("while", "while($1) {\n\t$2\n}"),
     parse("do", "do {\n\t$1\n} while($2);"),
     parse("class", "class ${1:Name} {\n\n\tpublic function new() {\n\t}\n}\n"),
     parse("interface", "interface ${1:T} {\n\t$2\n}\n"),
-    parse("for", "for(${1:k} in ${2:v}) {\n\t$0\n}"),
-    parse("fori", "for(i in ${1:0}...${2:10}) {\n\t$0\n}"),
-    parse("switch", "switch $1 {\ncase $2: $3;\n}$0"),
-    parse("try", "try {\n\t$1\n} catch(${2:e:Dynamic}) {\n\t${3:trace(e);}\n}"),
-    parse("Trait", "class $1 extends iron.Trait {\n\n\tfunction new() {\n\t\tsuper();\n\t\tnotifyOnInit(() -> {\n\t\t});\n\t}\n}\n$0"),
+    --parse("for", "for(${1:k} in ${2:v}) {\n\t$0\n}"),
+    --parse("fori", "for(i in ${1:0}...${2:10}) {\n\t$0\n}"),
+    --parse("switch", "switch $1 {\ncase $2: $3;\n}$0"),
+    --parse("Trait", "class $1 extends iron.Trait {\n\n\tfunction new() {\n\t\tsuper();\n\t\tnotifyOnInit(() -> {\n\t\t});\n\t}\n}\n$0"),
 }
