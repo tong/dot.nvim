@@ -1,5 +1,12 @@
-local shebang = "#!/bin/sh\n$0"
 return {
-    parse("bang", shebang),
-    parse("#!/", shebang)
+    s(
+        {
+            trig = "#!/usr/bin/zsh",
+            dscr = "Shebang (zsh)"
+        },
+        {
+            t({"#!/usr/bin/zsh", ""}),
+            i(0)
+        }
+    )
 }

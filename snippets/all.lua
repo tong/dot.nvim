@@ -1,33 +1,21 @@
+local conds = require("luasnip.extras.expand_conditions")
 return {
     s("repeat", { i(1, "text"), t({ "", "" }), rep(1) }),
     s(
-        {
-            trig = "date",
-            namr = "Date",
-            qdscr = "Date in the form of YYYY-MM-DD"
-        },
-        { f(function() return { os.date('%Y-%m-%d') } end, {}) }
+        { trig = "date", name = "Date", dscr = "YYYY-MM-DD" },
+        { p(os.date, "%Y-%m-%d") }
     ),
     s(
-        {
-            trig = "time",
-            namr = "Time",
-            qdscr = "Time in the form of HH:MM:SS"
-        },
-        { f(function() return { os.date('%H:%M:%S') } end, {}) }
+        { trig = "time", name = "Time", dscr = "HH:MM:SS" },
+        { p(os.date, '%H:%M:%S') }
     ),
     s(
-        {
-            trig = "datetime",
-            namr = "Datetime",
-            qdscr = "Datetime in the form of YYYY-MM-DD HH:MM:SS"
-        },
-        { f(function() return { os.date('%Y-%m-%d %H:%M:%S') } end, {}) }
+        { trig = "datetime", name = "Datetime", dscr = "YYYY-MM-DD HH:MM:SS" },
+        { p(os.date, '%Y-%m-%d %H:%M:%S') }
     ),
-
-
-    s({ trig = "TODO", namr = "TODO" }, { t"TODO" }),
-    s({ trig = "dt", namr = "disktree" }, { t"disktree" }),
-    s({ trig = "dtn", namr = "disktree.net" }, { t"disktree.net" }),
+    s({ trig = "TODO", name = "TODO" }, { t"TODO" }, { condition = conds.line_begin } ),
+    s({ trig = "dt", namre = "disktree" }, { t"disktree" }),
+    s({ trig = "dtn", name = "disktree.net" }, { t"disktree.net" }),
+    --s( { trigger = "year" }, p(os.date, "%Y")),
+    --s({ trig = "test", name = "TEST" }, { t("TEST") }, { condition = conds.line_begin, } ),
 }
-

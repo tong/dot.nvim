@@ -10,7 +10,7 @@ return {
 		t({ "", "}" }),
         i(0)
 	}),
-    s({ trig = "trace", qdscr = "Outputs v in a platform-dependent way." }, {
+    s({ trig = "trace", dscr = "Outputs v in a platform-dependent way." }, {
         t("trace("),
         i(1),
         t(");"),
@@ -32,7 +32,7 @@ return {
         {
             trig = "switch",
             namr = "switch",
-            qdscr = "switch statement"
+            dscr = "switch statement"
         },
         {
             t("switch "),

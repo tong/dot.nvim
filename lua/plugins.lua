@@ -18,6 +18,7 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     'petertriho/cmp-git',
     'saadparwaiz1/cmp_luasnip',
+    'tamago324/cmp-zsh',
 
     {
         'L3MON4D3/LuaSnip',

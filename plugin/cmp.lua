@@ -22,21 +22,11 @@ local winhighlight = {
 cmp.setup({
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        -- format = function(entry, vim_item)
-        --     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-        --     vim_item.menu = ({
-        --         buffer = "[Buffer]",
-        --         nvim_lsp = "[LSP]",
-        --         luasnip = "[LuaSnip]",
-        --         nvim_lua = "[Lua]",
-        --         latex_symbols = "[LaTeX]",
-        --       })[entry.source.name]
-        --     return vim_item
-        -- end
         format = lspkind.cmp_format({
-            mode = "symbol_text",
-            maxwidth = 92,
+            --mode = "symbol_text",
+            maxwidth = 44,
             with_text = true,
+            --vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind),
             menu = ({
                 luasnip = " SNP",
                 nvim_lsp = " LSP",
@@ -89,6 +79,7 @@ cmp.setup({
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },
         { name = 'path', option = { trailing_slash = true }, },
+        { name = 'zsh' }
         --{ name = 'npm', keyword_length = 4 },
     }, {
         { name = "buffer", keyword_length = 5 }
@@ -102,14 +93,15 @@ cmp.setup({
     }
 })
 
---Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-        { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
-    },
+    sources = cmp.config.sources(
+        {
+            { name = 'git' },
+        },
         {
             { name = 'buffer' },
-        })
+        }
+    )
 })
 
 
@@ -127,15 +119,16 @@ cmp.setup.cmdline(':', {
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    },
-    view = {
-        entries = { name = 'wildmenu', separator = '|' }
-    },
+    sources = {{ name = 'buffer' }},
+    view = {entries = { name = 'wildmenu', separator = '|' }},
 })
 
 require("cmp_git").setup()
+
+require'cmp_zsh'.setup({
+  zshrc = true, -- Source the zshrc (adding all custom completions). default: false
+  filetypes = { "deoledit", "zsh" } -- Filetypes to enable cmp_zsh source. default: {"*"}
+})
 
 -- cmp.setup {
 --     sources = {
