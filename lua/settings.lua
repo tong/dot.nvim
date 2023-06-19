@@ -74,6 +74,10 @@ opt.splitbelow = true
 -- opt.foldnestmax = 3
 -- opt.foldminlines = 1
 
+-- Setup grep
+opt.grepprg ="rg --vimgrep --no-heading --smart-case"
+opt.grepformat ="%f:%l:%c:%m"
+
 -- Cursorline highlighting control
 --  Only have it on in the active buffer
 -- local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
