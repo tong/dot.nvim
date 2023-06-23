@@ -26,7 +26,7 @@
 --     },
 -- }
 --twodark.load()
-vim.cmd("colorscheme gruvbox")
+--vim.cmd("colorscheme gruvbox")
 --vim.cmd("colorscheme twodark")
 --vim.cmd("colorscheme $COLORTHEME")
 

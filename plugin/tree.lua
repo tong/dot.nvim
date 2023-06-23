@@ -81,8 +81,8 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'C', api.tree.toggle_git_clean_filter, opts('Toggle Git Clean'))
     vim.keymap.set('n', '[c', api.node.navigate.git.prev, opts('Prev Git'))
     vim.keymap.set('n', ']c', api.node.navigate.git.next, opts('Next Git'))
-    vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
-    vim.keymap.set('n', 'D', api.fs.trash, opts('Trash'))
+    vim.keymap.set('n', 'D', api.fs.remove, opts('Delete'))
+    vim.keymap.set('n', 'd', api.fs.trash, opts('Trash'))
     vim.keymap.set('n', 'E', api.tree.expand_all, opts('Expand All'))
     vim.keymap.set('n', 'e', api.fs.rename_basename, opts('Rename: Basename'))
     vim.keymap.set('n', ']e', api.node.navigate.diagnostics.next, opts('Next Diagnostic'))
@@ -112,7 +112,6 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'Y', api.fs.copy.relative_path, opts('Copy Relative Path'))
     vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
     vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
-    -- END_DEFAULT_ON_ATTACH
 
     -- You will need to insert "your code goes here" for any mappings with a custom action_cb
     vim.keymap.set('n', 'ga', function()
@@ -121,10 +120,10 @@ local function on_attach(bufnr)
     end, opts('git_add'))
 
     vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-    vim.keymap.set('n', 'L', function()
-        local node = api.tree.get_node_under_cursor()
-        -- your code goes here
-    end, opts('vsplit_preview'))
+    -- vim.keymap.set('n', 'L', function()
+    --     local node = api.tree.get_node_under_cursor()
+    --     -- your code goes here
+    -- end, opts('vsplit_preview'))
 
     vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
     vim.keymap.set('n', 'H', api.tree.collapse_all, opts('Collapse'))
@@ -228,10 +227,10 @@ local config = {
                     symlink_open = "",
                 },
                 git = {
-                    unstaged = "",
+                    unstaged = "",
                     staged = "✓",
                     unmerged = "",
-                    renamed = "➜",
+                    renamed = "",
                     untracked = "",
                     deleted = "",
                     ignored = "◌",
@@ -243,7 +242,7 @@ local config = {
     },
     hijack_directories = {
         enable = true,
-        auto_open = true,
+        auto_open = false,
     },
     update_focused_file = {
         enable = true,
@@ -290,7 +289,7 @@ local config = {
         timeout = 400,
     },
     modified = {
-        enable = true,
+        enable = false,
         show_on_dirs = true,
         show_on_open_dirs = true,
     },
@@ -340,7 +339,7 @@ local config = {
     },
     tab = {
         sync = {
-            open = true,
+            open = false,
             close = true,
             ignore = {},
         },
@@ -351,7 +350,7 @@ local config = {
     ui = {
         confirm = {
             remove = true,
-            trash = true,
+            trash = false,
         },
     },
     experimental = {
