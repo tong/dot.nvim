@@ -1,6 +1,9 @@
-colors.unused
-plugged/
-plugin.disabled/
-plugin.inactive/
-plugin.unused/
-*-lock.json
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+lazy-lock.json
