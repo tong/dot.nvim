@@ -1,5 +1,6 @@
 tt.*
 .tests
+.neoconf.json
 doc/tags
 debug
 .repro
