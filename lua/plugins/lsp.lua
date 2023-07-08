@@ -34,16 +34,22 @@ return {
                         "htmlhugo",
                     },
                 },
+                glslls = {
+                   -- cmd = { "glslls", "--stdin" },
+                },
+                lemminx = {},
                 jsonls = {},
                 --lua_ls = {},
                 haxe_language_server = {
                     filetypes = { "haxe", "hxml" },
                     --root_dir = lspconfig.util.root_pattern("*.hxml"),
                 },
-                pyright = {},
+                pyright = {
+                    { "pyright-langserver", "--stdio" },
+                },
                 --tsserver = {}
-            }
-        }
+            },
+        },
     },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     {
@@ -57,5 +63,5 @@ return {
             },
         },
         config = true,
-    }
+    },
 }
