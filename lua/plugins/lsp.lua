@@ -23,6 +23,9 @@ return {
                 severity_sort = true,
             },
             servers = {
+                --ccls = {
+                  --root_dir = root_pattern('compile_commands.json', '.ccls', '.git')
+                --},
                 emmet_ls = {
                     filetypes = {
                         "html",
@@ -45,7 +48,7 @@ return {
                     --root_dir = lspconfig.util.root_pattern("*.hxml"),
                 },
                 pyright = {
-                    { "pyright-langserver", "--stdio" },
+                    --cmd = { "pyright-langserver", "--stdio" },
                 },
                 --tsserver = {}
             },
