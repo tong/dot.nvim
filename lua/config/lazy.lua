@@ -17,16 +17,20 @@ require("lazy").setup({
     --{ import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.python" },
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.ui.edgy" },
+    --{ import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "plugins" },
   },
   defaults = {
-    lazy = true,
+    lazy = false,
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = {
+    colorscheme = {
+      "tokyonight",
+      "habamax"
+    }},
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
