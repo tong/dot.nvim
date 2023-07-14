@@ -6,6 +6,12 @@ return {
             -- "lukas-reineke/lsp-format.nvim",
             -- 'onsails/lspkind.nvim',
             -- 'glepnir/lspsaga.nvim',
+            {
+                "hrsh7th/cmp-nvim-lsp",
+                cond = function()
+                    return require("lazyvim.util").has("nvim-cmp")
+                end,
+            },
         },
         opts = {
             -- options for vim.diagnostic.config()
@@ -24,7 +30,7 @@ return {
             },
             servers = {
                 --ccls = {
-                  --root_dir = root_pattern('compile_commands.json', '.ccls', '.git')
+                --root_dir = root_pattern('compile_commands.json', '.ccls', '.git')
                 --},
                 emmet_ls = {
                     filetypes = {
@@ -38,11 +44,10 @@ return {
                     },
                 },
                 glslls = {
-                   -- cmd = { "glslls", "--stdin" },
+                    -- cmd = { "glslls", "--stdin" },
                 },
                 lemminx = {},
                 jsonls = {},
-                --lua_ls = {},
                 haxe_language_server = {
                     filetypes = { "haxe", "hxml" },
                     --root_dir = lspconfig.util.root_pattern("*.hxml"),

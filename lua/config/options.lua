@@ -4,8 +4,9 @@
 local opt = vim.opt
 opt.colorcolumn = "80"
 opt.tabstop = 4
+opt.pumheight = 80
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = { ".frag" },
-    command = "set ft=glsl",
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+--     pattern = { ".frag" },
+--     command = "set ft=glsl",
+-- })
