@@ -186,7 +186,7 @@ return {
                                 return package.loaded["noice"]
                                     and require("noice").api.status.command.has()
                             end,
-                            color = Util.fg("Statement"),
+                            --color = Util.fg("Statement"),
                         },
                         {
                             function()
@@ -196,7 +196,7 @@ return {
                                 return package.loaded["noice"]
                                     and require("noice").api.status.mode.has()
                             end,
-                            color = Util.fg("Constant"),
+                            --color = Util.fg("Constant"),
                         },
                         {
                             function()
@@ -206,12 +206,13 @@ return {
                                 return package.loaded["dap"]
                                     and require("dap").status() ~= ""
                             end,
-                            color = Util.fg("Debug"),
+                            --color = Util.fg("Debug"),
                         },
                         {
                             require("lazy.status").updates,
                             cond = require("lazy.status").has_updates,
-                            color = Util.fg("Special"),
+                            --color = Util.fg("Special"),
+                            --color = require("lazyvim.util").ui.fg
                         },
                         {
                             "diff",
