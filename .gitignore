@@ -6,5 +6,6 @@ debug
 .repro
 foo.*
 *.log
+*.spl
 data
 lazy-lock.json

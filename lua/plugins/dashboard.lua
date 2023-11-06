@@ -93,7 +93,7 @@ __/\__/    \__/\__/              \__/\__/    \__/\__
             },
         }
         for _, button in ipairs(opts.config.center) do
-            button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+            button.desc = button.desc .. string.rep(" ", 16 - #button.desc)
         end
         if vim.o.filetype == "lazy" then
             vim.cmd.close()

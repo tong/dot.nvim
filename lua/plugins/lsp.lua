@@ -1,4 +1,5 @@
 return {
+    -- Servers
     {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
@@ -29,9 +30,13 @@ return {
                 severity_sort = true,
             },
             servers = {
+                bashls = {},
+
                 --ccls = {
                 --root_dir = root_pattern('compile_commands.json', '.ccls', '.git')
                 --},
+                clangd = {},
+                cssls = {},
                 emmet_ls = {
                     filetypes = {
                         "html",
@@ -46,8 +51,10 @@ return {
                 glslls = {
                     -- cmd = { "glslls", "--stdin" },
                 },
-                lemminx = {},
+                html = {},
                 jsonls = {},
+                lemminx = {},
+                marksman = {},
                 haxe_language_server = {
                     filetypes = { "haxe", "hxml" },
                     --root_dir = lspconfig.util.root_pattern("*.hxml"),

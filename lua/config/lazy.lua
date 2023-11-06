@@ -24,8 +24,8 @@ require("lazy").setup({
         { import = "plugins" },
     },
     defaults = {
-        lazy = false,
-        version = false, -- always use the latest git commit
+        lazy = true,
+        --version = false, -- always use the latest git commit
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
     install = {
@@ -34,8 +34,12 @@ require("lazy").setup({
             "habamax",
         },
     },
-    checker = { enabled = false }, -- automatically check for plugin updates
+    checker = { enabled = true }, -- automatically check for plugin updates
     performance = {
+        cache = {
+            enabled = true,
+            -- disable_events = {},
+        },
         rtp = {
             disabled_plugins = {
                 "gzip",

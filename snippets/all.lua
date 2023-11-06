@@ -7,15 +7,19 @@ return {
     ),
     s(
         { trig = "time", name = "Time", dscr = "HH:MM:SS" },
-        { p(os.date, '%H:%M:%S') }
+        { p(os.date, "%H:%M:%S") }
     ),
     s(
         { trig = "datetime", name = "Datetime", dscr = "YYYY-MM-DD HH:MM:SS" },
-        { p(os.date, '%Y-%m-%d %H:%M:%S') }
+        { p(os.date, "%Y-%m-%d %H:%M:%S") }
     ),
-    s({ trig = "TODO", name = "TODO" }, { t"TODO" }, { condition = conds.line_begin } ),
-    s({ trig = "dt", namre = "disktree" }, { t"disktree" }),
-    s({ trig = "dtn", name = "disktree.net" }, { t"disktree.net" }),
+    s(
+        { trig = "TODO", name = "TODO" },
+        { t("TODO") },
+        { condition = conds.line_begin }
+    ),
+    s({ trig = "dt", namre = "disktree" }, { t("disktree") }),
+    s({ trig = "dtn", name = "disktree.net" }, { t("disktree.net") }),
     --s( { trigger = "year" }, p(os.date, "%Y")),
     --s({ trig = "test", name = "TEST" }, { t("TEST") }, { condition = conds.line_begin, } ),
 }
