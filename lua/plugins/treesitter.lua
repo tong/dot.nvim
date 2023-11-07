@@ -8,6 +8,7 @@ return {
                 "c",
                 "cmake",
                 "css",
+                "devicetree",
                 "gitcommit",
                 "gitignore",
                 "glsl",
