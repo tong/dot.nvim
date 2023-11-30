@@ -15,6 +15,8 @@ opt.undofile = true
 
 --opt.colorscheme = "gruvbox",
 
+vim.g.wiki_root = "~/wiki"
+
 -- vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
 -- vim.cmd('autocmd BufEnter *.jpg bdelete')
 
