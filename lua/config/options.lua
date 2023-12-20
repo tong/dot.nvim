@@ -17,26 +17,6 @@ opt.undofile = true
 
 vim.g.wiki_root = "~/wiki"
 
--- vim.cmd('autocmd BufReadCmd *.jpg silent !xdg-open % &')
--- vim.cmd('autocmd BufEnter *.jpg bdelete')
-
--- vim.g.border = {
---     padding = { 100, 10 },
--- }
-
---vim.bo.commentstring = "// %s"
-
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
---     pattern = { ".frag" },
---     command = "set ft=glsl",
--- })
-
---vim.api.nvim_create_autocmd({ "BufEnter *.hx" }, {
---vim.api.nvim_create_autocmd({ "BufEnter" }, {
---pattern = { ".hx" },
---command = 'lua vim.bo.commentstring="// %s"',
---})
-
 if vim.g.neovide then
     --vim.o.guifont = "Fira Code,Symbols Nerd Font Mono:h34"
     vim.o.guifont = "JetBrainsMono Nerd Font:h9"

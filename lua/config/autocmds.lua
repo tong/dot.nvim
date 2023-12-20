@@ -2,14 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Disable autoformat
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---     pattern = { "*" },
---     callback = function()
---         vim.b.autoformat = false
---     end,
--- })
-
 -- Show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
     callback = function()
@@ -62,6 +54,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         local commentstrings = {
             dts = "// %s",
+            haxe = "// %s",
         }
         local ft = vim.bo.filetype
         if commentstrings[ft] then
@@ -69,3 +62,35 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = {
+        "*.aiff",
+        "*.blend",
+        "*.flac",
+        "*.gif",
+        "*.gz",
+        "*.jpg",
+        "*.jpeg",
+        "*.mp3",
+        "*.mp4",
+        "*.ogg",
+        "*.pdf",
+        "*.png",
+        "*.tgz",
+        "*.ttf",
+        "*.wav",
+        "*.woff",
+        "*.woff2",
+        "*.zip",
+    },
+    callback = function()
+        vim.cmd("silent !xdg-open %")
+        vim.cmd("silent bdelete")
+    end,
+})
+
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+--     pattern = { ".frag" },
+--     command = "set ft=glsl",
+-- })
