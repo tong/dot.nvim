@@ -8,14 +8,13 @@ opt.pumheight = 80
 opt.colorcolumn = "80"
 --opt.mousescroll = "ver:2,hor:6"
 
-opt.swapfile = false
 opt.backup = false
+opt.relativenumber = false
+opt.swapfile = false
 opt.writebackup = false
 opt.undofile = true
 
---opt.colorscheme = "gruvbox",
-
-vim.g.wiki_root = "~/wiki"
+--vim.g.wiki_root = "~/wiki"
 
 if vim.g.neovide then
     --vim.o.guifont = "Fira Code,Symbols Nerd Font Mono:h34"

@@ -1,8 +1,7 @@
 return {
     {
         "lervag/wiki.vim",
-        -- enabled = true,
-        -- lazy = true,
+        lazy = false,
         -- options = {
         --     wiki_root = "~/wiki",
         -- },

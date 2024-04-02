@@ -51,7 +51,7 @@ return {
                         prompt_position = "top",
                         preview_width = 0.5,
                     },
-                    width = 0.8,
+                    width = 0.9,
                     height = 0.8,
                     preview_cutoff = 120,
                 },
