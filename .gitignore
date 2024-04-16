@@ -3,6 +3,7 @@ tt.*
 .neoconf.json
 doc/tags
 debug
+plugins.[0-9]/
 .repro
 foo.*
 *.log

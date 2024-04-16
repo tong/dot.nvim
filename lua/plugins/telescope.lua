@@ -9,6 +9,12 @@ return {
                     require("telescope").load_extension("undo")
                 end,
             },
+            -- {
+            --     "nvim-telescope/telescope-media-files.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("media_files")
+            --     end,
+            -- },
         },
         keys = {
             {

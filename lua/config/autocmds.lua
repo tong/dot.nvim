@@ -1,8 +1,8 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
 
 -- Show cursor line only in active window
+--[[
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
     callback = function()
         local ok, cl = pcall(vim.api.nvim_win_get_var, 0, "auto-cursorline")
@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
         end
     end,
 })
+--]]
 
 -- Create directories when needed, when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -50,18 +51,18 @@ vim.filetype.add({
     },
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function()
-        local commentstrings = {
-            dts = "// %s",
-            haxe = "// %s",
-        }
-        local ft = vim.bo.filetype
-        if commentstrings[ft] then
-            vim.bo.commentstring = commentstrings[ft]
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     callback = function()
+--         local commentstrings = {
+--             dts = "// %s",
+--             haxe = "// %s",
+--         }
+--         local ft = vim.bo.filetype
+--         if commentstrings[ft] then
+--             vim.bo.commentstring = commentstrings[ft]
+--         end
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("BufRead", {
     pattern = {
@@ -90,7 +91,26 @@ vim.api.nvim_create_autocmd("BufRead", {
     end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
---     pattern = { ".frag" },
---     command = "set ft=glsl",
+-- Disable autoformat
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--     pattern = { "markdown" },
+--     callback = function()
+--         vim.b.autoformat = false
+--     end,
 -- })
+
+-- Show relative line numbers on focused, absolute on unfocused
+--[[
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = true
+    end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = false
+    end,
+})
+--]]
