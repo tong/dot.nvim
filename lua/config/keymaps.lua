@@ -1,29 +1,35 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
 local function map(mode, lhs, rhs, opts)
-    local keys = require("lazy.core.handler").handlers.keys
-    ---@cast keys LazyKeysHandler
-    -- do not create the keymap if a lazy keys handler exists
-    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-        opts = opts or {}
-        opts.silent = opts.silent ~= false
-        if opts.remap and not vim.g.vscode then
-            opts.remap = nil
-        end
-        vim.keymap.set(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
     end
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
+-- Select all
 map({ "n" }, "<c-a>", "ggVG", { silent = true })
 
--- vim.keymap.set(
---     "n",
---     "<leader>sx",
---     require("telescope.builtin").resume,
---     { noremap = true, silent = true }
--- )
+--- Tmux navigation
+-- local nvim_tmux_nav = require("nvim-tmux-navigation")
+-- vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+-- vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+-- vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+-- vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+-- vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+-- vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 
--- change word with <c-c>
---vim.keymap.set("n", "<C-c>", "<cmd>normal! ciw<cr>a")
+--vim.keymap.set("n", "<leader>xx", "<cmd>.lua<CR>")
+--vim.keymap.set("n", "<leader>xx", "<cmd>source %<CR>")
+
+-- map({ "n" }, "<leader>hh", function()
+--     vim.cmd("!haxe build.hxml")
+-- end, { silent = true })
+
+-- Change word with <c-c>
+--vim.keymap.set({ "n", "x" }, "<C-c>", "<cmd>normal! ciw<cr>a")

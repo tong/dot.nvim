@@ -1,6 +1,6 @@
 return {
-    {
-        "lervag/wiki.vim",
-        lazy = false,
-    },
+  {
+    "lervag/wiki.vim",
+    lazy = false,
+  },
 }
