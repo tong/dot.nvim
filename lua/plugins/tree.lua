@@ -7,7 +7,7 @@ return {
       },
     },
     window = {
-      width = 32,
+      width = 36,
     },
   },
 }
