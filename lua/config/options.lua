@@ -11,8 +11,8 @@ opt.termguicolors = true
 --opt.list = true
 --opt.listchars = { tab = "»", trail = "·", nbsp = "␣" }
 
--- opt.number = true
--- opt.relativenumber = true
+opt.number = true
+opt.relativenumber = false
 
 opt.backup = false
 opt.swapfile = false
