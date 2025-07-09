@@ -2,7 +2,7 @@ return {
   "mfussenegger/nvim-dap",
   opts = function(_, opts)
     local dap = require("dap")
-    dap.set_log_level("DEBUG")
+    --dap.set_log_level("DEBUG")
     dap.adapters.hashlink = {
       type = "executable",
       command = "node",
