@@ -19,6 +19,13 @@ opt.swapfile = false
 opt.writebackup = false
 opt.undofile = true
 
+opt.guicursor = {
+  "n-v-c:block-blinkon100-blinkoff100-blinkwait100",
+  "i-ci-ve:ver25-blinkon100-blinkoff100-blinkwait100",
+  "r-cr:hor20",
+  "o:hor50",
+}
+
 vim.g.wiki_root = "~/wiki"
 
 if vim.g.neovide then
