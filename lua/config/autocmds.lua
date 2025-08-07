@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("BufRead", {
     "*.gz",
     "*.jpg",
     "*.jpeg",
+    "*.mov",
     "*.mp3",
     "*.mp4",
     "*.ogg",

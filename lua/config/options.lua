@@ -20,8 +20,8 @@ opt.writebackup = false
 opt.undofile = true
 
 opt.guicursor = {
-  "n-v-c:block-blinkon100-blinkoff100-blinkwait100",
-  "i-ci-ve:ver25-blinkon100-blinkoff100-blinkwait100",
+  "n-v-c:block-blinkon200-blinkoff200-blinkwait200",
+  "i-ci-ve:ver25-blinkon200-blinkoff200-blinkwait200",
   "r-cr:hor20",
   "o:hor50",
 }
@@ -37,3 +37,17 @@ if vim.g.neovide then
   --vim.g.neovide_scale_factor = 0.3
   --vim.g.neovide_scroll_animation_length = 0.3
 end
+
+--Set tabs instead of spaces
+-- vim.opt.expandtab = false -- Use tabs, not spaces
+-- vim.opt.tabstop = 4 -- Number of visual spaces per tab
+-- vim.opt.shiftwidth = 4 -- Number of spaces for autoindent
+-- vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for while editing
+--
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+--   tab = "→ ",
+--   trail = "·",
+--   eol = "¬",
+--   space = "·",
+-- }

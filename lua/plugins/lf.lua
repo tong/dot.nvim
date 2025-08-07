@@ -1,4 +1,3 @@
-local fn = vim.fn
 return {
   {
     "lmburns/lf.nvim",
