@@ -1,4 +1,5 @@
 local opt = vim.opt
+
 opt.colorcolumn = "80"
 --opt.mousescroll = "ver:2,hor:6"
 opt.pumheight = 80

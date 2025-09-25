@@ -1,3 +1,12 @@
+-- Autocmds are automatically loaded on the VeryLazy event
+-- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+--
+-- Add any additional autocmds here
+-- with `vim.api.nvim_create_autocmd`
+--
+-- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
+-- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
 vim.api.nvim_create_autocmd("BufRead", {
   pattern = {
     "*.aiff",
@@ -23,39 +32,5 @@ vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     vim.cmd("silent !xdg-open %")
     vim.cmd("silent bdelete")
-  end,
-})
-
--- Show relative line numbers on focused, absolute on unfocused
---[[
-vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-    callback = function()
-        vim.opt_local.number = true
-        vim.opt_local.relativenumber = true
-    end,
-})
-vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
-    callback = function()
-        vim.opt_local.number = true
-        vim.opt_local.relativenumber = false
-    end,
-})
---]]
-
--- Show cursor line only in active window
-vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-  callback = function()
-    if vim.w.auto_cursorline then
-      vim.wo.cursorline = true
-      vim.w.auto_cursorline = nil
-    end
-  end,
-})
-vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-  callback = function()
-    if vim.wo.cursorline then
-      vim.w.auto_cursorline = true
-      vim.wo.cursorline = false
-    end
   end,
 })

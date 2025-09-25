@@ -9,8 +9,9 @@ return {
       colorscheme = "gruvbox",
       -- colorscheme = "onedark",
       -- colorscheme = "zenburn",
-      --colorscheme = "kanagawa",
+      -- colorscheme = "kanagawa",
       -- colorscheme = "tokyonight-storm",
+      -- colorscheme = "tokyonight",
     },
   },
 }
