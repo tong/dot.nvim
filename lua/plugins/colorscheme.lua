@@ -6,12 +6,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
-      -- colorscheme = "onedark",
-      -- colorscheme = "zenburn",
-      -- colorscheme = "kanagawa",
-      -- colorscheme = "tokyonight-storm",
-      -- colorscheme = "tokyonight",
+      colorscheme = "tokyonight",
     },
   },
 }

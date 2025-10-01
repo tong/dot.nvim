@@ -27,18 +27,6 @@ opt.guicursor = {
   "o:hor50",
 }
 
-vim.g.wiki_root = "~/wiki"
-
-if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMono Nerd Font:h9"
-  vim.g.neovide_padding_top = 12
-  vim.g.neovide_padding_right = 12
-  vim.g.neovide_padding_bottom = 12
-  vim.g.neovide_padding_left = 12
-  --vim.g.neovide_scale_factor = 0.3
-  --vim.g.neovide_scroll_animation_length = 0.3
-end
-
 --Set tabs instead of spaces
 -- vim.opt.expandtab = false -- Use tabs, not spaces
 -- vim.opt.tabstop = 4 -- Number of visual spaces per tab
@@ -52,3 +40,13 @@ end
 --   eol = "¬",
 --   space = "·",
 -- }
+
+if vim.g.neovide then
+  vim.o.guifont = "JetBrainsMono Nerd Font:h9"
+  vim.g.neovide_padding_top = 12
+  vim.g.neovide_padding_right = 12
+  vim.g.neovide_padding_bottom = 12
+  vim.g.neovide_padding_left = 12
+  --vim.g.neovide_scale_factor = 0.3
+  --vim.g.neovide_scroll_animation_length = 0.3
+end
