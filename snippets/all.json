@@ -1,0 +1,10 @@
+{
+  "disktree": {
+    "prefix": "dt",
+    "body": "disktree"
+  },
+  "disktree.net": {
+    "prefix": "dtn",
+    "body": "disktree.net"
+  }
+}

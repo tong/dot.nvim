@@ -1,0 +1,18 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "all",
+        "path": "./all.json"
+      },
+      {
+        "language": "haxe",
+        "path": "./haxe.json"
+      },
+      {
+        "language": "hxml",
+        "path": "./hxml.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "cpp": {
+    "prefix": "cpp",
+    "body": "--cpp ${1:<directory>}\n$0",
+    "description": "Compile to cpp"
+  },
+  "cppia": {
+    "prefix": "cppia",
+    "body": "--cpp ${1:<file>}\n$0",
+    "description": "Compile to cppia"
+  },
+  "hl": {
+    "prefix": "hl",
+    "body": "--hl ${1:<file>}.hl\n$0",
+    "description": "Compile to hashlink"
+  },
+  "jvm": {
+    "prefix": "jvm",
+    "body": "--jvm ${1:<file>}.jar\n$0",
+    "description": "Compile to jvm"
+  },
+  "js": {
+    "prefix": "js",
+    "body": "--js ${1:<file>}.js\n$0",
+    "description": "Compile to javascript"
+  },
+  "lua": {
+    "prefix": "lua",
+    "body": "--lua ${1:<file>}.lua\n$0",
+    "description": "Compile to lua"
+  },
+  "neko": {
+    "prefix": "neko",
+    "body": "--neko ${1:<file>}.n\n$0",
+    "description": "Compile to neko"
+  },
+  "php": {
+    "prefix": "php",
+    "body": "--php ${1:<directory>}\n$0",
+    "description": "Compile to php"
+  },
+  "python": {
+    "prefix": "python",
+    "body": "--python ${1:<file>}.py\n$0",
+    "description": "Compile to python"
+  },
+  "interp": {
+    "prefix": "interp",
+    "body": "--interp\n$0",
+    "description": "Interpret the program using internal macro system"
+  },
+  "run": {
+    "prefix": "run",
+    "body": "--run ${1:<module>}$0",
+    "description": "Interpret a module with command line arguments"
+  },
+  "custom target": {
+    "prefix": "custom",
+    "body": "--custom-target ${1:<name>}$0",
+    "description": "Generate code for a custom target"
+  },
+  "class path": {
+    "prefix": "cp",
+    "body": "--class-path ${1:<directory>}\n$0",
+    "description": "Add a directory to find source files"
+  },
+  "hxb lib": {
+    "prefix": "hxb",
+    "body": "--hxb-lib ${1:<path>}\n$0",
+    "description": "Add a hxb library"
+  },
+  "main": {
+    "prefix": "main",
+    "body": "--main ${1:<module>}\n$0",
+    "description": "Select startup class"
+  },
+  "library": {
+    "prefix": "lib",
+    "body": "--library ${1:<name>}${2:<:version>}\n$0",
+    "description": "Use a haxelib library"
+  },
+  "swf": {
+    "prefix": "swf",
+    "body": "--swf ${1:<file>}.swf\n$0",
+    "description": "generate Flash SWF bytecode into target file"
+  },
+  "define": {
+    "prefix": "D",
+    "body": "--define ${1:<var>}${2:=<value>}\n$0",
+    "description": "define a conditional compilation flag"
+  },
+  "undefine": {
+    "prefix": "undefine",
+    "body": "--undefine\n$0",
+    "description": "remove a conditional compilation flag"
+  },
+  "resource": {
+    "prefix": "r",
+    "body": "--resource ${1:<file>}${2:@<name>}\n$0",
+    "description": "add a named resource file"
+  },
+  "cmd": {
+    "prefix": "cmd",
+    "body": "--cmd \"${1:<command>}\"\n$0",
+    "description": "run the specified command after successful compilation"
+  },
+  "remap": {
+    "prefix": "remap",
+    "body": "--remap ${1:<package>}:${2:<target>}\n$0",
+    "description": "remap a package to another one"
+  },
+  "macro": {
+    "prefix": "macro",
+    "body": "--macro ${1:<macro>}\n$0",
+    "description": "call the given macro before typing anything else"
+  },
+  "cwd": {
+    "prefix": "cwd",
+    "body": "--cwd ${1:<directory>}\n$0",
+    "description": "set current working directory"
+  },
+  "haxelib-global": {
+    "prefix": "haxelib-global",
+    "body": "--haxelib-global\n$0",
+    "description": "pass --global argument to haxelib"
+  },
+  "warning": {
+    "prefix": "w",
+    "body": "-w ${1:<warning list>}\n$0",
+    "description": "enable or disable specific warnings"
+  },
+  "dce": {
+    "prefix": "dce",
+    "body": "--dce ${1|std,full,no|}\n$0",
+    "description": "set the dead code elimination mode (default std)"
+  },
+  "no-traces": {
+    "prefix": "no-traces",
+    "body": "--no-traces\n$0",
+    "description": "don't compile trace calls in the program"
+  },
+  "no-output": {
+    "prefix": "no-output",
+    "body": "--no-output\n$0",
+    "description": "compiles but does not generate any file"
+  },
+  "no-inline": {
+    "prefix": "no-inline",
+    "body": "--no-inline\n$0",
+    "description": "disable inlining"
+  },
+  "no-opt": {
+    "prefix": "no-opt",
+    "body": "--no-opt\n$0",
+    "description": "disable code optimizations"
+  },
+  "verbose": {
+    "prefix": "v",
+    "body": "--verbose\n$0",
+    "description": "turn on verbose mode"
+  },
+  "debug": {
+    "prefix": "debug",
+    "body": "--debug\n$0",
+    "description": "add debug information to the compiled code"
+  },
+  "prompt": {
+    "prefix": "prompt",
+    "body": "--prompt\n$0",
+    "description": "prompt on error"
+  },
+  "times": {
+    "prefix": "times",
+    "body": "--times\n$0",
+    "description": "measure compilation times"
+  },
+  "next": {
+    "prefix": "next",
+    "body": "--next\n$0",
+    "description": "separate several haxe compilations"
+  },
+  "each": {
+    "prefix": "each",
+    "body": "--each\n$0",
+    "description": "append preceding parameters to all Haxe compilations separated by --next"
+  },
+  "display": {
+    "prefix": "display",
+    "body": "--display ${1:<position>}\n$0",
+    "description": "display code tips"
+  },
+  "xml": {
+    "prefix": "xml",
+    "body": "--xml ${1:<file>}.xml\n$0",
+    "description": "generate XML types description"
+  },
+  "json": {
+    "prefix": "json",
+    "body": "--json ${1:<file>}.json\n$0",
+    "description": "generate JSON types description"
+  },
+  "hxb-gen": {
+    "prefix": "hxb-gen",
+    "body": "--hxb ${1:<file>}\n$0",
+    "description": "generate haxe binary representation to target archive"
+  },
+  "server-listen": {
+    "prefix": "server-listen",
+    "body": "--server-listen ${1:stdio}\n$0",
+    "description": "wait on the given port (or use standard i/o) for commands to run"
+  },
+  "server-connect": {
+    "prefix": "server-connect",
+    "body": "--server-connect ${1:localhost:6000}\n$0",
+    "description": "connect to the given port and wait for commands to run"
+  },
+  "connect": {
+    "prefix": "connect",
+    "body": "--connect ${1:localhost:6000}\n$0",
+    "description": "connect on the given port and run commands there"
+  },
+  "swf-version": {
+    "prefix": "swf-version",
+    "body": "--swf-version ${1:<version>}\n$0",
+    "description": "change the SWF version"
+  },
+  "swf-header": {
+    "prefix": "swf-header",
+    "body": "--swf-header ${1:<width>}:${2:<height>}:${3:<fps>}:${4:<color>}\n$0",
+    "description": "define SWF header (width:height:fps:color)"
+  },
+  "flash-strict": {
+    "prefix": "flash-strict",
+    "body": "--flash-strict\n$0",
+    "description": "more type strict flash API"
+  },
+  "swf-lib": {
+    "prefix": "swf-lib",
+    "body": "--swf-lib ${1:<file>}.swf\n$0",
+    "description": "add the SWF library to the compiled SWF"
+  },
+  "swf-lib-extern": {
+    "prefix": "swf-lib-extern",
+    "body": "--swf-lib-extern ${1:<file>}.swf\n$0",
+    "description": "use the SWF library for type checking"
+  },
+  "java-lib": {
+    "prefix": "java-lib",
+    "body": "--java-lib ${1:<file>}.jar\n$0",
+    "description": "add an external JAR or directory of JAR files"
+  },
+  "java-lib-extern": {
+    "prefix": "java-lib-extern",
+    "body": "--java-lib-extern ${1:<file>}.jar\n$0",
+    "description": "use an external JAR or directory of JAR files for type checking"
+  }
+}

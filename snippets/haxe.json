@@ -1,0 +1,117 @@
+{
+  "line comment": {
+    "prefix": "//",
+    "body": "// $0",
+    "description": "Line comment"
+  },
+  "block comment": {
+    "prefix": "/*",
+    "body": "/**\n\t$0\n**/",
+    "description": "Block comment"
+  },
+  "single import": {
+    "prefix": "import",
+    "body": "import ${1:package()};",
+    "description": "Snippet for import statement"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if (${1:condition}) {\n\t$0\n}",
+    "description": "If statement"
+  },
+  "if-else": {
+    "prefix": "ife",
+    "body": "if (${1:condition}) {\n\t$2\n} else {\n\t$0\n}",
+    "description": "If-else statement"
+  },
+  "else": {
+    "prefix": "el",
+    "body": "else {\n\t$0\n}",
+    "description": "Else statement"
+  },
+  "else-if": {
+    "prefix": "eli",
+    "body": "else if (${1:condition}) {\n\t$0\n}",
+    "description": "Else-if statement"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": "switch (${1:subject}) {\n\tcase ${2:value}:\n\t\t$0\n}",
+    "description": "Switch statement"
+  },
+  "case": {
+    "prefix": "case",
+    "body": "case ${1:value}:\n\t$0",
+    "description": "Case statement"
+  },
+  "for-iterator": {
+    "prefix": "for",
+    "body": "for (${1:item} in ${2:iterator}) {\n\t$0\n}",
+    "description": "For loop"
+  },
+  "for-indexed": {
+    "prefix": "fori",
+    "body": "for (${1:i} in 0...${2:length}) {\n\t$0\n}",
+    "description": "For loop (indexed)"
+  },
+  "while": {
+    "prefix": "while",
+    "body": "while (${1:condition}) {\n\t$0\n}",
+    "description": "While loop"
+  },
+  "do-while": {
+    "prefix": "do",
+    "body": "do {\n\t$0\n} while (${1:condition});",
+    "description": "Do-while loop"
+  },
+  "try-catch": {
+    "prefix": "try",
+    "body": "try {\n\t$1\n} catch (${2:e}:${3:Dynamic}) {\n\t$0\n}",
+    "description": "Try-catch statement"
+  },
+  "function-anonymous": {
+    "prefix": "fun",
+    "body": "function(${1:args}) {\n\t$0\n}",
+    "description": "Anonymous function"
+  },
+  "function-named": {
+    "prefix": "function",
+    "body": "function ${1:name}(${2:args}) {\n\t$0\n}",
+    "description": "Named function"
+  },
+  "class": {
+    "prefix": "class",
+    "body": "class ${1:name} {\n\tpublic function new() {\n\t\t$0\n\t}\n}",
+    "description": "Class definition"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": "enum ${1:name} {\n\t$0\n}",
+    "description": "Enum definition"
+  },
+  "interface": {
+    "prefix": "interface",
+    "body": "interface ${1:name} {\n\t$0\n}",
+    "description": "Interface definition"
+  },
+  "typedef": {
+    "prefix": "typedef",
+    "body": "typedef ${1:name} = {\n\t$0\n};",
+    "description": "Typedef definition"
+  },
+  "using": {
+    "prefix": "using",
+    "body": "using ${1:class};",
+    "description": "Using statement"
+  },
+  "trace": {
+    "prefix": "trace",
+    "body": "trace(${1:value});",
+    "description": "Trace statement"
+  },
+  "new": {
+    "prefix": "new",
+    "body": "new ${1:class}(${2:args})",
+    "description": "New instance"
+  }
+}
