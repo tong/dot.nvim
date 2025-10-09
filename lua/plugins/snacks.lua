@@ -34,6 +34,10 @@ __/\__/    \__/\__/              \__/\__/    \__/\__
           },
           layout = {
             auto_hide = { "input" },
+            layout = {
+              width = 28,
+              max_width = 80,
+            },
           },
           win = {
             input = {
