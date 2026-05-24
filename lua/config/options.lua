@@ -8,6 +8,7 @@ opt.spellfile = "spell/en.utf-8.add"
 opt.tabstop = 4
 opt.termguicolors = true
 --opt.cursorcolumn = true
+opt.wrap = true
 
 --opt.list = true
 --opt.listchars = { tab = "»", trail = "·", nbsp = "␣" }

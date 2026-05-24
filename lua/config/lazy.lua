@@ -11,7 +11,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 --     vim.fn.getchar()
 --     os.exit(1)
 --   end
--- end
+--end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -33,8 +33,8 @@ require("lazy").setup({
   install = { colorscheme = { "tokyonight" } },
   checker = {
     enabled = false, -- check for plugin updates periodically
-    notify = false, -- notify on update
-  }, -- automatically check for plugin updates
+    notify = false,  -- notify on update
+  },                 -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
