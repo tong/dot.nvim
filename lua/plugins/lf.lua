@@ -3,7 +3,7 @@ return {
   dependencies = { "akinsho/toggleterm.nvim" },
   config = function()
     require("lf").setup({
-      -- escape_quit = true,
+      escape_quit = true,
       -- border = "rounded",
     })
   end,

@@ -29,6 +29,7 @@ __/\__/    \__/\__/              \__/\__/    \__/\__
         },
         explorer = {
           prompt = " ",
+          --auto_close = true,
           files = {
             hidden = true,
           },
